@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <HeaderComp />
   <div class="div-3">
     <img
       loading="lazy"
@@ -23,6 +23,11 @@
 
 <script lang="ts" setup>
 // import HelloWorld from '@/components/HelloWorld.vue'
+import HeaderComp from "@/components/HeaderComp.vue";
+
+
+
+
 import hero from "@/assets/home/desktop/image-hero.jpg";
 </script>
 
@@ -42,12 +47,13 @@ h1 {
 .div-3 {
   display: flex;
   flex-direction: column;
+
+  
   overflow: hidden;
   align-self: stretch;
   position: relative;
   min-height: 737px;
   width: 100%;
-  margin-top: 100px;
 }
 
 .center-block {
