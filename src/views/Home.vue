@@ -1,12 +1,24 @@
 <template>
-  <h1>home</h1>
-  <div>
-    <img src="@/assets/home/desktop/image-hero.jpg" alt="hero" />
-  </div>
-  <div class="hero-img">haha</div>
+  <div></div>
+  <div class="div-3">
+    <img
+      loading="lazy"
+      src="@/assets/home/desktop/image-hero.jpg"
+      class="backimg"
+    />
 
-  <!-- 
-    <HelloWorld /> -->
+    <div class="center-block">
+      <div class="div-left">
+        <div class="div-14">NEW PRODUCT</div>
+        <div class="div-15">XX99 MARK II <br />HEADPHONES</div>
+        <div class="div-16">
+          Experience natural, lifelike audio and exceptional build quality made
+          for the passionate music enthusiast.
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="hero-img">haha</div> -->
 </template>
 
 <script lang="ts" setup>
@@ -27,8 +39,87 @@ h1 {
   color: $color-1-deep-orange;
 }
 
+.div-3 {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-self: stretch;
+  position: relative;
+  min-height: 737px;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.center-block {
+  position: relative;
+  align-self: center;
+  display: flex;
+  margin-bottom: -33px;
+  width: 100%;
+  max-width: 1110px;
+  flex-direction: column;
+
+  color: #fff;
+}
+
+.div-left {
+  align-self: start;
+  display: flex;
+  margin-top: 133px;
+  width: 393px;
+  max-width: 100%;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.div-14 {
+  color: #fff;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  opacity: 0.4964;
+  align-self: start;
+  text-wrap: nowrap;
+  font: 400 14px Manrope, sans-serif;
+}
+
+.div-15 {
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  align-self: start;
+  margin-top: 35px;
+  text-wrap: nowrap;
+  font: 700 56px/103.571% Manrope, sans-serif;
+}
+
+.div-16 {
+  color: #fff;
+  opacity: 0.75;
+  margin-top: 28px;
+  font: 500 15px/166.667% Manrope, sans-serif;
+}
+
+.XX99 {
+  position: absolute;
+  left: 165px;
+  top: 225px;
+  width: 398px;
+  height: 346px;
+
+  color: white;
+
+  display: flex;
+
+  .wording {
+    position: absolute;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0.5px;
+  }
+}
 .hero-img {
-  width: 60%;
+  width: 100%;
   height: 100%;
   background-image: url("@/assets/home/desktop/image-hero.jpg");
   background-position: bottom;
@@ -38,5 +129,13 @@ h1 {
     width: 73%;
     background-image: url("@/assets/home/desktop/image-hero.jpg");
   }
+}
+
+.backimg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 </style>
