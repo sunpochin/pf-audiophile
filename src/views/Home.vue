@@ -1,14 +1,17 @@
 <template>
   <h1>home</h1>
-  <div><img src="@/assets/image-hero.jpg" alt="hero" /></div>
+  <div>
+    <img src="@/assets/home/desktop/image-hero.jpg" alt="hero" />
+  </div>
   <div class="hero-img">haha</div>
 
-  <!-- <HelloWorld /> -->
+  <!-- 
+    <HelloWorld /> -->
 </template>
 
 <script lang="ts" setup>
 // import HelloWorld from '@/components/HelloWorld.vue'
-import hero from "assets/image-hero.jpg";
+import hero from "@/assets/home/desktop/image-hero.jpg";
 </script>
 
 <style lang="scss" scoped>
