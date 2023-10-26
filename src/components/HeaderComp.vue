@@ -2,12 +2,12 @@
   <div class="div1 d-flex justify-center ;">
     <div class="back">
       audiophile
-      <v-tabs class="tabs4 text-white justify-between">
+      <div class="tabsfour text-white justify-between">
         <div>home</div>
         <div>headphones</div>
         <div>speakers</div>
         <div>earphones</div>
-      </v-tabs>
+      </div>
       <top>login</top>
     </div>
   </div>
@@ -35,7 +35,6 @@ $color-2-deep-black: #141414;
 
 .tabsfour {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   width: 429px;
   height: 2500px;
