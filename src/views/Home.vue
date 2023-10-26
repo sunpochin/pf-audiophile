@@ -25,9 +25,6 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import HeaderComp from "@/components/HeaderComp.vue";
 
-
-
-
 import hero from "@/assets/home/desktop/image-hero.jpg";
 </script>
 
@@ -48,7 +45,6 @@ h1 {
   display: flex;
   flex-direction: column;
 
-  
   overflow: hidden;
   align-self: stretch;
   position: relative;
