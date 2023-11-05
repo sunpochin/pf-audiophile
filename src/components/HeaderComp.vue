@@ -2,13 +2,22 @@
   <div class="div1 d-flex justify-center ;">
     <div class="back">
       audiophile
-      <div class="tabsfour text-white justify-between">
+      <v-tabs>
+        <v-tab value="home">home</v-tab>
+        <v-tab value="headphones">headphones</v-tab>
+        <v-tab value="speakers">speakers</v-tab>
+        <v-tab value="earphones">earphones</v-tab>
+      </v-tabs>
+
+      <hr />
+
+      <!-- <div class="tabsfour text-white justify-between">
         <div>home</div>
         <div>headphones</div>
         <div>speakers</div>
         <div>earphones</div>
-      </div>
-      <top>login</top>
+      </div> -->
+      <div id="#loginblock">login</div>
     </div>
   </div>
 </template>
@@ -26,10 +35,11 @@ $color-2-deep-black: #141414;
 
 .back {
   width: 1109.83px;
-  height: 28px;
+  height: 96px;
   background-color: $color-2-deep-black;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: white;
 }
 
@@ -45,6 +55,7 @@ $color-2-deep-black: #141414;
   font: bold 13px Manrope, sans-serif;
   margin-top: 15px;
 }
+
 loginblock {
   color: white;
   // background-color: green;

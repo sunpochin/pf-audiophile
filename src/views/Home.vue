@@ -15,6 +15,7 @@
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </div>
+        <button class="see-product">See product</button>
       </div>
     </div>
   </div>
@@ -53,22 +54,27 @@ h1 {
 }
 
 .center-block {
-  position: relative;
+  margin-top: 225px;
+  margin-left: 165px;
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
   align-self: center;
   display: flex;
   margin-bottom: -33px;
   width: 100%;
   max-width: 1110px;
-  flex-direction: column;
 
   color: #fff;
 }
 
 .div-left {
-  align-self: start;
+  width: 398px;
+  height: 346px;
+
+  align-self: left;
   display: flex;
-  margin-top: 133px;
-  width: 393px;
   max-width: 100%;
   flex-grow: 1;
   flex-direction: column;
@@ -99,6 +105,13 @@ h1 {
   opacity: 0.75;
   margin-top: 28px;
   font: 500 15px/166.667% Manrope, sans-serif;
+}
+
+.see-product {
+  margin: 25px 0 0 0;
+  width: 100px;
+  height: 25px;
+  background-color: $color-1-deep-orange;
 }
 
 .XX99 {
