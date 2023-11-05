@@ -1,0 +1,14 @@
+.container {
+	@include padding(0 2.4rem, 0 4rem, 0 3.2rem);
+	max-width: 115rem;
+	margin: 0 auto;
+
+	@media screen and (min-width: $tablet) {
+		max-width: 119rem;
+	}
+
+	@media screen and (min-width: $desktop) {
+		max-width: 117.4rem;
+	}
+}
+// Path: src/assets/scss/components/_container.scss

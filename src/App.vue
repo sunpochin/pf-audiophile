@@ -1,15 +1,17 @@
 <template>
-  <v-app>
+  <RouterView />
+  <!-- <v-app>
     <v-main>
-      <!-- <Home /> -->
-      <RouterView />
+      <Home />
 
     </v-main>
-  </v-app>
+  </v-app> -->
 </template>
 
 <script setup lang="ts">
-  import HelloWorld from '@/components/HelloWorld.vue'
-  import Home from '@/views/Home.vue'
-import { RouterView, useRoute } from 'vue-router'
+import HelloWorld from "@/components/HelloWorld.vue";
+import Home from "@/views/Home.vue";
+import { RouterView, useRoute } from "vue-router";
 </script>
+
+<style></style>

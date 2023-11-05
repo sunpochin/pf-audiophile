@@ -1,24 +1,27 @@
 <template>
-  <HeaderComp />
-  <div class="div-3">
-    <img
-      loading="lazy"
-      src="@/assets/home/desktop/image-hero.jpg"
-      class="backimg"
-    />
+  <section class="home-hero">
+    <div class="container center-layout">
+      <HeaderComp />
+      <img
+        loading="lazy"
+        src="@/assets/home/desktop/image-hero.jpg"
+        class="backimg"
+      />
 
-    <div class="center-block">
-      <div class="div-left">
-        <div class="div-14">NEW PRODUCT</div>
-        <div class="div-15">XX99 MARK II <br />HEADPHONES</div>
-        <div class="div-16">
-          Experience natural, lifelike audio and exceptional build quality made
-          for the passionate music enthusiast.
+      <div class="center-block">
+        <div class="div-left">
+          <div class="div-14">NEW PRODUCT</div>
+          <div class="div-15">XX99 MARK II <br />HEADPHONES</div>
+          <div class="div-16">
+            Experience natural, lifelike audio and exceptional build quality
+            made for the passionate music enthusiast.
+          </div>
+          <button class="see-product">See product</button>
         </div>
-        <button class="see-product">See product</button>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="showcase">showcase</section>
   <!-- <div class="hero-img">haha</div> -->
 </template>
 
@@ -30,34 +33,42 @@ import hero from "@/assets/home/desktop/image-hero.jpg";
 </script>
 
 <style lang="scss" scoped>
-$color-1-deep-orange: #d84d4a;
-$color-2-deep-black: #101010;
-$color-3-deep-grey: #f1f1f1;
-$color-4-light-grey: #fafafa;
-$color-5-light-orange: #fbaf85;
-$color-6-white: #ffffff;
-$color-7-black: #000000;
+// $color-1-deep-orange: #d84d4a;
+// $color-2-deep-black: #101010;
+// $color-3-deep-grey: #f1f1f1;
+// $color-4-light-grey: #fafafa;
+// $color-5-light-orange: #fbaf85;
+// $color-6-white: #ffffff;
+// $color-7-black: #000000;
 
-h1 {
-  color: $color-1-deep-orange;
+// .div-3 {
+//   display: flex;
+//   flex-direction: column;
+
+//   overflow: hidden;
+//   align-self: stretch;
+//   position: relative;
+//   min-height: 737px;
+//   width: 100%;
+// }
+
+.home-hero {
+  // margin-top: 10rem;
+  //  padding-left: 7rem;
+  min-height: 100vh;
+  background-color: #121212;
+  // padding: 0 0 0 7rem;
 }
 
-.div-3 {
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-  align-self: stretch;
-  position: relative;
-  min-height: 737px;
-  width: 100%;
+.center-layout {
+  // padding: 0 0 0 7rem;
 }
 
 .center-block {
-  margin-top: 225px;
-  margin-left: 165px;
   display: flex;
   flex-direction: column;
+  margin-top: 10rem;
+  margin-left: 7rempx;
 
   position: absolute;
   align-self: center;
@@ -111,7 +122,7 @@ h1 {
   margin: 25px 0 0 0;
   width: 100px;
   height: 25px;
-  background-color: $color-1-deep-orange;
+  background-color: $primary;
 }
 
 .XX99 {
@@ -148,9 +159,16 @@ h1 {
 
 .backimg {
   position: absolute;
+  top: 20;
+  left: 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.showcase {
+  height: 60rem;
+  background-color: white;
 }
 </style>
