@@ -1,7 +1,6 @@
 <template>
   <section class="home-hero">
     <div class="container center-layout">
-      <HeaderComp />
       <img
         loading="lazy"
         src="@/assets/home/desktop/image-hero.jpg"
@@ -26,9 +25,6 @@
 </template>
 
 <script lang="ts" setup>
-// import HelloWorld from '@/components/HelloWorld.vue'
-import HeaderComp from "@/components/HeaderComp.vue";
-
 import hero from "@/assets/home/desktop/image-hero.jpg";
 </script>
 
