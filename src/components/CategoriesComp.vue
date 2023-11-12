@@ -1,13 +1,21 @@
 <template>
-  <div class="container">
-    <h1>Categories</h1>
-    <div></div>
-  </div>
+  <section class="flex-align">
+    <div class="cate-container">
+      <div v-for="item in categories" v-bind:key="item.id" class="flex-item">
+        <img :src="item.img" alt="category" class="item-img" />
+        <h2>{{ item.id }}</h2>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useProductStore } from "@/store/product.js";
+import headphonesImage from "@/assets/shared/desktop/image-category-thumbnail-headphones.png";
+import speakersImage from "@/assets/shared/desktop/image-category-thumbnail-speakers.png";
+import earphonesImage from "@/assets/shared/desktop/image-category-thumbnail-earphones.png";
+
 const productStore = useProductStore();
 
 onMounted(() => {
@@ -18,20 +26,41 @@ onMounted(() => {
 const categories = [
   {
     id: "headphones",
-    img: "../assets/shared/desktop/image-category-thumbnail-headphones.png",
+    img: headphonesImage,
   },
   {
     id: "speakers",
-    img: "../assets/shared/desktop/image-category-thumbnail-speakers.png",
+    img: speakersImage,
   },
   {
     id: "earphones",
-    name: "Category 3",
+    img: earphonesImage,
   },
 ];
 </script>
 
 <style scoped>
+.flex-item {
+  height: 12rem;
+  width: 21rem;
+  background-color: var(--vt-clr-grey);
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.item-img {
+  width: 18rem;
+}
+.cate-container {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+  width: 100%;
+}
+
 .container {
   /* height: 100vh; */
   min-height: 100vh;
