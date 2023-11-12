@@ -14,11 +14,11 @@
       </div>
     </section>
 
-    <!-- <section>
+    <section>
       <div>
         <CategoriesComp />
       </div>
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -80,7 +80,7 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   align-self: start;
   margin-top: 35px;
   text-wrap: nowrap;
-  // font: 700 56px/103.571% Manrope, sans-serif;
+  font: 700 46px/103.571% Manrope, sans-serif;
 }
 
 .product-desc {

@@ -1,9 +1,12 @@
 <template>
-  <section class="flex-align">
-    <div class="cate-container">
-      <div v-for="item in categories" v-bind:key="item.id" class="flex-item">
-        <img :src="item.img" alt="category" class="item-img" />
-        <h2>{{ item.id }}</h2>
+  <section class="flex-align cate-container">
+    <div v-for="item in categories" v-bind:key="item.id" class="flex-item">
+      <img :src="item.img" alt="category" class="item-img" />
+      <div class="shop-txt flex-center">
+        <h6>{{ item.id }}</h6>
+        <router-link :to="item.router" class="flex-align"
+          >shop <img src="../assets/shared/desktop/icon-arrow-right.svg" alt=""
+        /></router-link>
       </div>
     </div>
   </section>
@@ -27,14 +30,17 @@ const categories = [
   {
     id: "headphones",
     img: headphonesImage,
+    router: "/headphones",
   },
   {
     id: "speakers",
     img: speakersImage,
+    router: "/speakers",
   },
   {
     id: "earphones",
     img: earphonesImage,
+    router: "/earphones",
   },
 ];
 </script>
@@ -50,17 +56,32 @@ const categories = [
   justify-content: center;
 }
 
+.shop-txt {
+  justify-content: center;
+  flex-direction: column;
+  align-self: flex-end;
+  margin-bottom: 1.3rem;
+}
+
 .item-img {
   top: -6.3rem;
   height: auto;
 }
 .cate-container {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   gap: 6rem;
   margin-top: 5rem;
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .cate-container {
+    flex-direction: column;
+    gap: 8rem;
+  }
+  .flex-item {
+  }
 }
 </style>
