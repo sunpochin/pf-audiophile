@@ -43,4 +43,9 @@ $color-2-deep-black: #141414;
   display: flex;
   align-items: center;
 }
+
+.large {
+  max-width: var(--max-width);
+  margin: auto;
+}
 </style>

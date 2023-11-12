@@ -41,6 +41,8 @@ const categories = [
 
 <style scoped>
 .flex-item {
+  display: flex;
+  flex-direction: column;
   height: 12rem;
   width: 21rem;
   background-color: var(--vt-clr-grey);
@@ -49,22 +51,16 @@ const categories = [
 }
 
 .item-img {
-  width: 18rem;
+  top: -6.3rem;
+  height: auto;
 }
 .cate-container {
   display: flex;
   /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 6rem;
   margin-top: 5rem;
   width: 100%;
-}
-
-.container {
-  /* height: 100vh; */
-  min-height: 100vh;
-  background-color: #121212;
-  color: white;
 }
 </style>

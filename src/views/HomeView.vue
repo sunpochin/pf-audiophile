@@ -29,4 +29,7 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   height: 60rem;
   background-color: white;
 }
+
+@media screen and (max-width: 768px) {
+}
 </style>
