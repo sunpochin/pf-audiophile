@@ -42,7 +42,7 @@ $color-2-deep-black: #141414;
 }
 
 header {
-  background-color: var(--vt-clr-black);
+  background-color: var(--clr-black);
   position: fixed;
   top: 0;
   left: 0;
@@ -80,43 +80,4 @@ svg {
 svg:hover {
   fill: var(--vt-clr-peach);
 }
-
-// .div1 {
-//   justify-content: center;
-//   width: 100%;
-//   background-color: $color-2-deep-black;
-// }
-
-// .back {
-//   width: 1109.83px;
-//   height: 96px;
-//   background-color: $color-2-deep-black;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: left;
-//   color: white;
-// }
-
-// .tabsfour {
-//   display: flex;
-//   justify-content: space-between;
-//   width: 429px;
-//   height: 2500px;
-//   color: white;
-//   text-transform: uppercase;
-
-//   letter-spacing: 2px;
-//   font: bold 13px Manrope, sans-serif;
-//   margin-top: 15px;
-// }
-
-// .div-12 {
-//   background-color: rgba(255, 255, 255, 0.2);
-//   align-self: stretch;
-//   display: flex;
-//   margin-top: 36px;
-//   width: 100%;
-//   height: 1px;
-//   flex-direction: column;
-// }
 </style>
