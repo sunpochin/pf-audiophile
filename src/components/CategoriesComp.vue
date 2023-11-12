@@ -1,6 +1,6 @@
 <template>
   <section class="flex-align hero-shop">
-    <div class="shop flex" v-for="(item, i) in categories" v-bind:key="i">
+    <div class="shop-item flex" v-for="(item, i) in categories" v-bind:key="i">
       <img :src="item.img" alt="category" class="shop-img" />
       <div class="shop-txt flex-center">
         <h6>{{ item.id }}</h6>
@@ -46,7 +46,15 @@ const categories = [
 </script>
 
 <style scoped>
-.flex-item {
+.hero-shop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  margin: 12rem auto 3rem;
+  width: 100%;
+}
+.shop-item {
   display: flex;
   flex-direction: column;
   height: 12rem;
@@ -67,25 +75,14 @@ const categories = [
   top: -6.3rem;
   height: auto;
 }
-.hero-shop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6rem;
-  margin-top: 5rem;
-  width: 100%;
-}
-.hero-shop {
-  margin: 12rem auto 3rem;
-}
 
 @media screen and (max-width: 768px) {
-  /* .hero-shop {
+  .hero-shop {
     flex-direction: column;
     gap: 8rem;
   }
-  .flex-item {
-  } */
+  .shop-item {
+  }
   .hero-shop {
     margin: 8rem auto 3rem;
   }
