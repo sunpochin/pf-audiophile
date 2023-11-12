@@ -1,7 +1,7 @@
 <template>
-  <section class="flex-align cate-container">
-    <div v-for="item in categories" v-bind:key="item.id" class="flex-item">
-      <img :src="item.img" alt="category" class="item-img" />
+  <section class="flex-align hero-shop">
+    <div class="shop flex" v-for="(item, i) in categories" v-bind:key="i">
+      <img :src="item.img" alt="category" class="shop-img" />
       <div class="shop-txt flex-center">
         <h6>{{ item.id }}</h6>
         <router-link :to="item.router" class="flex-align"
@@ -63,11 +63,11 @@ const categories = [
   margin-bottom: 1.3rem;
 }
 
-.item-img {
+.shop-img {
   top: -6.3rem;
   height: auto;
 }
-.cate-container {
+.hero-shop {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,13 +75,19 @@ const categories = [
   margin-top: 5rem;
   width: 100%;
 }
+.hero-shop {
+  margin: 12rem auto 3rem;
+}
 
 @media screen and (max-width: 768px) {
-  .cate-container {
+  /* .hero-shop {
     flex-direction: column;
     gap: 8rem;
   }
   .flex-item {
+  } */
+  .hero-shop {
+    margin: 8rem auto 3rem;
   }
 }
 </style>

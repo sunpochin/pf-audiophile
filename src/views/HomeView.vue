@@ -102,11 +102,6 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   .hero {
     padding: 7rem var(--page-padding);
   }
-  .main-prod-wrap,
-  .secondary-product-wrap,
-  .ternary-product-wrap {
-    padding: 0 var(--page-padding);
-  }
 }
 
 @media screen and (max-width: 1024px) {
