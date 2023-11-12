@@ -1,16 +1,16 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: '/homeauto',
-    name: 'HomeAuto',
-    component: () => import('@/views/HomeAuto.vue'),
+    path: "/homeauto",
+    name: "HomeAuto",
+    component: () => import("@/views/HomeAuto.vue"),
   },
   {
-    path: '/',
-    name: 'Home',
-    component: () => import('@/views/Home.vue'),
+    path: "/",
+    name: "HomeView",
+    component: () => import("@/views/HomeView.vue"),
   },
   // {
   //   path: '/',
@@ -26,12 +26,11 @@ const routes = [
   //     },
   //   ],
   // },
-
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-})
+});
 
-export default router
+export default router;
