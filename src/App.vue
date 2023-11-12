@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import HelloWorld from "@/components/HelloWorld.vue";
-import Home from "@/views/Home.vue";
+import HomeView from "@/views/HomeView.vue";
 import NavBar from "@/components/NavBar.vue";
 import { RouterView, useRoute } from "vue-router";
 </script>

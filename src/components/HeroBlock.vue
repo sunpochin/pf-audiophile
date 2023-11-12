@@ -1,6 +1,8 @@
 <template>
-  <section class="home-hero">
-    <div class="container center-layout">
+  <div>
+    Hero Block
+    <div class="home-hero">
+      hero
       <img
         loading="lazy"
         src="@/assets/home/desktop/image-hero.jpg"
@@ -19,41 +21,19 @@
         </div>
       </div>
     </div>
-  </section>
-  <section class="showcase">showcase</section>
-  <!-- <div class="hero-img">haha</div> -->
+  </div>
 </template>
 
-<script lang="ts" setup>
-import hero from "@/assets/home/desktop/image-hero.jpg";
-</script>
+<script setup lang="ts"></script>
 
-<style lang="scss" scoped>
-// $color-1-deep-orange: #d84d4a;
-// $color-2-deep-black: #101010;
-// $color-3-deep-grey: #f1f1f1;
-// $color-4-light-grey: #fafafa;
-// $color-5-light-orange: #fbaf85;
-// $color-6-white: #ffffff;
-// $color-7-black: #000000;
-
-// .div-3 {
-//   display: flex;
-//   flex-direction: column;
-
-//   overflow: hidden;
-//   align-self: stretch;
-//   position: relative;
-//   min-height: 737px;
-//   width: 100%;
-// }
-
+<style scoped lang="scss">
 .home-hero {
   // margin-top: 10rem;
   //  padding-left: 7rem;
   min-height: 100vh;
   background-color: #121212;
   // padding: 0 0 0 7rem;
+  color: white;
 }
 
 .center-layout {
@@ -161,10 +141,5 @@ import hero from "@/assets/home/desktop/image-hero.jpg";
   width: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.showcase {
-  height: 60rem;
-  background-color: white;
 }
 </style>
