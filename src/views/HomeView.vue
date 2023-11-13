@@ -19,7 +19,7 @@
         <CategoriesComp />
       </div>
     </section>
-    <section class="flex-center">
+    <section class="main-prod-wrap flex-center">
       <div class="main-product">
         <picture>
           <source
@@ -50,7 +50,7 @@
         </div>
       </div>
     </section>
-    <section class="flex-center">
+    <section class="secondary-product-wrap flex-center">
       <div class="secondary-product large flex-align">
         <div class="secondary-product-txt">
           <h4>zx7 speaker</h4>
@@ -60,7 +60,7 @@
         </div>
       </div>
     </section>
-    <section class="flex-center">
+    <section class="ternary-product-wrap flex-center">
       <div class="ternary-product">
         <div class="ternary-product-1"></div>
         <div class="ternary-product-2">
