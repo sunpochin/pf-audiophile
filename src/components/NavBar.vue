@@ -23,14 +23,14 @@
           <li><router-link to="/earphones">EARPHONES</router-link></li>
         </ul>
       </nav>
-      <nav class="mobile-nav" v-if="isOpen">
+      <!-- <nav class="mobile-nav" v-if="isOpen">
         <ul class="flex-center mobile-ul">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/headphones">Headphones</router-link></li>
           <li><router-link to="/speakers">Speakers</router-link></li>
           <li><router-link to="/earphones">Earphones</router-link></li>
         </ul>
-      </nav>
+      </nav> -->
 
       <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg" id="cart">
         <path
