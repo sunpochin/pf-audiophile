@@ -19,6 +19,47 @@
         <CategoriesComp />
       </div>
     </section>
+    <section class="flex-center">
+      <div class="main-product flex-align">
+        <picture>
+          <source
+            media="(min-width: 1024px)"
+            srcset="../assets/home/desktop/image-speaker-zx9.png"
+            class="source-pc"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="../assets/home/tablet/image-speaker-zx9.png"
+            class="source-tablet"
+          />
+          <img
+            src="../assets/home/mobile/image-speaker-zx9.png"
+            alt="image of the speaker"
+            class="source-mobile"
+          />
+        </picture>
+        <div class="main-prod-txt">
+          <h2 class="h2-big">zx9 speaker</h2>
+          <p>
+            Upgrade to premium speakers that are phenomenally built to deliver
+            truly remarkable sound.
+          </p>
+          <button class="btn-4" @click="toProduct('zx9 speaker', 'speakers')">
+            <p class="btn-4-p">see product</p>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="flex-center">
+      <div class="secondary-product large flex-align">
+        <div class="secondary-product-txt">
+          <h4>zx7 speaker</h4>
+          <button class="btn-2" @click="toProduct('zx7 speaker', 'speakers')">
+            <p class="btn-2-p">see product</p>
+          </button>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -29,18 +70,52 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
 </script>
 
 <style lang="scss" scoped>
-.homeview {
-  display: flex;
+.main-prod-txt {
+  color: var(--clr-white);
+}
+.source-mobile {
+  height: 10rem;
+}
+.main-product {
   flex-direction: column;
+
+  background-color: var(--clr-peach);
+  height: 40rem;
+  width: 21rem;
+  border-radius: 10px;
+  padding: 3rem;
+  margin: 0 auto 3rem;
+  position: relative;
 }
 
-.showcase {
-  height: 60rem;
-  background-color: white;
+.main-product picture {
+  margin: 1rem;
+
+  width: 16rem;
+  height: auto;
+}
+
+.secondary-product {
+  // background-color: var(--clr-grey);
+  background-image: url("../assets/home/desktop/image-speaker-zx7.jpg");
+  // background-size: contain;
+  // background-repeat: repeat;
+
+  background-size: cover;
+  background-position: bottom;
+
+  // background-size: cover;
+  // background-position: bottom 2rem right 1rem;
+
+  height: 20rem;
+  width: 21rem;
+  border-radius: 10px;
+  padding: 3rem;
+  margin: 0 auto 3rem;
 }
 
 .hero-sec {
-  background-color: var(--vt-clr-black);
+  background-color: var(--clr-black);
 }
 
 .hero {
@@ -94,7 +169,7 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   margin: 25px 0 0 0;
   width: 100px;
   height: 25px;
-  background-color: $primary;
+  background-color: var(--clr-peach);
 }
 
 /* --- RESPONSIVE --- */
@@ -114,11 +189,33 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   .hero-txt {
     text-align: center;
   }
+
+  // .main-product picture {
+  //   left: 2rem;
+  //   top: 0.7rem;
+  //   width: 12.3rem;
+  //   height: auto;
+  // }
+
+  .main-prod-txt {
+    margin-left: unset;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .hero {
     background-image: url(../assets/home/mobile/image-header.jpg);
+  }
+  .secondary-product {
+    background-image: url("../assets/home/mobile/image-speaker-zx7.jpg");
+  }
+
+  .main-prod-txt {
+    margin-left: unset;
+    text-align: center;
+    margin: auto;
   }
 }
 </style>

@@ -115,6 +115,16 @@ p {
   font-weight: medium;
 }
 
+button {
+  width: 10rem;
+  height: 3rem;
+}
+
+.btn-4 {
+  background-color: var(--clr-black);
+  border: none;
+}
+
 .flex-center {
   display: flex;
   align-items: center;

@@ -20,7 +20,7 @@
 
 <style scoped lang="scss">
 .home-hero {
-  background-color: var(--vt-clr-black);
+  background-color: var(--clr-black);
 }
 
 .hero-block {

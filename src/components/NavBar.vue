@@ -54,7 +54,7 @@ header > div {
   justify-content: space-between;
   padding: 1rem 0 1.5rem;
   margin: auto;
-  border-bottom: 1px solid var(--vt-clr-trans-border);
+  border-bottom: 1px solid var(--clr-trans-border);
 }
 
 .pc-ul {
@@ -62,11 +62,11 @@ header > div {
 }
 
 a {
-  color: var(--vt-clr-white);
+  color: var(--clr-white);
   text-decoration: none;
 }
 a:hover {
-  color: var(--vt-clr-peach);
+  color: var(--clr-peach);
 }
 ul,
 li {
@@ -75,9 +75,9 @@ li {
 
 svg {
   cursor: pointer;
-  fill: var(--vt-clr-white);
+  fill: var(--clr-white);
 }
 svg:hover {
-  fill: var(--vt-clr-peach);
+  fill: var(--clr-peach);
 }
 </style>
