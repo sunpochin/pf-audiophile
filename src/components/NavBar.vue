@@ -109,7 +109,7 @@ svg:hover {
     opacity: 0;
   }
   to {
-    inset: 3.5rem 0 0 0;
+    inset: 2.5rem 0 0 0;
     opacity: 1;
   }
 }
@@ -130,7 +130,6 @@ svg:hover {
     background-color: var(--clr-black);
     animation: appear 0.7s forwards;
     z-index: 99;
-    // inset: 3.5rem 0 0 0;
   }
   .mobile-ul {
     flex-direction: column;

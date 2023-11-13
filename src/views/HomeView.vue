@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero-sec">
+    <!-- <section class="hero-sec">
       <div class="hero flex-align large">
         <div class="hero-txt">
           <div class="new-product">NEW PRODUCT</div>
@@ -12,7 +12,7 @@
           <button class="see-product">See product</button>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section>
       <div>
@@ -97,7 +97,7 @@ const toProduct = (name: string, path: string) => {
 }
 
 .main-prod-txt > p {
-  max-width: 22rem;
+  max-width: 17rem;
   margin: 2rem 0;
 }
 
@@ -139,7 +139,7 @@ const toProduct = (name: string, path: string) => {
 }
 
 h4 {
-  max-width: 22rem;
+  max-width: 18rem;
   margin: 2rem 0;
 }
 
@@ -185,7 +185,7 @@ h4 {
 }
 
 .hero-txt {
-  width: 398px;
+  // width: 398px;
   height: 346px;
   display: flex;
 
