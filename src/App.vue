@@ -65,6 +65,56 @@ import { RouterView, useRoute } from "vue-router";
 
 $color-2-deep-black: #141414;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  color: var(--clr-black);
+}
+h1,
+.h2-big {
+  font-size: var(--h1-size);
+  letter-spacing: 2px;
+  line-height: 58px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: var(--h2-size);
+  letter-spacing: 1.5px;
+  line-height: 44px;
+}
+h3 {
+  font-size: var(--h3-size);
+  letter-spacing: 1.15px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+h4 {
+  font-size: var(--h4-size);
+  letter-spacing: 2px;
+  line-height: 38px;
+  text-transform: uppercase;
+}
+h5 {
+  font-size: var(--h5-size);
+  letter-spacing: 1.7px;
+  line-height: 33px;
+}
+h6 {
+  font-size: var(--h6-size);
+  letter-spacing: 1.3px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+p {
+  font-size: var(--body-size);
+  line-height: 25px;
+  font-weight: medium;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -85,6 +135,15 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1024px) {

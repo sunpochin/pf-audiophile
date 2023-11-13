@@ -1,11 +1,13 @@
 <template>
   <section class="flex-align hero-shop">
-    <div class="shop flex" v-for="(item, i) in categories" v-bind:key="i">
+    <div class="shop" v-for="(item, i) in categories" v-bind:key="i">
       <img :src="item.img" alt="category" class="shop-img" />
       <div class="shop-txt flex-center">
         <h6>{{ item.id }}</h6>
         <router-link :to="item.router" class="flex-align"
-          >shop <img src="../assets/shared/desktop/icon-arrow-right.svg" alt=""
+          >SHOP &nbsp;<img
+            src="../assets/shared/desktop/icon-arrow-right.svg"
+            alt=""
         /></router-link>
       </div>
     </div>
@@ -48,11 +50,11 @@ const categories = [
 <style scoped>
 .hero-shop {
   display: flex;
-
   align-items: center;
   justify-content: center;
-  gap: 6rem;
+  gap: 0rem;
   margin: 12rem auto 3rem;
+  padding-bottom: 3rem;
   width: 100%;
 }
 .shop {
@@ -60,21 +62,28 @@ const categories = [
   flex-direction: column;
   height: 12rem;
   width: 21rem;
-  background-color: var(--vt-clr-grey);
+  background-color: var(--clr-grey);
   border-radius: 10px;
+  position: relative;
+  left: 0px;
+  top: 0rem;
   justify-content: center;
+  gap: 2rem;
 }
 
 .shop-txt {
   justify-content: center;
   flex-direction: column;
-  align-self: flex-end;
-  margin-bottom: 1.3rem;
+  /* align-self: flex-end; */
+  margin-bottom: -7.3rem;
 }
 
 .shop-img {
+  align-self: center;
+  position: absolute;
   top: -6.3rem;
   height: auto;
+  width: 18rem;
 }
 
 @media screen and (max-width: 768px) {
