@@ -2,7 +2,7 @@
   <div>
     <section class="hero-sec">
       <div class="hero flex-align large">
-        <div class="div-left">
+        <div class="hero-txt">
           <div class="new-product">NEW PRODUCT</div>
           <div class="product-name">XX99 MARK II <br />HEADPHONES</div>
           <div class="product-desc">
@@ -52,7 +52,7 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   padding: 9rem 0;
 }
 
-.div-left {
+.hero-txt {
   width: 398px;
   height: 346px;
   display: flex;
@@ -80,7 +80,7 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   align-self: start;
   margin-top: 35px;
   text-wrap: nowrap;
-  font: 700 56px/103.571% Manrope, sans-serif;
+  font: 700 46px/103.571% Manrope, sans-serif;
 }
 
 .product-desc {
@@ -102,11 +102,6 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   .hero {
     padding: 7rem var(--page-padding);
   }
-  .main-prod-wrap,
-  .secondary-product-wrap,
-  .ternary-product-wrap {
-    padding: 0 var(--page-padding);
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -114,6 +109,10 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
     background-image: url(../assets/home/tablet/image-header.jpg);
     justify-content: center;
     background-position: center;
+  }
+
+  .hero-txt {
+    text-align: center;
   }
 }
 

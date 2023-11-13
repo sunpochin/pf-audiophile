@@ -12,6 +12,21 @@ const routes = [
     name: "HomeView",
     component: () => import("@/views/HomeView.vue"),
   },
+  {
+    path: "/headphones",
+    name: "headphones",
+    component: () => import("@/views/HeadphonesView.vue"),
+  },
+  {
+    path: "/speakers",
+    name: "speakers",
+    component: () => import("@/views/SpeakersView.vue"),
+  },
+  {
+    path: "/earphones",
+    name: "earphones",
+    component: () => import("@/views/EarphonesView.vue"),
+  },
   // {
   //   path: '/',
   //   component: () => import('@/layouts/default/Default.vue'),

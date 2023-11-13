@@ -1,9 +1,14 @@
 <template>
-  <section class="flex-align">
-    <div class="cate-container">
-      <div v-for="item in categories" v-bind:key="item.id" class="flex-item">
-        <img :src="item.img" alt="category" class="item-img" />
-        <h2>{{ item.id }}</h2>
+  <section class="flex-align hero-shop">
+    <div class="shop" v-for="(item, i) in categories" v-bind:key="i">
+      <img :src="item.img" alt="category" class="shop-img" />
+      <div class="shop-txt flex-center">
+        <h6>{{ item.id }}</h6>
+        <router-link :to="item.router" class="flex-align"
+          >SHOP &nbsp;<img
+            src="../assets/shared/desktop/icon-arrow-right.svg"
+            alt=""
+        /></router-link>
       </div>
     </div>
   </section>
@@ -27,40 +32,69 @@ const categories = [
   {
     id: "headphones",
     img: headphonesImage,
+    router: "/headphones",
   },
   {
     id: "speakers",
     img: speakersImage,
+    router: "/speakers",
   },
   {
     id: "earphones",
     img: earphonesImage,
+    router: "/earphones",
   },
 ];
 </script>
 
 <style scoped>
-.flex-item {
+.hero-shop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0rem;
+  margin: 12rem auto 3rem;
+  padding-bottom: 3rem;
+  width: 100%;
+}
+.shop {
   display: flex;
   flex-direction: column;
   height: 12rem;
   width: 21rem;
-  background-color: var(--vt-clr-grey);
+  background-color: var(--clr-grey);
   border-radius: 10px;
+  position: relative;
+  left: 0px;
+  top: 0rem;
   justify-content: center;
+  gap: 2rem;
 }
 
-.item-img {
+.shop-txt {
+  justify-content: center;
+  flex-direction: column;
+  /* align-self: flex-end; */
+  margin-bottom: -7.3rem;
+}
+
+.shop-img {
+  align-self: center;
+  position: absolute;
   top: -6.3rem;
   height: auto;
+  width: 18rem;
 }
-.cate-container {
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: center;
-  gap: 6rem;
-  margin-top: 5rem;
-  width: 100%;
+
+@media screen and (max-width: 768px) {
+  .hero-shop {
+    flex-direction: column;
+    gap: 8rem;
+  }
+  .shop-item {
+  }
+  .hero-shop {
+    margin: 8rem auto 3rem;
+  }
 }
 </style>
