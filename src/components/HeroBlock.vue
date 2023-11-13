@@ -1,93 +1,49 @@
 <template>
-  <section class="home-hero">
-    <div class="container center-layout">
-      <img
-        loading="lazy"
-        src="@/assets/home/desktop/image-hero.jpg"
-        class="backimg"
-      />
-
-      <div class="center-block">
+  <div>
+    <section class="home-hero">
+      <div class="hero-block flex-align large">
         <div class="div-left">
-          <div class="div-14">NEW PRODUCT</div>
-          <div class="div-15">XX99 MARK II <br />HEADPHONES</div>
-          <div class="div-16">
+          <div class="new-product">NEW PRODUCT</div>
+          <div class="product-name">XX99 MARK II <br />HEADPHONES</div>
+          <div class="product-desc">
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </div>
           <button class="see-product">See product</button>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="showcase">showcase</section>
-  <!-- <div class="hero-img">haha</div> -->
+    </section>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import hero from "@/assets/home/desktop/image-hero.jpg";
-</script>
+<script setup lang="ts"></script>
 
-<style lang="scss" scoped>
-// $color-1-deep-orange: #d84d4a;
-// $color-2-deep-black: #101010;
-// $color-3-deep-grey: #f1f1f1;
-// $color-4-light-grey: #fafafa;
-// $color-5-light-orange: #fbaf85;
-// $color-6-white: #ffffff;
-// $color-7-black: #000000;
-
-// .div-3 {
-//   display: flex;
-//   flex-direction: column;
-
-//   overflow: hidden;
-//   align-self: stretch;
-//   position: relative;
-//   min-height: 737px;
-//   width: 100%;
-// }
-
+<style scoped lang="scss">
 .home-hero {
-  // margin-top: 10rem;
-  //  padding-left: 7rem;
-  min-height: 100vh;
-  background-color: #121212;
-  // padding: 0 0 0 7rem;
+  background-color: var(--vt-clr-black);
 }
 
-.center-layout {
-  // padding: 0 0 0 7rem;
-}
-
-.center-block {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10rem;
-  margin-left: 7rempx;
-
-  position: absolute;
-  align-self: center;
-  display: flex;
-  margin-bottom: -33px;
-  width: 100%;
-  max-width: 1110px;
-
-  color: #fff;
+.hero-block {
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../assets/home/desktop/image-hero.jpg);
+  color: white;
+  padding: 9rem 0;
 }
 
 .div-left {
   width: 398px;
   height: 346px;
-
-  align-self: left;
   display: flex;
+
+  // align-self: left;
   max-width: 100%;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.div-14 {
+.new-product {
   color: #fff;
   letter-spacing: 10px;
   text-transform: uppercase;
@@ -97,7 +53,7 @@ import hero from "@/assets/home/desktop/image-hero.jpg";
   font: 400 14px Manrope, sans-serif;
 }
 
-.div-15 {
+.product-name {
   color: #fff;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -107,7 +63,7 @@ import hero from "@/assets/home/desktop/image-hero.jpg";
   font: 700 56px/103.571% Manrope, sans-serif;
 }
 
-.div-16 {
+.product-desc {
   color: #fff;
   opacity: 0.75;
   margin-top: 28px;
@@ -161,10 +117,5 @@ import hero from "@/assets/home/desktop/image-hero.jpg";
   width: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.showcase {
-  height: 60rem;
-  background-color: white;
 }
 </style>
