@@ -43,8 +43,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 const isOpen = ref(false);
+
+onMounted(() => {
+  isOpen.value = false;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -62,7 +66,7 @@ $color-2-deep-black: #141414;
 header {
   background-color: var(--clr-black);
   position: fixed;
-  top: 0;
+  top: 0rem;
   left: 0;
   right: 0;
   z-index: 99;
@@ -99,6 +103,17 @@ svg:hover {
   fill: var(--clr-peach);
 }
 
+@keyframes appear {
+  from {
+    left: -1000px;
+    opacity: 0;
+  }
+  to {
+    inset: 3.5rem 0 0 0;
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .burger,
   .mobile-nav {
@@ -115,6 +130,7 @@ svg:hover {
     background-color: var(--clr-black);
     animation: appear 0.7s forwards;
     z-index: 99;
+    // inset: 3.5rem 0 0 0;
   }
   .mobile-ul {
     flex-direction: column;
