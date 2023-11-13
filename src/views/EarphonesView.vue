@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>EARphones</div>
 </template>
 
 <script setup lang="ts"></script>

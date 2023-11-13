@@ -20,7 +20,7 @@
       </div>
     </section>
     <section class="flex-center">
-      <div class="main-product flex-align">
+      <div class="main-product">
         <picture>
           <source
             media="(min-width: 1024px)"
@@ -60,25 +60,52 @@
         </div>
       </div>
     </section>
+    <section class="flex-center">
+      <div class="ternary-product">
+        <div class="ternary-product-1"></div>
+        <div class="ternary-product-2">
+          <div class="ternary-product-txt">
+            <h4>yx1 earphones</h4>
+            <button
+              class="btn-2"
+              @click="toProduct('yx1 earphones', 'earphones')"
+            >
+              <p class="btn-2-p">see product</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
 import hero from "@/assets/home/desktop/image-hero.jpg";
 import HeroBlock from "@/components/HeroBlock.vue";
 import CategoriesComp from "@/components/CategoriesComp.vue";
+const toProduct = (name: string, path: string) => {
+  // router.push({path: path, params: { pathname: name} );
+  router.push({ path: path });
+};
 </script>
 
 <style lang="scss" scoped>
 .main-prod-txt {
   color: var(--clr-white);
 }
+
+.main-prod-txt > p {
+  max-width: 22rem;
+  margin: 2rem 0;
+}
+
 .source-mobile {
   height: 10rem;
 }
 .main-product {
   flex-direction: column;
-
   background-color: var(--clr-peach);
   height: 40rem;
   width: 21rem;
@@ -100,18 +127,58 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   background-image: url("../assets/home/desktop/image-speaker-zx7.jpg");
   // background-size: contain;
   // background-repeat: repeat;
-
   background-size: cover;
   background-position: bottom;
-
   // background-size: cover;
   // background-position: bottom 2rem right 1rem;
-
   height: 20rem;
   width: 21rem;
   border-radius: 10px;
   padding: 3rem;
   margin: 0 auto 3rem;
+}
+
+h4 {
+  max-width: 22rem;
+  margin: 2rem 0;
+}
+
+.ternary-product {
+  display: flex;
+  flex-direction: column;
+
+  background-size: cover;
+  background-position: bottom;
+  // height: 20rem;
+  // width: 21rem;
+  // border-radius: 10px;
+  // padding: 3rem;
+  // margin: 0 auto 3rem;
+}
+.ternary-product-1 {
+  background-image: url("../assets/home/desktop/image-earphones-yx1.jpg");
+  background-size: cover;
+  background-position: bottom;
+  height: 20rem;
+  width: 21rem;
+  border-radius: 10px;
+  padding: 3rem;
+  margin: 0 auto 3rem;
+}
+
+.ternary-product-2 {
+  background-color: var(--clr-grey);
+  // // height: 40rem;
+  // // width: 21rem;
+  border-radius: 10px;
+  // padding: 3rem;
+  // margin: 0 auto 3rem;
+  // // position: relative;
+}
+
+.ternary-product-txt {
+  max-width: 22rem;
+  margin: 2rem 3rem;
 }
 
 .hero-sec {
@@ -190,18 +257,23 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
     text-align: center;
   }
 
-  // .main-product picture {
-  //   left: 2rem;
-  //   top: 0.7rem;
-  //   width: 12.3rem;
-  //   height: auto;
-  // }
+  .main-product picture {
+    left: 3rem;
+    top: 0.7rem;
+    width: 12.3rem;
+    height: auto;
+  }
 
   .main-prod-txt {
     margin-left: unset;
     text-align: center;
     margin: auto;
   }
+  // .secondary-product-txt {
+  //   // margin-left: unset;
+  //   // text-align: center;
+  //   // margin: auto;
+  // }
 }
 
 @media screen and (max-width: 768px) {
@@ -210,12 +282,6 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
   }
   .secondary-product {
     background-image: url("../assets/home/mobile/image-speaker-zx7.jpg");
-  }
-
-  .main-prod-txt {
-    margin-left: unset;
-    text-align: center;
-    margin: auto;
   }
 }
 </style>

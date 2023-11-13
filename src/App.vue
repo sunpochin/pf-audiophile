@@ -120,6 +120,11 @@ button {
   height: 3rem;
 }
 
+.btn-2 {
+  background-color: transparent;
+  border: solid 1px var(--clr-black);
+}
+
 .btn-4 {
   background-color: var(--clr-black);
   border: none;
