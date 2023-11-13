@@ -146,20 +146,12 @@ h4 {
 .ternary-product {
   display: flex;
   flex-direction: column;
-
-  background-size: cover;
-  background-position: bottom;
-  // height: 20rem;
-  // width: 21rem;
-  // border-radius: 10px;
-  // padding: 3rem;
-  // margin: 0 auto 3rem;
 }
 .ternary-product-1 {
   background-image: url("../assets/home/desktop/image-earphones-yx1.jpg");
   background-size: cover;
   background-position: bottom;
-  height: 20rem;
+  height: 14rem;
   width: 21rem;
   border-radius: 10px;
   padding: 3rem;
@@ -168,17 +160,15 @@ h4 {
 
 .ternary-product-2 {
   background-color: var(--clr-grey);
-  // // height: 40rem;
-  // // width: 21rem;
+  height: 14rem;
+  width: 21rem;
   border-radius: 10px;
-  // padding: 3rem;
-  // margin: 0 auto 3rem;
-  // // position: relative;
+  margin: 0 auto 3rem;
 }
 
 .ternary-product-txt {
-  max-width: 22rem;
-  margin: 2rem 3rem;
+  max-width: 21rem;
+  margin: 0rem 3rem;
 }
 
 .hero-sec {
@@ -243,6 +233,12 @@ h4 {
 @media screen and (max-width: 1440px) {
   .hero {
     padding: 7rem var(--page-padding);
+  }
+
+  .main-prod-wrap,
+  .secondary-product-wrap,
+  .ternary-product-wrap {
+    padding: 0 var(--page-padding);
   }
 }
 
