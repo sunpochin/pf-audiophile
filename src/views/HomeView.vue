@@ -211,7 +211,7 @@ h4 {
   align-self: start;
   margin-top: 35px;
   text-wrap: nowrap;
-  font: 700 46px/103.571% Manrope, sans-serif;
+  font: 700 40px/103.571% Manrope, sans-serif;
 }
 
 .product-desc {
@@ -222,10 +222,11 @@ h4 {
 }
 
 .see-product {
-  margin: 25px 0 0 0;
-  width: 100px;
-  height: 25px;
+  margin: 2rem 0 0 0;
+  width: 10rem;
+  height: 2rem;
   background-color: var(--clr-peach);
+  align-self: center;
 }
 
 /* --- RESPONSIVE --- */

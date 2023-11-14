@@ -18,6 +18,8 @@ import { RouterView, useRoute } from "vue-router";
 
 <style lang="scss">
 /* global styles here */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
 :root {
   --margin-bottom: 10rem;
   --page-padding: 5rem;
