@@ -55,17 +55,17 @@ const categories = [
   gap: 0rem;
   margin: 12rem auto 3rem;
   padding-bottom: 3rem;
-  width: 100%;
+  max-width: var(--max-width);
 }
 .shop {
   display: flex;
   flex-direction: column;
-  height: 12rem;
-  width: 21rem;
-  background-color: var(--clr-grey);
+  width: 15.875rem;
+  height: 12.75rem;
+  background-color: var(--clr-dark-grey);
   border-radius: 10px;
   position: relative;
-  left: 0px;
+  /* left: 100px; */
   top: 0rem;
   justify-content: center;
   gap: 2rem;
@@ -81,9 +81,9 @@ const categories = [
 .shop-img {
   align-self: center;
   position: absolute;
+
   top: -6.3rem;
   height: auto;
-  width: 18rem;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <section class="hero-sec">
+    <section class="hero-sec">
       <div class="hero flex-align large">
         <div class="hero-txt">
           <div class="new-product">NEW PRODUCT</div>
@@ -12,7 +12,7 @@
           <button class="see-product">See product</button>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <section>
       <div>
@@ -108,7 +108,7 @@ const toProduct = (name: string, path: string) => {
   flex-direction: column;
   background-color: var(--clr-peach);
   height: 40rem;
-  width: 21rem;
+  width: 100%;
   border-radius: 10px;
   padding: 3rem;
   margin: 0 auto 3rem;
@@ -132,7 +132,7 @@ const toProduct = (name: string, path: string) => {
   // background-size: cover;
   // background-position: bottom 2rem right 1rem;
   height: 20rem;
-  width: 21rem;
+  width: 100%;
   border-radius: 10px;
   padding: 3rem;
   margin: 0 auto 3rem;
