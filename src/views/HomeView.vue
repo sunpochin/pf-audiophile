@@ -60,7 +60,7 @@
         </div>
       </div>
     </section>
-    <section class="ternary-product-wrap flex-center">
+    <section class="ternary-product-wrap">
       <div class="ternary-product">
         <div class="ternary-product-1"></div>
         <div class="ternary-product-2">
@@ -152,7 +152,7 @@ h4 {
   background-size: cover;
   background-position: bottom;
   height: 14rem;
-  width: 21rem;
+  width: 100%;
   border-radius: 10px;
   padding: 3rem;
   margin: 0 auto 3rem;
@@ -161,7 +161,7 @@ h4 {
 .ternary-product-2 {
   background-color: var(--clr-grey);
   height: 14rem;
-  width: 21rem;
+  width: 100%;
   border-radius: 10px;
   margin: 0 auto 3rem;
 }
