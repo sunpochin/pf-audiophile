@@ -247,15 +247,10 @@
   </div>
 </template>
 
-
-
 <style scoped>
 .div {
   background-color: #fafafa;
   display: flex;
-
-
-  
 
   flex-direction: column;
 }
@@ -829,7 +824,7 @@
   }
 }
 .div-38 {
-  disply: flex;
+  display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
@@ -977,7 +972,7 @@
   }
 }
 .div-46 {
-  disply: flex;
+  display: flex;
   flex-direction: column;
   overflow: hidden;
   align-self: center;
