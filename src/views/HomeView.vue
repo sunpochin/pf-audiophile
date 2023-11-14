@@ -181,7 +181,6 @@ h4 {
   background-size: cover;
   background-image: url(../assets/home/desktop/image-hero.jpg);
   color: white;
-  padding: 9rem 0;
 }
 
 .hero-txt {

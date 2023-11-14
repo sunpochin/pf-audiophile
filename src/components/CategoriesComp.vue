@@ -1,7 +1,7 @@
 <template>
-  <section class="flex-align hero-shop">
+  <section class="hero-shop">
     <div class="shop" v-for="(item, i) in categories" v-bind:key="i">
-      <img :src="item.img" alt="category" class="shop-img" />
+      <!-- <img :src="item.img" alt="category" class="shop-img" /> -->
       <div class="shop-txt flex-center">
         <h6>{{ item.id }}</h6>
         <router-link :to="item.router" class="flex-align"
@@ -49,52 +49,56 @@ const categories = [
 
 <style scoped>
 .hero-shop {
+  height: 42rem;
+  max-width: var(--max-width);
+  padding: 0 var(--page-padding);
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
   gap: 0rem;
-  margin: 12rem auto 3rem;
-  padding-bottom: 3rem;
-  max-width: var(--max-width);
+  /* margin: 12rem auto 3rem;
+  padding-bottom: 3rem; */
 }
 .shop {
   display: flex;
   flex-direction: column;
-  width: 15.875rem;
-  height: 12.75rem;
-  background-color: var(--clr-dark-grey);
+  justify-content: center;
+  /* width: 15.875rem; */
+  width: 100%;
+  height: 27%;
+  background-color: var(--clr-grey);
   border-radius: 10px;
   position: relative;
   /* left: 100px; */
   top: 0rem;
-  justify-content: center;
-  gap: 2rem;
+  gap: 0rem;
 }
 
 .shop-txt {
   justify-content: center;
   flex-direction: column;
-  /* align-self: flex-end; */
   margin-bottom: -7.3rem;
 }
 
 .shop-img {
   align-self: center;
   position: absolute;
-
-  top: -6.3rem;
+  top: -3rem;
   height: auto;
 }
 
 @media screen and (max-width: 768px) {
   .hero-shop {
     flex-direction: column;
-    gap: 8rem;
+    /* gap: 0rem; */
   }
-  .shop-item {
+  .shop {
+    /* gap: 1rem; */
   }
   .hero-shop {
-    margin: 8rem auto 3rem;
+    /* margin: 4rem auto 3rem; */
   }
 }
 </style>
