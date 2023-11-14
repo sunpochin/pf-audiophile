@@ -1,7 +1,7 @@
 <template>
   <section class="hero-shop">
     <div class="shop" v-for="(item, i) in categories" v-bind:key="i">
-      <!-- <img :src="item.img" alt="category" class="shop-img" /> -->
+      <img :src="item.img" alt="category" class="shop-img" />
       <div class="shop-txt flex-center">
         <h6>{{ item.id }}</h6>
         <router-link :to="item.router" class="flex-align"
@@ -49,7 +49,7 @@ const categories = [
 
 <style scoped>
 .hero-shop {
-  height: 42rem;
+  height: 21rem;
   max-width: var(--max-width);
   padding: 0 var(--page-padding);
 
@@ -58,16 +58,13 @@ const categories = [
   justify-content: space-between;
 
   gap: 0rem;
-  /* margin: 12rem auto 3rem;
-  padding-bottom: 3rem; */
+  margin: 12rem auto 3rem;
+  padding-bottom: 3rem;
 }
 .shop {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* width: 15.875rem; */
   width: 100%;
-  height: 27%;
+  height: 16rem;
   background-color: var(--clr-grey);
   border-radius: 10px;
   position: relative;
@@ -79,26 +76,58 @@ const categories = [
 .shop-txt {
   justify-content: center;
   flex-direction: column;
-  margin-bottom: -7.3rem;
+  /* margin-bottom: -7.3rem; */
 }
 
 .shop-img {
-  align-self: center;
-  position: absolute;
-  top: -3rem;
+  /* align-self: center; */
+  /* position: absolute;
+  top: -3rem; */
   height: auto;
 }
 
 @media screen and (max-width: 768px) {
+  /* // study
   .hero-shop {
     flex-direction: column;
-    /* gap: 0rem; */
+    gap: 0rem;
+    margin: 5rem auto 0rem;
+
+    padding: 1.5rem;
+    height: 51rem;
   }
   .shop {
-    /* gap: 1rem; */
-  }
+    height: 16rem;
+    gap: 1rem;
+  } */
+
   .hero-shop {
-    /* margin: 4rem auto 3rem; */
+    flex-direction: column;
+    gap: 0rem;
+    margin: 10rem auto 6rem;
+
+    padding: 1.5rem;
+    height: 70rem;
+  }
+  .shop {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 15rem;
+    gap: 0rem;
+  }
+
+  .shop-img {
+    align-self: center;
+    position: absolute;
+    top: -7rem;
+    height: auto;
+  }
+  .shop-txt {
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    gap: 1rem;
   }
 }
 </style>

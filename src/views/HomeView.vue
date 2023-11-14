@@ -190,7 +190,7 @@ h4 {
 
   // align-self: left;
   max-width: 100%;
-  flex-grow: 1;
+  // flex-grow: 1;
   flex-direction: column;
 }
 
