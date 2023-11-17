@@ -1,5 +1,5 @@
 <template>
-  <div class="">HEAD</div>
+  <div class="title">HEADPHONES</div>
   <ProductBox :product-list="productList" xxx="123" />
 </template>
 
@@ -17,7 +17,16 @@ onBeforeMount(() => {
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.title {
+  height: 3rem;
+  background-color: var(--clr-dark-grey);
+  color: var(--clr-white);
+  text-align: center;
+  font-size: var(--h4-size);
+  font: 700 28px Manrope, sans-serif;
+}
+</style>
 
 <!-- <script>
 import { onMounted, onBeforeMount, ref } from "vue";

@@ -1,6 +1,8 @@
 <template>
   <NavBar />
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   <!-- <v-app>
     <v-main>
       <Home />
@@ -65,7 +67,11 @@ import { RouterView, useRoute } from "vue-router";
   display: flex;
 }
 
-$color-2-deep-black: #141414;
+main {
+  width: 100%;
+  // margin-top: 3.625rem;
+  padding-top: 3.625rem;
+}
 
 h1,
 h2,
@@ -120,6 +126,12 @@ p {
 button {
   width: 10rem;
   height: 3rem;
+}
+
+.btn-1 {
+  background-color: var(--clr-peach);
+  border: none;
+  text-transform: uppercase;
 }
 
 .btn-2 {
