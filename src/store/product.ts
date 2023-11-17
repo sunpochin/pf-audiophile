@@ -7,9 +7,19 @@ export const useProductStore = defineStore("product", {
     //
     getProduct() {
       console.log("getProduct");
-      // return "getProduct";
-      // console.log(datas);
+      console.log(datas);
       return datas;
+    },
+
+    getHeadphones() {
+      console.log("getHeadphones");
+      return datas.filter((data) => data.category === "headphones");
+    },
+    getEarphones() {
+      return datas.filter((data) => data.category === "earphones");
+    },
+    getSpeakers() {
+      return datas.filter((data) => data.category === "speakers");
     },
   }),
 });

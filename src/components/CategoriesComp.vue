@@ -25,7 +25,6 @@ const productStore = useProductStore();
 
 onMounted(() => {
   const data = productStore.getProduct();
-  console.log(data);
 });
 
 const categories = [

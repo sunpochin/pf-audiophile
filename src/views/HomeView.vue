@@ -9,7 +9,7 @@
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </div>
-          <button class="see-product">See product</button>
+          <button class="see-product">SEE PRODUCT</button>
         </div>
       </div>
     </section>
@@ -45,7 +45,7 @@
             truly remarkable sound.
           </p>
           <button class="btn-4" @click="toProduct('zx9 speaker', 'speakers')">
-            <p class="btn-4-p">see product</p>
+            <p class="btn-4-p">SEE PRODUCT</p>
           </button>
         </div>
       </div>
@@ -55,7 +55,7 @@
         <div class="secondary-product-txt">
           <h4>zx7 speaker</h4>
           <button class="btn-2" @click="toProduct('zx7 speaker', 'speakers')">
-            <p class="btn-2-p">see product</p>
+            <p class="btn-2-p">SEE PRODUCT</p>
           </button>
         </div>
       </div>
@@ -70,7 +70,7 @@
               class="btn-2"
               @click="toProduct('yx1 earphones', 'earphones')"
             >
-              <p class="btn-2-p">see product</p>
+              <p class="btn-2-p">SEE PRODUCT</p>
             </button>
           </div>
         </div>
@@ -117,7 +117,6 @@ const toProduct = (name: string, path: string) => {
 
 .main-product picture {
   margin: 1rem;
-
   width: 16rem;
   height: auto;
 }
@@ -195,7 +194,9 @@ h4 {
 }
 
 .new-product {
-  color: #fff;
+  width: 100%;
+  text-align: center;
+  color: var(--clr-white);
   letter-spacing: 10px;
   text-transform: uppercase;
   opacity: 0.4964;
@@ -205,13 +206,15 @@ h4 {
 }
 
 .product-name {
-  color: #fff;
+  width: 100%;
+  text-align: center;
+  color: var(--clr-white);
   letter-spacing: 2px;
   text-transform: uppercase;
   align-self: start;
   margin-top: 35px;
   text-wrap: nowrap;
-  font: 700 40px/103.571% Manrope, sans-serif;
+  font: 700 26px/103.571% Manrope, sans-serif;
 }
 
 .product-desc {
