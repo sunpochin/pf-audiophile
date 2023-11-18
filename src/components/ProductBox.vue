@@ -67,6 +67,9 @@ onMounted(() => {
     width: 100%;
     padding: 1.5rem;
   }
+  img {
+    border-radius: 10px;
+  }
   .prod-txt {
     display: flex;
     flex-direction: column;

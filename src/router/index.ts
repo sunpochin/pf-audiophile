@@ -27,6 +27,11 @@ const routes = [
     name: "earphones",
     component: () => import("@/views/EarphonesView.vue"),
   },
+  {
+    path: "/product/:category/:id",
+    name: "product",
+    component: () => import("@/views/ProductView.vue"),
+  },
   // {
   //   path: '/',
   //   component: () => import('@/layouts/default/Default.vue'),

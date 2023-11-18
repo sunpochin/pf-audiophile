@@ -1,7 +1,7 @@
 <template>
   <div class="best-wrapper">
-    <!-- <img src="/assets/shared/mobile/image-best-gear.jpg" alt="" /> -->
-    <!-- <img
+    <!-- <img src="../assets/shared/mobile/image-best-gear.jpg" alt="" />
+    <img
       srcset="../assets/shared/mobile/image-best-gear.jpg"
       alt="product image"
     /> -->

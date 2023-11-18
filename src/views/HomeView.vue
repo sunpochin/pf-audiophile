@@ -9,14 +9,19 @@
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </div>
-          <button class="see-product">SEE PRODUCT</button>
+          <button
+            class="see-product"
+            @click="toProduct('headphones', 'xx99-mark-two-headphones')"
+          >
+            <p class="">SEE PRODUCT</p>
+          </button>
         </div>
       </div>
     </section>
 
     <section>
       <div>
-        <CategoriesComp class="cate-wrapper" />
+        <CategoriesComp />
       </div>
     </section>
     <section class="main-prod-wrap flex-center">
@@ -89,18 +94,15 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 
-const toProduct = (name: string, path: string) => {
-  // router.push({path: path, params: { pathname: name} );
-  router.push({ path: path });
+const toProduct = (category: string, slug: string) => {
+  console.log("category: ", category, "slug: ", slug);
+  router.push({ name: "product", params: { category, id: slug } });
 };
 </script>
 
 <style lang="scss" scoped>
 .padding-wrapper {
   // padding: 0 var(--page-padding);
-}
-.cate-wrapper {
-  padding: 0 var(--page-padding);
 }
 .main-prod-txt {
   color: var(--clr-white);

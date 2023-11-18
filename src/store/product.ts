@@ -5,10 +5,16 @@ import datas from "@/data.json";
 export const useProductStore = defineStore("product", {
   state: () => ({
     //
-    getProduct() {
-      console.log("getProduct");
+    getAllProduct() {
+      console.log("getAllProduct");
       console.log(datas);
       return datas;
+    },
+
+    getProduct(category: string, slug: string) {
+      return datas.filter(
+        (data) => data.category === category && data.slug === slug
+      );
     },
 
     getHeadphones() {

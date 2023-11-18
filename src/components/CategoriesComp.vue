@@ -24,7 +24,7 @@ import earphonesImage from "@/assets/shared/desktop/image-category-thumbnail-ear
 const productStore = useProductStore();
 
 onMounted(() => {
-  const data = productStore.getProduct();
+  const data = productStore.getAllProduct();
 });
 
 const categories = [
@@ -54,6 +54,8 @@ const categories = [
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 10rem auto 6rem;
+  padding: 0 var(--page-padding);
 
   gap: 0rem;
   /* padding: 0 var(--page-padding);
