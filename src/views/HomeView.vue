@@ -16,7 +16,7 @@
 
     <section>
       <div>
-        <CategoriesComp />
+        <CategoriesComp class="cate-wrapper" />
       </div>
     </section>
     <section class="main-prod-wrap flex-center">
@@ -76,15 +76,19 @@
         </div>
       </div>
     </section>
+    <Best />
+    <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
 const router = useRouter();
-import hero from "@/assets/home/desktop/image-hero.jpg";
 import HeroBlock from "@/components/HeroBlock.vue";
 import CategoriesComp from "@/components/CategoriesComp.vue";
+import Best from "@/components/Best.vue";
+import Footer from "@/components/Footer.vue";
+
 const toProduct = (name: string, path: string) => {
   // router.push({path: path, params: { pathname: name} );
   router.push({ path: path });
@@ -92,6 +96,12 @@ const toProduct = (name: string, path: string) => {
 </script>
 
 <style lang="scss" scoped>
+.padding-wrapper {
+  // padding: 0 var(--page-padding);
+}
+.cate-wrapper {
+  padding: 0 var(--page-padding);
+}
 .main-prod-txt {
   color: var(--clr-white);
 }

@@ -50,15 +50,17 @@ const categories = [
 .hero-shop {
   height: 21rem;
   max-width: var(--max-width);
-  padding: 0 var(--page-padding);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   gap: 0rem;
+  /* padding: 0 var(--page-padding);
   margin: 12rem auto 3rem;
   padding-bottom: 3rem;
+  margin: 10rem auto 6rem;
+  padding: 1.5rem; */
 }
 .shop {
   display: flex;
@@ -79,9 +81,6 @@ const categories = [
 }
 
 .shop-img {
-  /* align-self: center; */
-  /* position: absolute;
-  top: -3rem; */
   height: auto;
 }
 
@@ -103,9 +102,6 @@ const categories = [
   .hero-shop {
     flex-direction: column;
     gap: 0rem;
-    margin: 10rem auto 6rem;
-
-    padding: 1.5rem;
     height: 70rem;
   }
   .shop {
