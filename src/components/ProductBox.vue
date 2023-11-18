@@ -74,6 +74,7 @@ onMounted(() => {
     align-items: center;
     gap: 1.5rem;
     height: 24rem;
+    max-width: 95%;
     text-align: center;
     width: 100%;
   }
