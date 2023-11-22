@@ -1,12 +1,18 @@
 <template>
   <div class="title">EARPHONES</div>
   <ProductBox :product-list="productList" xxx="123" />
+  <CategoriesComp />
+  <Best />
+  <Footer />
 </template>
 
 <script setup>
 import { onBeforeMount, ref } from "vue";
 import ProductBox from "@/components/ProductBox.vue";
 import { useProductStore } from "@/store/product.ts";
+import CategoriesComp from "@/components/CategoriesComp.vue";
+import Best from "@/components/Best.vue";
+import Footer from "@/components/Footer.vue";
 
 const productList = ref([]);
 

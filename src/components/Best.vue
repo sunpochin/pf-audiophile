@@ -14,17 +14,16 @@
       "
       sizes="(max-width: 600px) 480px, 800px"
     />
-    <div class="best-txt">
-      <div class="text-title">Bringing you the best audio gear</div>
-      <div class="text-desc">
-        Located at the heart of New York City, Audiophile is the premier store
-        for high end headphones, earphones, speakers, and audio accessories. We
-        have a large showroom and luxury demonstration rooms available for you
-        to browse and experience a wide range of our products. Stop by our store
-        to meet some of the fantastic people who make Audiophile the best place
-        to buy your portable audio equipment.
-      </div>
+    <div class="text-title">Bringing you the best audio gear</div>
+    <div class="text-desc">
+      Located at the heart of New York City, Audiophile is the premier store for
+      high end headphones, earphones, speakers, and audio accessories. We have a
+      large showroom and luxury demonstration rooms available for you to browse
+      and experience a wide range of our products. Stop by our store to meet
+      some of the fantastic people who make Audiophile the best place to buy
+      your portable audio equipment.
     </div>
+    <div class="best-txt"></div>
   </div>
 </template>
 
@@ -36,14 +35,16 @@
   .best-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
-    height: 60rem;
-    margin: 0 auto;
+    height: 100%;
+    gap: 2rem;
+    margin: 2rem auto 0rem;
     padding: 0 var(--page-padding);
   }
   img {
     width: 100%;
-    height: 20rem;
+    max-height: 20rem;
     max-width: 100%;
     height: 100%;
     object-fit: cover;
@@ -57,7 +58,8 @@
 
     width: 100%;
     background-color: var(--clr-peach);
-    padding: 3rem;
+    margin: 3rem;
+    padding: 3rem auto 3rem;
   }
   .text-title {
     color: var(--clr-black);
