@@ -1,20 +1,28 @@
 <template>
-  <div></div>
+  <div>
+    <!-- <p class="no-select">這是一段文本，用戶不能選擇。</p> -->
+    <ProductPage :product="product" />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { useProductStore } from "@/store/product";
 import { onBeforeMount, ref } from "vue";
 import { useRoute } from "vue-router";
-const productStore = useProductStore();
+import ProductPage from "@/components/ProductPage.vue";
 
+const productStore = useProductStore();
 const route = useRoute();
 console.log("route: ", route.params.category, route.params.id);
-const product = productStore.getProduct(
-  route.params.category as string,
+const product = productStore.getProductById(
+  // route.params.category as string,
   route.params.id as string
 );
-console.log("product: ", product);
+// console.log("product: ", product);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.no-select {
+  user-select: none;
+}
+</style>

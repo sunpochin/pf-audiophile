@@ -35,13 +35,6 @@ function getSrcset(mobileImagePath) {
   return `${mobileImagePath}`;
 }
 const { productList, xxx } = defineProps(["productList", "xxx"]);
-// console.log("xxx  : ", xxx);
-// console.log("productList: ", productList);
-// productList.forEach((element) => {
-//   console.log(element, "element");
-// });
-// const firstProduct = (productList as any[])[0];
-// console.log(firstProduct);
 
 onMounted(() => {
   // console.log("xxx 2: ", xxx);
