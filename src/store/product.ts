@@ -6,13 +6,14 @@ export const useProductStore = defineStore("product", {
   state: () => ({
     //
     getProduct() {
-      console.log("getProduct");
       console.log(datas);
       return datas;
     },
+    getProductById(slug: string) {
+      return datas.find((data) => data.slug === slug);
+    },
 
     getHeadphones() {
-      console.log("getHeadphones");
       return datas.filter((data) => data.category === "headphones");
     },
     getEarphones() {
