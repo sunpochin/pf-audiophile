@@ -48,20 +48,25 @@ const categories = [
 
 <style scoped>
 .hero-shop {
+  padding: 0 var(--page-padding);
+
   height: 21rem;
   max-width: var(--max-width);
+  margin: 10rem auto 6rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+<<<<<<< HEAD
   margin: 10rem auto 6rem;
   padding: 0 var(--page-padding);
 
+=======
+>>>>>>> develop
   gap: 0rem;
   /* padding: 0 var(--page-padding);
   margin: 12rem auto 3rem;
   padding-bottom: 3rem;
-  margin: 10rem auto 6rem;
   padding: 1.5rem; */
 }
 .shop {

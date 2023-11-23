@@ -28,10 +28,22 @@ const routes = [
     component: () => import("@/views/EarphonesView.vue"),
   },
   {
+<<<<<<< HEAD
     path: "/product/:category/:id",
     name: "product",
     component: () => import("@/views/ProductView.vue"),
   },
+=======
+    path: "/product/:productID/:slug",
+    name: "ProductView",
+    component: () => import("@/views/ProductView.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("@/views/NotFound.vue"),
+  },
+>>>>>>> develop
   // {
   //   path: '/',
   //   component: () => import('@/layouts/default/Default.vue'),

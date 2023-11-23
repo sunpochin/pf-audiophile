@@ -49,7 +49,7 @@
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <button class="btn-4" @click="toProduct('zx9 speaker', 'speakers')">
+          <button class="btn-4" @click="toProduct('speakers', 'zx9 speaker')">
             <p class="btn-4-p">SEE PRODUCT</p>
           </button>
         </div>
@@ -59,7 +59,7 @@
       <div class="secondary-product large flex-align">
         <div class="secondary-product-txt">
           <h4>zx7 speaker</h4>
-          <button class="btn-2" @click="toProduct('zx7 speaker', 'speakers')">
+          <button class="btn-2" @click="toProduct('speakers', 'zx7 speaker')">
             <p class="btn-2-p">SEE PRODUCT</p>
           </button>
         </div>
@@ -73,7 +73,7 @@
             <h4>yx1 earphones</h4>
             <button
               class="btn-2"
-              @click="toProduct('yx1 earphones', 'earphones')"
+              @click="toProduct('earphones', 'yx1 earphones')"
             >
               <p class="btn-2-p">SEE PRODUCT</p>
             </button>
@@ -94,9 +94,15 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 
+<<<<<<< HEAD
 const toProduct = (category: string, slug: string) => {
   console.log("category: ", category, "slug: ", slug);
   router.push({ name: "product", params: { category, id: slug } });
+=======
+const toProduct = (category: string, item: string) => {
+  // router.push({path: path, params: { pathname: name} );
+  // router.push({ path: path });
+>>>>>>> develop
 };
 </script>
 

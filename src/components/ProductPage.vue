@@ -2,6 +2,10 @@
   <div></div>
 </template>
 
-<script setup></script>
+<script setup>
+console.log($route.params);
+const product = getProductById($route.params.id);
+const { name, description, image, price } = product;
+</script>
 
 <style lang="scss" scoped></style>

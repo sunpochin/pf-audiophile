@@ -2,7 +2,6 @@
   <div class="title">SPEAKERS</div>
   <ProductBox :product-list="productList" xxx="123" />
   <CategoriesComp />
-
   <Best />
   <Footer />
 </template>
@@ -14,6 +13,9 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 import { useProductStore } from "@/store/product.ts";
+import CategoriesComp from "@/components/CategoriesComp.vue";
+import Best from "@/components/Best.vue";
+import Footer from "@/components/Footer.vue";
 
 const productList = ref([]);
 
