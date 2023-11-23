@@ -13,9 +13,6 @@ import CategoriesComp from "@/components/CategoriesComp.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 import { useProductStore } from "@/store/product.ts";
-import CategoriesComp from "@/components/CategoriesComp.vue";
-import Best from "@/components/Best.vue";
-import Footer from "@/components/Footer.vue";
 
 const productList = ref([]);
 

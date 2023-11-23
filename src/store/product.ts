@@ -5,12 +5,7 @@ import datas from "@/data.json";
 export const useProductStore = defineStore("product", {
   state: () => ({
     //
-<<<<<<< HEAD
     getAllProduct() {
-      console.log("getAllProduct");
-=======
-    getProduct() {
->>>>>>> develop
       console.log(datas);
       return datas;
     },
