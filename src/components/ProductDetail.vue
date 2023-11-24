@@ -1,23 +1,29 @@
 <template>
   <div class="product-wrapper">
-    <div>Go Back</div>
+    <button @click="goBack()">Go Back</button>
     <img :src="getSrc(product.image.mobile)" />
     <div class="new-product">NEW PRODUCT</div>
     <div class="product-name">{{ product.name }}</div>
     <div class="product-desc">
       {{ product.description }}
-      <div class="product-price">$ {{ product.price }}</div>
     </div>
+    <div class="product-price">$ {{ product.price }}</div>
+    <div>{{ product.features }}</div>
+    <div>{{ product.includes }}</div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const { product } = defineProps(["product"]);
 console.log("product: ", product);
 
 onMounted(async () => {});
-
+const goBack = () => {
+  router.go(-1);
+};
 //https://cn.vitejs.dev/guide/assets#new-url-url-import-meta-url
 const getSrc = (imageName) => {
   const image = new URL("../../" + `${imageName}`, import.meta.url).href;

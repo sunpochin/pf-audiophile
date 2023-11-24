@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <p class="no-select">這是一段文本，用戶不能選擇。</p> -->
-    <ProductPage :product="product" />
+    <ProductDetail :product="product" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { useProductStore } from "@/store/product";
 import { onBeforeMount, ref } from "vue";
 import { useRoute } from "vue-router";
-import ProductPage from "@/components/ProductPage.vue";
+import ProductDetail from "@/components/ProductDetail.vue";
 
 const productStore = useProductStore();
 const route = useRoute();
