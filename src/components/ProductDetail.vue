@@ -9,7 +9,14 @@
     </div>
     <div class="product-price">$ {{ product.price }}</div>
     <div>{{ product.features }}</div>
-    <div>{{ product.includes }}</div>
+
+    <strong>IN THE BOX</strong>
+    <ul>
+      <li v-for="(item, index) in product.includes" :key="item.id">
+        <span class="quantity">{{ item.quantity }}x</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.item }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -60,5 +67,8 @@ img {
 .product-price {
   margin-left: 0;
   font: 700 18px normal Manrope, sans-serif;
+}
+.quantity {
+  color: var(--clr-peach);
 }
 </style>
