@@ -133,6 +133,9 @@ button {
   border: none;
   text-transform: uppercase;
 }
+.btn-1-p {
+  color: var(--clr-white);
+}
 
 .btn-2 {
   background-color: transparent;
@@ -192,5 +195,24 @@ a {
   .best-gear {
     margin-bottom: 3rem;
   }
+}
+
+.quantity {
+  height: 3rem;
+  background-color: var(--clr-grey);
+  gap: 1rem;
+  width: 7rem;
+}
+.quantity * {
+  font-size: var(--h6-size);
+  font-weight: 600;
+  color: var(--clr-border);
+}
+.quantity-setters {
+  cursor: pointer;
+  transition: 0.4s;
+}
+.quantity-setters:hover {
+  color: var(--clr-black);
 }
 </style>
