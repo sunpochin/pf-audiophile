@@ -1,38 +1,56 @@
 <template>
-  <div class="product-wrapper">
+  <div class="product-wrapper large">
     <button class="go-back" @click="goBack()">Go Back</button>
-    <div class="img-wrapper">
-      <img :src="getSrc(product.image.mobile)" />
-    </div>
-    <div class="product-name">{{ product.name }}</div>
-    <div class="product-desc">
-      {{ product.description }}
-    </div>
-    <div class="product-price">$ {{ product.price }}</div>
-    <div class="cart flex-align">
-      <div class="quantity flex-center">
-        <button class="quantity-setters" v-on:click="decrement()">-</button>
-        <p id="qt">{{ quantity }}</p>
-        <button class="quantity-setters" v-on:click="increment()">+</button>
+    <div class="product-detail">
+      <div class="img-wrapper">
+        <img :src="getSrc(product.image.mobile)" />
       </div>
-      <button class="btn-1" v-on:click="addToCart()">
-        <p class="btn-1-p">add to cart</p>
-      </button>
-      <p class="error" v-show="errMsg">{{ errMsg }}</p>
-    </div>
-    <h1 class="feature">FEATURES</h1>
-    <div class="product-desc">
-      {{ product.description }}
-    </div>
-    <div>{{ product.features }}</div>
+      <div class="product-right">
+        <div class="product-name">{{ product.name }}</div>
+        <div class="product-desc">
+          {{ product.description }}
+        </div>
+        <div class="product-price">$ {{ product.price }}</div>
 
-    <strong class="in-the-box">IN THE BOX</strong>
-    <ul>
-      <li v-for="(item, index) in product.includes" :key="item.id">
-        <span class="quantity">{{ item.quantity }}x</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.item }}
-      </li>
-    </ul>
+        <div class="cart flex-align">
+          <div class="quantity flex-center">
+            <button class="quantity-setters" v-on:click="decrement()">-</button>
+            <p id="qt">{{ quantity }}</p>
+            <button class="quantity-setters" v-on:click="increment()">+</button>
+          </div>
+          <button class="btn-1" v-on:click="addToCart()">
+            <p class="btn-1-p">add to cart</p>
+          </button>
+          <p class="error" v-show="errMsg">{{ errMsg }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="feature-box-wrapper">
+      <div class="feature">
+        <h3>FEATURES</h3>
+        <div class="product-desc">
+          {{ product.description }}
+        </div>
+        <div>{{ product.features }}</div>
+      </div>
+      <div class="in-the-box">
+        <div class="box-wording">
+          <h3>IN THE BOX</h3>
+        </div>
+        <ul>
+          <li
+            class="box-item"
+            v-for="(item, index) in product.includes"
+            :key="item.id"
+          >
+            <span class="quantity">{{ item.quantity }}x</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+              item.item
+            }}
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <div class="gallery">
       <img :src="getSrc(product.gallery.first.mobile)" />
@@ -96,11 +114,26 @@ const getSrc = (imageName) => {
 .product-wrapper {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   width: 100%;
   height: 100%;
-
   padding: 0 var(--page-padding);
+}
+.product-detail {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  gap: 6rem;
+  justify-content: space-between;
+}
+
+.product-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  margin: 5rem auto;
 }
 
 .product-name {
@@ -116,11 +149,11 @@ const getSrc = (imageName) => {
 .img-wrapper {
   width: 100%;
   height: 100%;
+  border-radius: 20px;
 }
 
 img {
-  // margin: 1rem;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .product-price {
@@ -135,13 +168,30 @@ img {
   color: var(--clr-peach);
 }
 
+.feature-box-wrapper {
+  display: flex;
+  flex-direction: display;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 3rem auto;
+}
 .feature {
+  flex: 0 0 50%;
   margin: 3rem 0;
 }
 
 .in-the-box {
+  flex: 0 0 30%;
   font: 700 1.5rem normal Manrope, sans-serif;
-  margin: 3rem 0;
+  margin: 3rem 0 3rem;
+}
+
+.box-wording {
+  margin-bottom: 3rem;
+}
+
+.box-item {
+  font: 500 1rem normal Manrope, sans-serif;
 }
 
 .gallery {
@@ -151,9 +201,6 @@ img {
   margin: 4rem auto;
 }
 
-@media screen and (min-width: 768px) {
-  img {
-    border-radius: 10px;
-  }
+@media screen and (max-width: 1440px) {
 }
 </style>
