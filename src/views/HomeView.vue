@@ -103,6 +103,10 @@ const toProduct = (category: string, slug: string) => {
 </script>
 
 <style lang="scss" scoped>
+.hero {
+  padding: 9rem var(--page-padding);
+}
+
 .padding-wrapper {
   max-width: var(--max-width);
   padding: 0 var(--page-padding);
@@ -196,11 +200,8 @@ h4 {
 }
 
 .hero-txt {
-  // width: 398px;
   height: 346px;
   display: flex;
-
-  // align-self: left;
   max-width: 100%;
   // flex-grow: 1;
   flex-direction: column;
@@ -246,7 +247,7 @@ h4 {
 }
 
 /* --- RESPONSIVE --- */
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 768px) {
   .hero {
     padding: 7rem var(--page-padding);
   }
