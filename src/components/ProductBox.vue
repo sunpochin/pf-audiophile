@@ -25,8 +25,7 @@
 </template>
 
 <script setup>
-import { onBeforeUpdate } from "vue";
-import { onMounted, onUpdated, onActivated, ref } from "vue";
+import { onMounted } from "vue";
 
 function getSrcset(mobileImagePath) {
   // 可以在这里进行任何其他处理
@@ -37,10 +36,6 @@ function getSrcset(mobileImagePath) {
 const { productList, xxx } = defineProps(["productList", "xxx"]);
 
 onMounted(() => {
-  // console.log("xxx 2: ", xxx);
-  // const firstProduct = (productList as Array<any>)[0];
-  const firstProduct = productList;
-  // console.log("First product: ", firstProduct);
   productList.forEach((element) => {
     console.log(element, "element");
     console.log("img: ", `@/${element.image["mobile"]}`);
@@ -50,8 +45,52 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 1440px) {
-  // @media screen and (max-width: 768px) {
+.prod {
+  flex-direction: row;
+  margin: 3rem auto 6rem;
+}
+
+.prod:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.prod-img {
+  width: 100%;
+  padding: 1.5rem;
+}
+img {
+  border-radius: 10px;
+}
+.prod-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  height: 24rem;
+  max-width: 95%;
+  text-align: center;
+  width: 100%;
+}
+.p-overline {
+  color: var(--clr-peach);
+  font: 400 1rem normal Manrope, sans-serif;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.name {
+  font: 700 2.25rem Manrope, sans-serif;
+}
+.prod-desc {
+  font: 500 1rem normal Manrope, sans-serif;
+}
+.product-link {
+  color: var(--clr-white);
+}
+
+// @media screen and (max-width: 1440px) {
+@media screen and (max-width: 768px) {
   .prod {
     flex-direction: column;
     margin: 3rem auto 6rem;

@@ -8,13 +8,12 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref, watch, onMounted, onActivated } from "vue";
+import { onBeforeMount, ref } from "vue";
 import ProductBox from "@/components/ProductBox.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 import { useProductStore } from "@/store/product.ts";
 import CategoriesComp from "@/components/CategoriesComp.vue";
-import { handleError } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 
