@@ -59,8 +59,8 @@
     </div>
 
     <Best />
-    <Footer />
   </div>
+  <Footer />
 </template>
 
 <script setup>

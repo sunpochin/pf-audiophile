@@ -18,7 +18,10 @@ const product = productStore.getProductById(
   // route.params.category as string,
   route.params.id as string
 );
-// console.log("product: ", product);
+onBeforeMount(() => {
+  window.scrollTo(0, 0);
+});
+console.log("product: ", product);
 </script>
 
 <style lang="scss" scoped>

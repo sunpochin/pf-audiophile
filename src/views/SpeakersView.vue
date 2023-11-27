@@ -20,6 +20,7 @@ onBeforeMount(() => {
   const productStore = useProductStore();
   productList.value = productStore.getSpeakers();
   console.log("view productList: ", productList.value);
+  window.scrollTo(0, 0);
 });
 </script>
 
