@@ -19,7 +19,7 @@
           helping you get the most out of personal audio. Come and visit our
           demo facility - we’re open 7 days a week.
         </div>
-        <div class="footer-copyright">Copyright 2021. All Rights Reserved</div>
+        <div class="footer-copyright">Copyright 2023. All Rights Reserved</div>
         <div class="footer-social">
           <img
             src="../assets/shared/desktop/icon-facebook.svg"

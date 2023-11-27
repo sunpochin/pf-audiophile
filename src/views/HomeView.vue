@@ -91,18 +91,23 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
 const router = useRouter();
-import HeroBlock from "@/components/HeroBlock.vue";
 import CategoriesComp from "@/components/CategoriesComp.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 
-const toProduct = (category: string, slug: string) => {
-  console.log("category: ", category, "slug: ", slug);
-  router.push({ name: "product", params: { category, id: slug } });
+const toProduct = (category: string, str: string) => {
+  const arr = str.toLowerCase().split(" ");
+  const join = arr.join("-");
+  console.log(join);
+  router.push("/" + category);
 };
 </script>
 
 <style lang="scss" scoped>
+.hero {
+  padding: 9rem var(--page-padding);
+}
+
 .padding-wrapper {
   max-width: var(--max-width);
   padding: 0 var(--page-padding);
@@ -196,11 +201,8 @@ h4 {
 }
 
 .hero-txt {
-  // width: 398px;
   height: 346px;
   display: flex;
-
-  // align-self: left;
   max-width: 100%;
   // flex-grow: 1;
   flex-direction: column;
@@ -246,7 +248,7 @@ h4 {
 }
 
 /* --- RESPONSIVE --- */
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 768px) {
   .hero {
     padding: 7rem var(--page-padding);
   }
