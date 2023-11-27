@@ -48,19 +48,14 @@ const categories = [
 
 <style scoped>
 .hero-shop {
-  padding: 0 var(--page-padding);
-
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: space-between;
   height: 21rem;
   max-width: var(--max-width);
   margin: 10rem auto 6rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10rem auto 6rem;
-  padding: 0 var(--page-padding);
-
-  gap: 0rem;
+  gap: 2rem;
   /* padding: 0 var(--page-padding);
   margin: 12rem auto 3rem;
   padding-bottom: 3rem;
@@ -68,41 +63,31 @@ const categories = [
 }
 .shop {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 16rem;
   background-color: var(--clr-grey);
   border-radius: 10px;
   position: relative;
-  /* left: 100px; */
   top: 0rem;
   gap: 0rem;
 }
 
 .shop-txt {
-  justify-content: center;
+  display: flex;
   flex-direction: column;
-  /* margin-bottom: -7.3rem; */
+  justify-content: flex-end;
+  position: relative;
+  top: 12rem;
 }
 
 .shop-img {
   height: auto;
+  position: absolute;
+  top: -8rem;
 }
 
 @media screen and (max-width: 768px) {
-  /* // study
-  .hero-shop {
-    flex-direction: column;
-    gap: 0rem;
-    margin: 5rem auto 0rem;
-
-    padding: 1.5rem;
-    height: 51rem;
-  }
-  .shop {
-    height: 16rem;
-    gap: 1rem;
-  } */
-
   .hero-shop {
     flex-direction: column;
     gap: 0rem;
@@ -123,10 +108,9 @@ const categories = [
     height: auto;
   }
   .shop-txt {
-    justify-content: center;
     flex-direction: column;
-    margin-bottom: 2rem;
-    gap: 1rem;
+    position: relative;
+    top: -2rem;
   }
 }
 </style>
