@@ -1,48 +1,50 @@
 <template>
-  <div class="product-wrapper">
-    <button class="go-back" @click="goBack()">Go Back</button>
-    <div class="img-wrapper">
-      <img :src="getSrc(product.image.mobile)" />
-    </div>
-    <div class="product-name">{{ product.name }}</div>
-    <div class="product-desc">
-      {{ product.description }}
-    </div>
-    <div class="product-price">$ {{ product.price }}</div>
-    <div class="cart flex-align">
-      <div class="quantity flex-center">
-        <button class="quantity-setters" v-on:click="decrement()">-</button>
-        <p id="qt">{{ quantity }}</p>
-        <button class="quantity-setters" v-on:click="increment()">+</button>
+  <section class="large">
+    <div class="product-wrapper">
+      <button class="go-back" @click="goBack()">Go Back</button>
+      <div class="img-wrapper">
+        <img :src="getSrc(product.image.mobile)" />
       </div>
-      <button class="btn-1" v-on:click="addToCart()">
-        <p class="btn-1-p">add to cart</p>
-      </button>
-      <p class="error" v-show="errMsg">{{ errMsg }}</p>
-    </div>
-    <h1 class="feature">FEATURES</h1>
-    <div class="product-desc">
-      {{ product.description }}
-    </div>
-    <div>{{ product.features }}</div>
+      <div class="product-name">{{ product.name }}</div>
+      <div class="product-desc">
+        {{ product.description }}
+      </div>
+      <div class="product-price">$ {{ product.price }}</div>
+      <div class="cart flex-align">
+        <div class="quantity flex-center">
+          <button class="quantity-setters" v-on:click="decrement()">-</button>
+          <p id="qt">{{ quantity }}</p>
+          <button class="quantity-setters" v-on:click="increment()">+</button>
+        </div>
+        <button class="btn-1" v-on:click="addToCart()">
+          <p class="btn-1-p">add to cart</p>
+        </button>
+        <p class="error" v-show="errMsg">{{ errMsg }}</p>
+      </div>
+      <h1 class="feature">FEATURES</h1>
+      <div class="product-desc">
+        {{ product.description }}
+      </div>
+      <div>{{ product.features }}</div>
 
-    <strong class="in-the-box">IN THE BOX</strong>
-    <ul>
-      <li v-for="(item, index) in product.includes" :key="item.id">
-        <span class="quantity">{{ item.quantity }}x</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.item }}
-      </li>
-    </ul>
+      <strong class="in-the-box">IN THE BOX</strong>
+      <ul>
+        <li v-for="(item, index) in product.includes" :key="item.id">
+          <span class="quantity">{{ item.quantity }}x</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.item }}
+        </li>
+      </ul>
 
-    <div class="gallery">
-      <img :src="getSrc(product.gallery.first.mobile)" />
-      <img :src="getSrc(product.gallery.second.mobile)" />
-      <img :src="getSrc(product.gallery.third.mobile)" />
+      <div class="gallery">
+        <img :src="getSrc(product.gallery.first.mobile)" />
+        <img :src="getSrc(product.gallery.second.mobile)" />
+        <img :src="getSrc(product.gallery.third.mobile)" />
+      </div>
+
+      <Best />
     </div>
-
-    <Best />
     <Footer />
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -96,11 +98,7 @@ const getSrc = (imageName) => {
 .product-wrapper {
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  width: 100%;
   height: 100%;
-
-  padding: 0 var(--page-padding);
 }
 
 .product-name {
@@ -151,9 +149,13 @@ img {
   margin: 4rem auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   img {
     border-radius: 10px;
+  }
+  .product-wrapper {
+    // display: flex;
+    padding: 0 var(--page-padding);
   }
 }
 </style>

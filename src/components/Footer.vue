@@ -42,10 +42,9 @@
 .footer-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 3rem;
 
-  width: 100%;
+  max-width: 100%;
   background-color: var(--clr-black);
   color: var(--clr-peach);
 }
@@ -55,6 +54,8 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0 var(--page-padding);
+  max-width: var(--max-width);
+  margin: auto;
 }
 
 img {
@@ -112,7 +113,6 @@ a:hover {
     flex-direction: column;
     justify-content: flex-start;
     gap: 3rem;
-
     width: 100%;
     background-color: var(--clr-black);
     color: var(--clr-peach);

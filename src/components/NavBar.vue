@@ -87,6 +87,8 @@ export default {
 
 <style scoped>
 header {
+  padding: 0 var(--page-padding);
+
   background-color: var(--clr-black);
   position: fixed;
   top: 0;
