@@ -91,14 +91,15 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
 const router = useRouter();
-import HeroBlock from "@/components/HeroBlock.vue";
 import CategoriesComp from "@/components/CategoriesComp.vue";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
 
-const toProduct = (category: string, slug: string) => {
-  console.log("category: ", category, "slug: ", slug);
-  router.push({ name: "product", params: { category, id: slug } });
+const toProduct = (category: string, str: string) => {
+  const arr = str.toLowerCase().split(" ");
+  const join = arr.join("-");
+  console.log(join);
+  router.push("/" + category);
 };
 </script>
 
