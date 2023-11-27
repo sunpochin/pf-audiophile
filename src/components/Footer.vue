@@ -149,6 +149,13 @@ a:hover {
     opacity: 0.5;
   }
 
+  .logo-n-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 var(--page-padding);
+  }
+
   .footer-copyright {
     color: var(--clr-white);
     font: 500 1rem "Manrope", sans-serif;

@@ -95,6 +95,11 @@ img {
     flex-direction: column;
     margin: 3rem auto 6rem;
   }
+
+  .prod:nth-child(even) {
+    flex-direction: column;
+  }
+
   .prod-img {
     width: 100%;
     padding: 1.5rem;
