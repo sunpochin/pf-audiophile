@@ -19,69 +19,71 @@
       </div>
     </section>
 
-    <section>
-      <div>
-        <CategoriesComp />
-      </div>
-    </section>
-    <section class="main-prod-wrap flex-center">
-      <div class="main-product">
-        <picture>
-          <source
-            media="(min-width: 1024px)"
-            srcset="../assets/home/desktop/image-speaker-zx9.png"
-            class="source-pc"
-          />
-          <source
-            media="(min-width: 768px)"
-            srcset="../assets/home/tablet/image-speaker-zx9.png"
-            class="source-tablet"
-          />
-          <img
-            src="../assets/home/mobile/image-speaker-zx9.png"
-            alt="image of the speaker"
-            class="source-mobile"
-          />
-        </picture>
-        <div class="main-prod-txt">
-          <h2 class="h2-big">zx9 speaker</h2>
-          <p>
-            Upgrade to premium speakers that are phenomenally built to deliver
-            truly remarkable sound.
-          </p>
-          <button class="btn-4" @click="toProduct('speakers', 'zx9 speaker')">
-            <p class="btn-4-p">SEE PRODUCT</p>
-          </button>
+    <div class="padding-wrapper">
+      <section>
+        <div>
+          <CategoriesComp />
         </div>
-      </div>
-    </section>
-    <section class="secondary-product-wrap flex-center">
-      <div class="secondary-product large flex-align">
-        <div class="secondary-product-txt">
-          <h4>zx7 speaker</h4>
-          <button class="btn-2" @click="toProduct('speakers', 'zx7 speaker')">
-            <p class="btn-2-p">SEE PRODUCT</p>
-          </button>
+      </section>
+      <section class="main-prod-wrap flex-center">
+        <div class="main-product">
+          <picture>
+            <source
+              media="(min-width: 1024px)"
+              srcset="../assets/home/desktop/image-speaker-zx9.png"
+              class="source-pc"
+            />
+            <source
+              media="(min-width: 768px)"
+              srcset="../assets/home/tablet/image-speaker-zx9.png"
+              class="source-tablet"
+            />
+            <img
+              src="../assets/home/mobile/image-speaker-zx9.png"
+              alt="image of the speaker"
+              class="source-mobile"
+            />
+          </picture>
+          <div class="main-prod-txt">
+            <h2 class="h2-big">zx9 speaker</h2>
+            <p>
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
+            </p>
+            <button class="btn-4" @click="toProduct('speakers', 'zx9 speaker')">
+              <p class="btn-4-p">SEE PRODUCT</p>
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="ternary-product-wrap">
-      <div class="ternary-product">
-        <div class="ternary-product-1"></div>
-        <div class="ternary-product-2">
-          <div class="ternary-product-txt">
-            <h4>yx1 earphones</h4>
-            <button
-              class="btn-2"
-              @click="toProduct('earphones', 'yx1 earphones')"
-            >
+      </section>
+      <section class="secondary-product-wrap flex-center">
+        <div class="secondary-product large flex-align">
+          <div class="secondary-product-txt">
+            <h4>zx7 speaker</h4>
+            <button class="btn-2" @click="toProduct('speakers', 'zx7 speaker')">
               <p class="btn-2-p">SEE PRODUCT</p>
             </button>
           </div>
         </div>
-      </div>
-    </section>
-    <Best />
+      </section>
+      <section class="ternary-product-wrap">
+        <div class="ternary-product">
+          <div class="ternary-product-1"></div>
+          <div class="ternary-product-2">
+            <div class="ternary-product-txt">
+              <h4>yx1 earphones</h4>
+              <button
+                class="btn-2"
+                @click="toProduct('earphones', 'yx1 earphones')"
+              >
+                <p class="btn-2-p">SEE PRODUCT</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Best />
+    </div>
     <Footer />
   </div>
 </template>
@@ -102,7 +104,11 @@ const toProduct = (category: string, slug: string) => {
 
 <style lang="scss" scoped>
 .padding-wrapper {
-  // padding: 0 var(--page-padding);
+  max-width: var(--max-width);
+  padding: 0 var(--page-padding);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 .main-prod-txt {
   color: var(--clr-white);
@@ -119,12 +125,12 @@ const toProduct = (category: string, slug: string) => {
 .main-product {
   flex-direction: column;
   background-color: var(--clr-peach);
-  height: 40rem;
+  height: 30rem;
   width: 100%;
   border-radius: 10px;
-  padding: 3rem;
   margin: 0 auto 3rem;
   position: relative;
+  padding: 0 var(--page-padding);
 }
 
 .main-product picture {
@@ -134,14 +140,9 @@ const toProduct = (category: string, slug: string) => {
 }
 
 .secondary-product {
-  // background-color: var(--clr-grey);
   background-image: url("../assets/home/desktop/image-speaker-zx7.jpg");
-  // background-size: contain;
-  // background-repeat: repeat;
   background-size: cover;
   background-position: bottom;
-  // background-size: cover;
-  // background-position: bottom 2rem right 1rem;
   height: 20rem;
   width: 100%;
   border-radius: 10px;
