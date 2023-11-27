@@ -32,6 +32,7 @@ const routes = [
     name: "product",
     component: () => import("@/views/ProductView.vue"),
   },
+
   // {
   //   path: '/',
   //   component: () => import('@/layouts/default/Default.vue'),
