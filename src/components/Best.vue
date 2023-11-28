@@ -38,7 +38,7 @@
   max-width: var(--max-width);
   height: 100%;
   gap: 2rem;
-  margin: 2rem auto 0rem;
+  margin: 2rem auto 2rem;
   padding: 0 var(--page-padding);
 }
 img {
@@ -87,13 +87,11 @@ img {
 @media screen and (max-width: 768px) {
   // @media screen and (max-width: 1440px) {
   .best-wrapper {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
     height: 100%;
     gap: 2rem;
-    margin: 2rem auto 0rem;
     padding: 0 var(--page-padding);
   }
   img {

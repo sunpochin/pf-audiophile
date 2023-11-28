@@ -1,18 +1,10 @@
 <template>
   <footer>
     <div class="footer-wrapper">
-      <div class="logo-n-links">
+      <div class="logo-n-desc">
         <div class="footer-logo">
           <img src="../assets/shared/desktop/logo.svg" alt="logo" />
         </div>
-        <div class="footer-links">
-          <router-link to="/">HOME</router-link>
-          <router-link to="/headphones">HEADPHONES</router-link>
-          <router-link to="/speakers">SPEAKERS</router-link>
-          <router-link to="/earphones">EARPHONES</router-link>
-        </div>
-      </div>
-      <div class="desc-n-social">
         <div class="footer-desc">
           Audiophile is an all in one stop to fulfill your audio needs. We're a
           small team of music lovers and sound specialists who are devoted to
@@ -20,6 +12,14 @@
           demo facility - we’re open 7 days a week.
         </div>
         <div class="footer-copyright">Copyright 2023. All Rights Reserved</div>
+      </div>
+      <div class="desc-n-social">
+        <div class="footer-links">
+          <router-link to="/">HOME</router-link>
+          <router-link to="/headphones">HEADPHONES</router-link>
+          <router-link to="/speakers">SPEAKERS</router-link>
+          <router-link to="/earphones">EARPHONES</router-link>
+        </div>
         <div class="footer-social">
           <img
             src="../assets/shared/desktop/icon-facebook.svg"
@@ -44,25 +44,29 @@
   // flex-direction: column;
   // gap: 3rem;
 
-  // max-width: 100%;
+  // width: 100%;
   // background-color: var(--clr-black);
   // color: var(--clr-peach);
 }
+// footer {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 3rem;
+//   width: 100%;
+//   color: var(--clr-peach);
+//   background-color: var(--clr-black);
+//   padding: 3.5rem 0;
+//   // max-width: var(--max-width);
+//   margin: auto;
+// }
+
 footer {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 100%;
-  color: var(--clr-peach);
   background-color: var(--clr-black);
   padding: 3.5rem 0;
-  // max-width: var(--max-width);
-  margin: auto;
 }
-
-.logo-n-links {
+.logo-n-desc {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   position: relative;
   max-width: var(--max-width);
   margin: auto;
@@ -70,7 +74,8 @@ footer {
 
 .desc-n-social {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-;
 }
 
 img {
@@ -99,19 +104,19 @@ a:hover {
 }
 
 .footer-desc {
-  max-width: 20rem;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 25%;
+  text-align: left;
   color: var(--clr-white);
   font: 500 1rem "Manrope", sans-serif;
   opacity: 0.5;
 }
 
 .footer-copyright {
+  margin-top: 2rem;
+  text-align: left;
   color: var(--clr-white);
   font: 500 1rem "Manrope", sans-serif;
   opacity: 0.5;
-  text-align: center;
 }
 
 .footer-social {
@@ -170,7 +175,7 @@ a:hover {
     opacity: 0.5;
   }
 
-  .logo-n-links {
+  .logo-n-desc {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -97,8 +97,10 @@ const categories = [
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-self: center;
+    max-width: 90%;
     height: 15rem;
-    gap: 0rem;
+    padding: 0 var(--page-padding);
   }
 
   .shop-img {
