@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="footer-wrapper">
-      <div class="logo-n-links">
+      <div class="logo-n-link">
         <div class="footer-logo">
           <img src="../assets/shared/desktop/logo.svg" alt="logo" />
         </div>
@@ -20,17 +20,14 @@
           demo facility - we’re open 7 days a week.
         </div>
         <div class="footer-copyright">Copyright 2023. All Rights Reserved</div>
-        <div class="footer-social">
-          <img
-            src="../assets/shared/desktop/icon-facebook.svg"
-            alt="facebook"
-          />
-          <img src="../assets/shared/desktop/icon-twitter.svg" alt="twitter" />
-          <img
-            src="../assets/shared/desktop/icon-instagram.svg"
-            alt="instagram"
-          />
-        </div>
+      </div>
+      <div class="footer-social">
+        <img src="../assets/shared/desktop/icon-facebook.svg" alt="facebook" />
+        <img src="../assets/shared/desktop/icon-twitter.svg" alt="twitter" />
+        <img
+          src="../assets/shared/desktop/icon-instagram.svg"
+          alt="instagram"
+        />
       </div>
     </div>
   </footer>
@@ -39,38 +36,16 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-.footer-wrapper {
-  // display: flex;
-  // flex-direction: column;
-  // gap: 3rem;
-
-  // max-width: 100%;
-  // background-color: var(--clr-black);
-  // color: var(--clr-peach);
-}
 footer {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 100%;
-  color: var(--clr-peach);
   background-color: var(--clr-black);
   padding: 3.5rem 0;
-  // max-width: var(--max-width);
-  margin: auto;
 }
-
-.logo-n-links {
+.logo-n-link {
   display: flex;
   justify-content: space-between;
   position: relative;
   max-width: var(--max-width);
   margin: auto;
-}
-
-.desc-n-social {
-  display: flex;
-  flex-direction: row;
 }
 
 img {
@@ -98,20 +73,29 @@ a:hover {
   color: var(--clr-peach);
 }
 
+.desc-n-social {
+  max-width: var(--max-width);
+
+  margin: 0rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .footer-desc {
-  max-width: 20rem;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 30%;
+  text-align: left;
   color: var(--clr-white);
   font: 500 1rem "Manrope", sans-serif;
   opacity: 0.5;
 }
 
 .footer-copyright {
+  margin-top: 2rem;
+  text-align: left;
   color: var(--clr-white);
   font: 500 1rem "Manrope", sans-serif;
   opacity: 0.5;
-  text-align: center;
 }
 
 .footer-social {
@@ -143,9 +127,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-
     justify-content: flex-start;
-
     color: var(--clr-white);
   }
   a {
@@ -159,18 +141,15 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 0 var(--page-padding);
+    // padding: 0 var(--page-padding);
   }
   .footer-desc {
-    max-width: 20rem;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 2rem auto;
     text-align: center;
-    color: var(--clr-white);
-    font: 500 1rem "Manrope", sans-serif;
-    opacity: 0.5;
   }
 
-  .logo-n-links {
+  .logo-n-link {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
