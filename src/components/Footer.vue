@@ -155,6 +155,12 @@ a:hover {
     color: var(--clr-peach);
   }
 
+  .desc-n-social {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 var(--page-padding);
+  }
   .footer-desc {
     max-width: 20rem;
     margin: 0 auto;
