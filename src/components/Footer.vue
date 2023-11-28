@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <footer>
-      <div class="footer-wrapper">
-        <div class="logo-n-links">
-          <div class="footer-logo">
-            <img src="../assets/shared/desktop/logo.svg" alt="logo" />
-          </div>
-          <div class="footer-links">
-            <router-link to="/">HOME</router-link>
-            <router-link to="/headphones">HEADPHONES</router-link>
-            <router-link to="/speakers">SPEAKERS</router-link>
-            <router-link to="/earphones">EARPHONES</router-link>
-          </div>
+  <footer>
+    <div class="footer-wrapper">
+      <div class="logo-n-links">
+        <div class="footer-logo">
+          <img src="../assets/shared/desktop/logo.svg" alt="logo" />
         </div>
+        <div class="footer-links">
+          <router-link to="/">HOME</router-link>
+          <router-link to="/headphones">HEADPHONES</router-link>
+          <router-link to="/speakers">SPEAKERS</router-link>
+          <router-link to="/earphones">EARPHONES</router-link>
+        </div>
+      </div>
+      <div class="desc-n-social">
         <div class="footer-desc">
           Audiophile is an all in one stop to fulfill your audio needs. We're a
           small team of music lovers and sound specialists who are devoted to
@@ -32,30 +32,45 @@
           />
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </template>
 
 <script setup></script>
 
 <style lang="scss" scoped>
 .footer-wrapper {
+  // display: flex;
+  // flex-direction: column;
+  // gap: 3rem;
+
+  // max-width: 100%;
+  // background-color: var(--clr-black);
+  // color: var(--clr-peach);
+}
+footer {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-
   max-width: 100%;
-  background-color: var(--clr-black);
   color: var(--clr-peach);
+  background-color: var(--clr-black);
+  padding: 3.5rem 0;
+  // max-width: var(--max-width);
+  margin: auto;
 }
 
 .logo-n-links {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: 0 var(--page-padding);
+  position: relative;
   max-width: var(--max-width);
   margin: auto;
+}
+
+.desc-n-social {
+  display: flex;
+  flex-direction: row;
 }
 
 img {
