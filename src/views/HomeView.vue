@@ -204,7 +204,6 @@ h4 {
   height: 346px;
   display: flex;
   max-width: 100%;
-  // flex-grow: 1;
   flex-direction: column;
 }
 
@@ -283,11 +282,6 @@ h4 {
     text-align: center;
     margin: auto;
   }
-  // .secondary-product-txt {
-  //   // margin-left: unset;
-  //   // text-align: center;
-  //   // margin: auto;
-  // }
 }
 
 @media screen and (max-width: 768px) {

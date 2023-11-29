@@ -56,10 +56,6 @@ const categories = [
   max-width: var(--max-width);
   margin: 10rem auto 6rem;
   gap: 2rem;
-  /* padding: 0 var(--page-padding);
-  margin: 12rem auto 3rem;
-  padding-bottom: 3rem;
-  padding: 1.5rem; */
 }
 .shop {
   display: flex;

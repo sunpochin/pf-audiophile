@@ -117,7 +117,6 @@ const getSrc = (imageName) => {
 }
 
 img {
-  // margin: 1rem;
   border-radius: 10px;
 }
 
@@ -154,7 +153,6 @@ img {
     border-radius: 10px;
   }
   .product-wrapper {
-    // display: flex;
     padding: 0 var(--page-padding);
   }
 }
