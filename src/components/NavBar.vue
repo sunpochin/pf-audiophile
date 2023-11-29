@@ -57,15 +57,34 @@
         </svg>
       </div>
     </header>
-    <!-- <CartComponent /> -->
+    <CartComp />
   </div>
 </template>
 
-<script>
+<script setup>
+import CartComp from "@/components/CartComp.vue";
+import { useCartStore } from "@/store/cart";
+import { ref } from "vue";
+
+const isOpen = ref(false);
+const cartStore = useCartStore();
+const goHome = () => {
+  router.push("/");
+};
+const ToggleCart = () => {
+  console.log("ToggleCart");
+  cartStore.toggleCart();
+};
+</script>
+
+<!-- <script>
+import { useCartStore } from "@/store/cart";
+const cartStore = useCartStore();
 export default {
   name: "NavBar",
+  setup() {},
   components: {
-    // CartComponent,
+    CartComp,
   },
   data() {
     return {
@@ -79,11 +98,11 @@ export default {
     },
     ToggleCart() {
       this.cart = !this.cart;
-      this.$store.commit("ChangeCartStatus", this.cart);
+      cartStore.toggleCart();
     },
   },
 };
-</script>
+</script> -->
 
 <style scoped>
 header {
