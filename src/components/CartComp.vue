@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="container" v-show="cartStatus">
+    <section class="container" v-show="cartStatus()">
       CART COMP
       <div class="cart">SSSSS</div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -12,14 +12,14 @@ import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 
 const cartStatus = () => {
-  return cartStore.cartStatus;
+  console.log("stats");
+  return cartStore.getCartValue();
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
   background-color: rgba(0, 0, 0, 0.6);
-  // background-color: var(--clr-peach);
   position: fixed;
   z-index: 100;
   inset: 3.5rem 0 0 0;
@@ -36,7 +36,7 @@ const cartStatus = () => {
   top: 3rem;
   margin-left: auto;
 
-  // transform: translateY(-200rem);
+  transform: translateY(-200rem);
   animation: slideIn 0.4s forwards;
   flex-direction: column;
   justify-content: space-between;

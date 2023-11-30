@@ -71,6 +71,7 @@ const cartStore = useCartStore();
 const goHome = () => {
   router.push("/");
 };
+
 const ToggleCart = () => {
   console.log("ToggleCart");
   cartStore.toggleCart();
