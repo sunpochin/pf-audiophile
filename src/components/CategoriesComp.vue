@@ -1,17 +1,19 @@
 <template>
-  <section class="hero-shop">
-    <div class="shop" v-for="(item, i) in categories" v-bind:key="i">
-      <img :src="item.img" alt="category" class="shop-img" />
-      <div class="shop-txt flex-center">
-        <h6>{{ item.id }}</h6>
-        <router-link :to="item.router" class="flex-align"
-          >SHOP &nbsp;<img
-            src="../assets/shared/desktop/icon-arrow-right.svg"
-            alt=""
-        /></router-link>
+  <div>
+    <section class="hero-shop">
+      <div class="shop" v-for="(item, i) in categories" v-bind:key="i">
+        <img :src="item.img" alt="category" class="shop-img" />
+        <div class="shop-txt flex-center">
+          <h6>{{ item.id }}</h6>
+          <router-link :to="item.router" class="flex-align"
+            >SHOP &nbsp;<img
+              src="../assets/shared/desktop/icon-arrow-right.svg"
+              alt=""
+          /></router-link>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -75,6 +77,12 @@ const categories = [
   justify-content: flex-end;
   position: relative;
   top: 12rem;
+
+  color: var(--clr-dark-grey);
+}
+
+.shop-txt a:hover {
+  color: var(--clr-peach);
 }
 
 .shop-img {

@@ -10,7 +10,7 @@
             made for the passionate music enthusiast.
           </div>
           <button
-            class="see-product"
+            class="btn-1"
             @click="toProduct('headphones', 'xx99-mark-two-headphones')"
           >
             <p class="">SEE PRODUCT</p>
@@ -20,13 +20,10 @@
     </section>
 
     <div class="padding-wrapper">
-      <section>
-        <div>
-          <CategoriesComp />
-        </div>
-      </section>
-      <section class="main-prod-wrap flex-center">
-        <div class="main-product">
+      <CategoriesComp />
+
+      <section class="main-prod-wrap">
+        <div class="main-product large flex-align">
           <picture>
             <source
               media="(min-width: 1024px)"
@@ -128,7 +125,8 @@ const toProduct = (category: string, str: string) => {
   height: 10rem;
 }
 .main-product {
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   background-color: var(--clr-peach);
   height: 30rem;
   width: 100%;
@@ -140,9 +138,17 @@ const toProduct = (category: string, str: string) => {
 
 .main-product picture {
   margin: 1rem;
-  width: 16rem;
-  height: auto;
+  width: 36rem;
+  height: 20rem;
 }
+
+// .main-product picture {
+//   position: absolute;
+//   width: 25.625rem;
+//   height: auto;
+//   bottom: -1rem;
+//   left: 7.8rem;
+// }
 
 .secondary-product {
   background-image: url("../assets/home/desktop/image-speaker-zx7.jpg");
@@ -234,16 +240,8 @@ h4 {
 .product-desc {
   color: #fff;
   opacity: 0.75;
-  margin-top: 28px;
+  margin: 4rem 0;
   font: 500 15px/166.667% Manrope, sans-serif;
-}
-
-.see-product {
-  margin: 2rem 0 0 0;
-  width: 10rem;
-  height: 2rem;
-  background-color: var(--clr-peach);
-  align-self: center;
 }
 
 /* --- RESPONSIVE --- */

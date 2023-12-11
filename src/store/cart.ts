@@ -13,5 +13,9 @@ export const useCartStore = defineStore("cart", {
       console.log("getCartValue: ", cart.value);
       return cart.value;
     },
+    addToCart(product: any) {
+      product.quantity++;
+      console.log("product: ", product);
+    },
   }),
 });
