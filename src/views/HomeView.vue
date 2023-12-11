@@ -250,6 +250,11 @@ h4 {
     padding: 7rem var(--page-padding);
   }
 
+  .main-product {
+    flex-direction: column;
+    height: 40rem;
+  }
+
   .main-prod-wrap,
   .secondary-product-wrap,
   .ternary-product-wrap {

@@ -36,10 +36,16 @@
         </nav>
         <nav class="mobile-nav" v-if="isOpen">
           <ul class="flex-center mobile-ul">
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/headphones">Headphones</router-link></li>
-            <li><router-link to="/speakers">Speakers</router-link></li>
-            <li><router-link to="/earphones">Earphones</router-link></li>
+            <li @click="closeNav"><router-link to="/">Home</router-link></li>
+            <li @click="closeNav">
+              <router-link to="/headphones">Headphones</router-link>
+            </li>
+            <li @click="closeNav">
+              <router-link to="/speakers">Speakers</router-link>
+            </li>
+            <li @click="closeNav">
+              <router-link to="/earphones">Earphones</router-link>
+            </li>
           </ul>
         </nav>
 
@@ -70,6 +76,10 @@ const isOpen = ref(false);
 const cartStore = useCartStore();
 const goHome = () => {
   router.push("/");
+};
+
+const closeNav = () => {
+  isOpen.value = false;
 };
 
 const ToggleCart = () => {
