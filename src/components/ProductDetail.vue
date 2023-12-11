@@ -47,18 +47,57 @@
   <Footer />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
+import { useCartStore } from "@/store/cart";
+const cartStore = useCartStore();
 
 const router = useRouter();
+// const { product } = defineProps(["product"]);
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  features: string;
+  includes: {
+    quantity: number;
+    item: string;
+  }[];
+  gallery: {
+    first: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+    second: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+    third: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+  };
+  image: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+}
 const { product } = defineProps(["product"]);
 console.log("product: ", product);
-
 const quantity = ref(0);
 const errMsg = ref("");
+
+const addToCart = () => {
+  cartStore.addToCart(product);
+};
 
 onMounted(async () => {});
 const goBack = () => {
@@ -78,7 +117,7 @@ const increment = () => {
 };
 
 //https://cn.vitejs.dev/guide/assets#new-url-url-import-meta-url
-const getSrc = (imageName) => {
+const getSrc = (imageName: any) => {
   const image = new URL("../../" + `${imageName}`, import.meta.url).href;
   return image;
 };
@@ -117,7 +156,6 @@ const getSrc = (imageName) => {
 }
 
 img {
-  // margin: 1rem;
   border-radius: 10px;
 }
 
@@ -154,7 +192,6 @@ img {
     border-radius: 10px;
   }
   .product-wrapper {
-    // display: flex;
     padding: 0 var(--page-padding);
   }
 }
