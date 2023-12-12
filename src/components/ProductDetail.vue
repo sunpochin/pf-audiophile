@@ -56,7 +56,6 @@ import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 
 const router = useRouter();
-// const { product } = defineProps(["product"]);
 interface Product {
   id: number;
   name: string;
@@ -91,7 +90,7 @@ interface Product {
   };
 }
 const { product } = defineProps(["product"]);
-console.log("product: ", product);
+console.log("detail product: ", product);
 const quantity = ref(0);
 const errMsg = ref("");
 
@@ -118,7 +117,9 @@ const increment = () => {
 
 //https://cn.vitejs.dev/guide/assets#new-url-url-import-meta-url
 const getSrc = (imageName: any) => {
-  const image = new URL("../../" + `${imageName}`, import.meta.url).href;
+  // console.log("getSrc imageName: ", imageName);
+  const image = new URL("../../" + imageName, import.meta.url);
+  console.log("getSrc image: ", image);
   return image;
 };
 </script>
