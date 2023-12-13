@@ -4,21 +4,23 @@
       <div class="cart">
         CART:
         <ul>
-          <li v-for="item in cartItems" v-bind:key="item.id">
+          <li class="flex-align" v-for="it in cartItems" v-bind:key="it.id">
             <div class="product-img">
-              <img :src="getSrc(item.image.mobile)" />
+              <img
+                :src="getSrc(it.image.mobile)"
+                :alt="'Picture of the ' + it.name"
+              />
             </div>
-            <div class="data-wrapper"></div>
-            <div class="item-data">
-              <div class="name-price">
-                <div class="name">
-                  {{ item.name }}
-                </div>
-                <div class="price">
-                  {{ item.price }}
-                </div>
-              </div>
-              <div class="quantity">{{ item.quantity }}</div>
+            <div class="product-infos">
+              <p>
+                <strong>{{ it.name }}</strong>
+              </p>
+              <p class="price">$ {{ it.price }}</p>
+            </div>
+            <div class="quantity flex-center">
+              <button class="quantity-setters">-</button>
+              <p id="qt">{{ it.quantity }}</p>
+              <button class="quantity-setters">+</button>
             </div>
           </li>
         </ul>
@@ -30,7 +32,6 @@
 <script setup lang="ts">
 import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
-
 const cartItems = cartStore.getCartItems();
 
 const cartStatus = () => {
@@ -52,13 +53,25 @@ const getSrc = (imageName: string) => {
   inset: 3.5rem 0 0 0;
 }
 
+.product-img {
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  flex: 0 0 4rem;
+}
+
+.price {
+  font-size: var(--overline-size);
+  color: var(--clr-border);
+}
+
 .cart {
   width: auto;
   max-width: 32rem;
   min-height: 30rem;
   border-radius: 10px;
   background-color: var(--clr-white);
-  padding: 2rem;
+  padding: 0.5rem;
   position: relative;
   top: 3rem;
   margin-left: auto;
@@ -84,12 +97,14 @@ img {
   // position: absolute;
 }
 
-.data-wrapper {
-  // display: inline-block;
-}
 .item-data {
   display: flex;
   flex-direction: row;
+}
+
+.product-infos {
+  width: 8rem;
+  word-wrap: break-word;
 }
 .name-price {
   display: flex;
