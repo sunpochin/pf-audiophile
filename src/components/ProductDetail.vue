@@ -1,3 +1,5 @@
+<!-- 當列出「XX59 Headphones」這個 Item 的時候，會在這裡列出他的所有細節。 -->
+
 <template>
   <section class="large">
     <div class="product-wrapper">
@@ -56,46 +58,13 @@ import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 
 const router = useRouter();
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  features: string;
-  includes: {
-    quantity: number;
-    item: string;
-  }[];
-  gallery: {
-    first: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    second: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    third: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-  };
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
 const { product } = defineProps(["product"]);
 console.log("detail product: ", product);
-const quantity = ref(0);
+const quantity = ref(1);
 const errMsg = ref("");
 
 const addToCart = () => {
-  cartStore.addToCart(product);
+  cartStore.addToCart(product, quantity.value);
 };
 
 onMounted(async () => {});
@@ -116,10 +85,10 @@ const increment = () => {
 };
 
 //https://cn.vitejs.dev/guide/assets#new-url-url-import-meta-url
-const getSrc = (imageName: any) => {
+const getSrc = (imageName: string) => {
   // console.log("getSrc imageName: ", imageName);
   const image = new URL("../../" + imageName, import.meta.url).href;
-  console.log("getSrc image: ", image);
+  // console.log("getSrc image: ", image);
   return image;
 };
 </script>
