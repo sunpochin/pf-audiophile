@@ -1,19 +1,46 @@
 <template>
   <div>
     <section class="container" v-show="cartStatus()">
-      CART COMP
-      <div class="cart">SSSSS</div>
+      <div class="cart">
+        CART:
+        <ul>
+          <li v-for="item in cartItems" v-bind:key="item.id">
+            <div class="product-img">
+              <img :src="getSrc(item.image.mobile)" />
+            </div>
+            <div class="data-wrapper"></div>
+            <div class="item-data">
+              <div class="name-price">
+                <div class="name">
+                  {{ item.name }}
+                </div>
+                <div class="price">
+                  {{ item.price }}
+                </div>
+              </div>
+              <div class="quantity">{{ item.quantity }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 
+const cartItems = cartStore.getCartItems();
+
 const cartStatus = () => {
-  console.log("stats");
   return cartStore.getCartValue();
+};
+
+const getSrc = (imageName: string) => {
+  const image = new URL("../../" + imageName, import.meta.url).href;
+  console.log("getSrc image: ", image);
+  return image;
 };
 </script>
 
@@ -48,5 +75,26 @@ const cartStatus = () => {
   to {
     transform: translateY(0);
   }
+}
+
+img {
+  border-radius: 10px;
+  width: 3rem;
+  height: 3rem;
+  // position: absolute;
+}
+
+.data-wrapper {
+  // display: inline-block;
+}
+.item-data {
+  display: flex;
+  flex-direction: row;
+}
+.name-price {
+  display: flex;
+  flex-direction: column;
+  font: 700 1rem normal Manrope, sans-serif;
+  margin-bottom: 1rem;
 }
 </style>
