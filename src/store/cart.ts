@@ -61,17 +61,17 @@ const setCookie = (name: string, value: string, days: number) => {
   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 };
 
-const saveCartData = () => {
-  // Save cartData to cookies
-  console.log("saveCartData");
-  setCookie("cartData", JSON.stringify(cartData), 365); // Cookie expires in 365 days
-};
-
 export const useCartStore = defineStore("cart", {
   state: () => ({
     toggleCart() {
       showCart.value = !showCart.value;
     },
+    saveCartData() {
+      // Save cartData to cookies
+      console.log("saveCartData");
+      setCookie("cartData", JSON.stringify(cartData), 365); // Cookie expires in 365 days
+    },
+
     getShowCart() {
       return showCart.value;
     },
@@ -102,7 +102,7 @@ export const useCartStore = defineStore("cart", {
     },
 
     getCartItems() {
-      console.log("getCartItems: ", cartData.cartItems);
+      // console.log("getCartItems: ", cartData.cartItems);
       return cartData.cartItems;
     },
 

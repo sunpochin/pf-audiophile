@@ -90,7 +90,9 @@ const decrement = (id: number) => {
       }
     }
   });
+  cartStore.saveCartData();
 };
+
 const increment = (id: number) => {
   cartStore.getCartItems().forEach((item) => {
     if (item.id === id) {
@@ -99,6 +101,7 @@ const increment = (id: number) => {
       }
     }
   });
+  cartStore.saveCartData();
 };
 </script>
 
