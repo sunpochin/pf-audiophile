@@ -139,7 +139,7 @@ export const useCartStore = defineStore("cart", {
         console.log("push cartItem:", cartItem);
         cartData.cartItems.push(cartItem);
       }
-      saveCartData();
+      this.saveCartData();
     },
   }),
 });

@@ -2,40 +2,42 @@
   <div>
     <section class="container" v-show="getShowCart()">
       <div class="cart">
-        <div class="wording-n-remove">
-          <div class="cart-wording">CART:</div>
-          <div>Remove All</div>
+        <div class="cart-content">
+          <div class="wording-n-remove">
+            <div class="cart-wording">CART:</div>
+            <div>Remove All</div>
+          </div>
+          <ul>
+            <li
+              class="flex-align"
+              v-for="it in cartStore.getCartItems()"
+              v-bind:key="it.id"
+            >
+              <div class="product-img">
+                <img
+                  :src="getSrc(it.image.mobile)"
+                  :alt="'Picture of the ' + it.name"
+                />
+              </div>
+              <div class="product-infos">
+                <p>
+                  <strong>{{ it.name }}</strong>
+                </p>
+                <p class="price">$ {{ it.price }}</p>
+              </div>
+              <div class="quantity flex-center">
+                <button v-on:click="decrement(it.id)" class="quantity-setters">
+                  -
+                </button>
+                <p id="qt">{{ it.quantity }}</p>
+                <button v-on:click="increment(it.id)" class="quantity-setters">
+                  +
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="total">TOTAL: {{ totalPrice }}</div>
         </div>
-        <ul>
-          <li
-            class="flex-align"
-            v-for="it in cartStore.getCartItems()"
-            v-bind:key="it.id"
-          >
-            <div class="product-img">
-              <img
-                :src="getSrc(it.image.mobile)"
-                :alt="'Picture of the ' + it.name"
-              />
-            </div>
-            <div class="product-infos">
-              <p>
-                <strong>{{ it.name }}</strong>
-              </p>
-              <p class="price">$ {{ it.price }}</p>
-            </div>
-            <div class="quantity flex-center">
-              <button v-on:click="decrement(it.id)" class="quantity-setters">
-                -
-              </button>
-              <p id="qt">{{ it.quantity }}</p>
-              <button v-on:click="increment(it.id)" class="quantity-setters">
-                +
-              </button>
-            </div>
-          </li>
-        </ul>
-        <div class="total">TOTAL: {{ totalPrice }}</div>
       </div>
     </section>
   </div>
@@ -134,7 +136,7 @@ const increment = (id: number) => {
 .cart {
   width: auto;
   max-width: 32rem;
-  min-height: 30rem;
+  max-height: 30rem;
   border-radius: 10px;
   background-color: var(--clr-white);
   padding: 0.5rem;
@@ -147,6 +149,14 @@ const increment = (id: number) => {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
 @keyframes slideIn {
   from {
     transform: translateY(-200rem);
