@@ -1,7 +1,6 @@
 // Utilities
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
-// import { ProductInterface } from "@/components/ProductInterface";
 
 const showCart = ref(false);
 
@@ -42,9 +41,7 @@ interface ProductInterface {
 interface CartItemInterface {
   id: number;
   name: string;
-  description: string;
   price: number;
-  features: string;
   quantity: number;
   image: {
     mobile: string;
@@ -53,26 +50,78 @@ interface CartItemInterface {
   };
 }
 
-const cartItems = ref([] as CartItemInterface[]);
+const cartData = reactive({
+  cartItems: [] as CartItemInterface[],
+});
+
+const setCookie = (name: string, value: string, days: number) => {
+  const expires = new Date(
+    Date.now() + days * 24 * 60 * 60 * 1000
+  ).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+};
+
+const saveCartData = () => {
+  // Save cartData to cookies
+  console.log("saveCartData");
+  setCookie("cartData", JSON.stringify(cartData), 365); // Cookie expires in 365 days
+};
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
     toggleCart() {
       showCart.value = !showCart.value;
-      console.log("toggleCart: ", showCart.value);
     },
-    getCartValue() {
-      console.log("getCartValue: ", showCart.value);
+    getShowCart() {
       return showCart.value;
     },
 
+    getCookie(name: any) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) {
+        return parts.pop()?.split(";")?.shift();
+      }
+    },
+
+    readCookie() {
+      const savedCartData = this.getCookie("cartData");
+      console.log("cartComp cartItems: ", savedCartData);
+
+      if (savedCartData) {
+        // If there is saved data, parse and set it to the reactive cartData
+        Object.assign(
+          cartData.cartItems,
+          JSON.parse(savedCartData as string)["cartItems"]
+        );
+        console.log("cartComp cartItemssss: ", cartData.cartItems);
+        for (let i = 0; i < cartData.cartItems.length; i++) {
+          console.log("cart item: ", cartData.cartItems[i]);
+        }
+      }
+    },
+
     getCartItems() {
-      console.log("getCartItems: ", cartItems.value);
-      return cartItems.value;
+      console.log("getCartItems: ", cartData.cartItems);
+      return cartData.cartItems;
+    },
+
+    getTotalPrice() {
+      let totalPrice = 0;
+      cartData.cartItems.forEach((item) => {
+        console.log(
+          "item.price: ",
+          item.price,
+          "item.quantity: ",
+          item.quantity
+        );
+        totalPrice += item.price * item.quantity;
+      });
+      return totalPrice;
     },
 
     addToCart(product: ProductInterface, quantity: number) {
-      const foundProduct = cartItems.value.find(
+      const foundProduct = cartData.cartItems.find(
         (item) => item.id === product.id
       );
       if (foundProduct) {
@@ -84,14 +133,13 @@ export const useCartStore = defineStore("cart", {
         const cartItem = {} as CartItemInterface;
         cartItem.id = product.id;
         cartItem.name = product.name;
-        cartItem.description = product.description;
         cartItem.price = product.price;
-        cartItem.features = product.features;
         cartItem.image = product.image;
         cartItem.quantity = quantity;
         console.log("push cartItem:", cartItem);
-        cartItems.value.push(cartItem);
+        cartData.cartItems.push(cartItem);
       }
+      saveCartData();
     },
   }),
 });
