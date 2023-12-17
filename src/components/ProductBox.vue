@@ -39,8 +39,8 @@ const { productList, xxx } = defineProps(["productList", "xxx"]);
 onMounted(() => {
   productList.forEach((element) => {
     console.log(element, "element");
-    console.log("img: ", `@/${element.image["mobile"]}`);
-    console.log("img: ", `@/${element.image.mobile}`);
+    // console.log("img: ", `@/${element.image["mobile"]}`);
+    // console.log("img: ", `@/${element.image.mobile}`);
   });
 });
 </script>

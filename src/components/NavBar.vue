@@ -72,18 +72,17 @@ import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
 import { ref } from "vue";
 
-const isOpen = ref(false);
 const cartStore = useCartStore();
 const goHome = () => {
   router.push("/");
 };
 
 const closeNav = () => {
-  isOpen.value = false;
+  cartStore.toggleCart();
 };
 
 const ToggleCart = () => {
-  console.log("ToggleCart");
+  // console.log("ToggleCart");
   cartStore.toggleCart();
 };
 </script>
