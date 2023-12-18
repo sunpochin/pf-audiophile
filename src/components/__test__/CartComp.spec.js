@@ -1,42 +1,50 @@
 import { beforeEach, describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import { setActivePinia, createPinia } from "pinia";
-import { Pinia } from "pinia";
-import { useCartStore } from "@/store/cart";
 import CartComp from "@/components/CartComp.vue";
-
-const createComponent = (pinia) => {
-  return mount(CartComp, {
-    global: {
-      plugins: [pinia],
-    },
-  });
-};
+import { createPinia, Pinia, setActivePinia } from "pinia";
+import { useCartStore } from "@/store/cart";
 
 describe("CartComp", () => {
   let pinia;
-
   beforeEach(() => {
     pinia = createPinia();
+    setActivePinia(pinia);
+    const store = useCartStore();
+    store.showCart = true;
   });
 
-  it("renders message from store", () => {
+  it("increments count when + button is clicked", async () => {
     // Arrange
-    // const wrapper = createComponent(pinia);
-    // // Act & Assert
-    // expect(wrapper.text()).toContain("Hello"); // 假设 getMessage 返回 'Hello'
-  });
+    const pinia = createPinia();
+    const wrapper = mount(CartComp, {
+      // data() {
+      //   return {
+      //     isVisible: true,
+      //   };
+      // },
+      global: {
+        plugins: [pinia],
+      },
+    });
 
-  it("interacts with the store", async () => {
-    // Arrange
-    // const wrapper = createComponent(pinia);
-    const store = useCartStore(pinia);
+    //    const store = useCartStore(pinia);
+    const store = useCartStore();
+    store.showCart = true;
+    console.log("store.showCart: ", store.showCart);
 
     // Act
-    const items = await store.getCartItems();
+    // console.log("div:", wrapper.findAll("button"));
+    // wrapper.findAll("button")[0].exists();
+    await wrapper.vm.$nextTick();
+    console.log(wrapper.html());
 
+    // todo: 要加入一個 cartItem 才能找到 button
+
+    const xxx = wrapper.find("button").exists();
+    console.log("xxx:", xxx);
+
+    store.incrementCount();
     // Assert
-    expect(items).toEqual([]);
-    // expect(wrapper.text()).toContain("New Message");
+    expect(store.count).toBe(1);
   });
 });
