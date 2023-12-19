@@ -62,4 +62,23 @@ describe("CartComp", () => {
     // Assert
     expect(store.getCartItems()[0].quantity).toBe(2);
   });
+
+  it("decrese count when - button is clicked", async () => {
+    // // Arrange
+    // const pinia = createPinia();
+    const wrapper = mount(CartComp, {
+      global: {
+        plugins: [pinia],
+      },
+    });
+    const store = useCartStore();
+    // store.showCart = true;
+
+    // Act
+    await wrapper.find(".decrement").trigger("click");
+    console.log(wrapper.html());
+
+    // Assert
+    expect(store.getCartItems()[0].quantity).toBe(1);
+  });
 });

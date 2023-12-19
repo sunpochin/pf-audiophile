@@ -26,11 +26,11 @@
                 <p class="price">$ {{ it.price }}</p>
               </div>
               <div class="quantity flex-center">
-                <button v-on:click="decrement(it.id)" class="quantity-setters">
+                <button v-on:click="decrement(it.id)" class="decrement">
                   -
                 </button>
                 <p id="qt">{{ it.quantity }}</p>
-                <button v-on:click="increment(it.id)" class="quantity-setters">
+                <button v-on:click="increment(it.id)" class="increment">
                   +
                 </button>
               </div>
@@ -44,20 +44,6 @@
 </template>
 
 <script setup lang="ts">
-interface CartItemInterface {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  features: string;
-  quantity: number;
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
-
 import { useCartStore } from "@/store/cart";
 import { computed, onMounted, onBeforeMount } from "vue";
 const cartStore = useCartStore();

@@ -22,6 +22,7 @@ export const useCartStore = defineStore("cart", {
     toggleCart() {
       this.showCart = !this.showCart;
     },
+
     saveCartData() {
       // Save cartData to cookies
       console.log("saveCartData");
