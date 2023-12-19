@@ -1,27 +1,14 @@
-version: 2.1
-jobs:
-  build-and-test:
-    working_directory: ~/project
-    docker:
-      - image: cimg/node:20.5.0
-    steps:
-      - checkout
-      - run:
-          name: Update NPM
-          command: 'sudo npm install -g npm'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install Dependencies
-          command: npm install --legacy-peer-deps
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Run test for the application
-          command: yarn coverage
-workflows:
-  build-and-test:
-    jobs:
-      - build-and-test
+version: '2.1'
+orbs:
+  coveralls: coveralls/coveralls@1.0.6
+  jobs:
+    build:
+      docker:
+        - image: circleci/node:10.0.0
+          steps:
+            - checkout
+        - run:
+            command: npm install && make test-coverage
+            name: Install and Make
+        - coveralls/upload
+workflows: null
