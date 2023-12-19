@@ -6,8 +6,11 @@
 		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview",
 		"lint": "eslint . --fix --ignore-path .gitignore",
-		"test:unit": "vitest",
+		"test:unit": "vitest --environment jsdom",
 		"coverage": "vitest run --coverage"
+	},
+	"engines": {
+		"node": ">= 18"
 	},
 	"dependencies": {
 		"@mdi/font": "7.0.96",
