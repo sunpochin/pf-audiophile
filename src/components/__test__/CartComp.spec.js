@@ -3,6 +3,8 @@ import { mount } from "@vue/test-utils";
 import CartComp from "@/components/CartComp.vue";
 import { createPinia, Pinia, setActivePinia } from "pinia";
 import { useCartStore } from "@/store/cart";
+import { ProductInterface } from "@/types";
+import { CartItemInterface } from "@/types";
 
 describe("CartComp", () => {
   let pinia;
@@ -15,36 +17,49 @@ describe("CartComp", () => {
 
   it("increments count when + button is clicked", async () => {
     // Arrange
-    const pinia = createPinia();
-    const wrapper = mount(CartComp, {
-      // data() {
-      //   return {
-      //     isVisible: true,
-      //   };
-      // },
-      global: {
-        plugins: [pinia],
-      },
-    });
+    // const pinia = createPinia();
+    // const wrapper = mount(CartComp, {
+    //   global: {
+    //     plugins: [pinia],
+    //   },
+    // });
 
-    //    const store = useCartStore(pinia);
     const store = useCartStore();
     store.showCart = true;
     console.log("store.showCart: ", store.showCart);
 
     // Act
-    // console.log("div:", wrapper.findAll("button"));
-    // wrapper.findAll("button")[0].exists();
-    await wrapper.vm.$nextTick();
+    const cateCnt = store.getCartItems().length;
+    const product = {
+      id: 1,
+      name: "test",
+      price: 100,
+      image: "test",
+      description: "test",
+    };
+    // 要 await 才能找到 button
+    await store.addToCart(product, 3);
+
+    // Assert
+    expect(store.getCartItems().length).toBe(cateCnt + 1);
+  });
+
+  it("increments count when + button is clicked", async () => {
+    // Arrange
+    const pinia = createPinia();
+    const wrapper = mount(CartComp, {
+      global: {
+        plugins: [pinia],
+      },
+    });
+    const store = useCartStore();
+    store.showCart = true;
+
+    // Act
+    await wrapper.find("button").trigger("click");
     console.log(wrapper.html());
 
-    // todo: 要加入一個 cartItem 才能找到 button
-
-    const xxx = wrapper.find("button").exists();
-    console.log("xxx:", xxx);
-
-    store.incrementCount();
     // Assert
-    expect(store.count).toBe(1);
+    expect(store.getCartItems()[0].quantity).toBe(2);
   });
 });

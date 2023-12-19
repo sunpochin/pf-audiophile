@@ -1,52 +1,8 @@
 // Utilities
 import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
-
-interface ProductInterface {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  features: string;
-  includes: {
-    quantity: number;
-    item: string;
-  }[];
-  gallery: {
-    first: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    second: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    third: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-  };
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
-
-interface CartItemInterface {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
+import { ProductInterface } from "@/types";
+import { CartItemInterface } from "@/types";
 
 const cartData = reactive({
   cartItems: [] as CartItemInterface[],
@@ -61,7 +17,6 @@ const setCookie = (name: string, value: string, days: number) => {
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
-    count: 0,
     showCart: false,
 
     toggleCart() {
@@ -128,6 +83,7 @@ export const useCartStore = defineStore("cart", {
     incrementCount() {
       this.count++;
     },
+
     addToCart(product: ProductInterface, quantity: number) {
       const foundProduct = cartData.cartItems.find(
         (item) => item.id === product.id
