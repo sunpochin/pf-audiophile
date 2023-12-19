@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: yarn test:unit --coverage
+        run: yarn test:unit
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.2.3
