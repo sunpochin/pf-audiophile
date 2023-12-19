@@ -80,9 +80,6 @@ export const useCartStore = defineStore("cart", {
       });
       return totalPrice;
     },
-    incrementCount() {
-      this.count++;
-    },
 
     addToCart(product: ProductInterface, quantity: number) {
       const foundProduct = cartData.cartItems.find(
