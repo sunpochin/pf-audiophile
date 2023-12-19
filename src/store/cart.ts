@@ -102,6 +102,11 @@ export const useCartStore = defineStore("cart", {
       }
     },
 
+    removeAll() {
+      cartData.cartItems = [];
+      this.saveCartData();
+    },
+
     getCartItems() {
       // console.log("getCartItems: ", cartData.cartItems);
       return cartData.cartItems;
