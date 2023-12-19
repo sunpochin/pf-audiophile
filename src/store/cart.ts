@@ -2,8 +2,6 @@
 import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
 
-const showCart = ref(false);
-
 interface ProductInterface {
   id: number;
   name: string;
@@ -63,8 +61,11 @@ const setCookie = (name: string, value: string, days: number) => {
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
+    count: 0,
+    showCart: false,
+
     toggleCart() {
-      showCart.value = !showCart.value;
+      this.showCart = !this.showCart;
     },
     saveCartData() {
       // Save cartData to cookies
@@ -73,7 +74,7 @@ export const useCartStore = defineStore("cart", {
     },
 
     getShowCart() {
-      return showCart.value;
+      return this.showCart;
     },
 
     getCookie(name: any) {
@@ -101,6 +102,11 @@ export const useCartStore = defineStore("cart", {
       }
     },
 
+    removeAll() {
+      cartData.cartItems = [];
+      this.saveCartData();
+    },
+
     getCartItems() {
       // console.log("getCartItems: ", cartData.cartItems);
       return cartData.cartItems;
@@ -119,7 +125,9 @@ export const useCartStore = defineStore("cart", {
       });
       return totalPrice;
     },
-
+    incrementCount() {
+      this.count++;
+    },
     addToCart(product: ProductInterface, quantity: number) {
       const foundProduct = cartData.cartItems.find(
         (item) => item.id === product.id
