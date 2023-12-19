@@ -14,10 +14,7 @@ import ProductDetail from "@/components/ProductDetail.vue";
 const productStore = useProductStore();
 const route = useRoute();
 console.log("route: ", route.params.category, route.params.id);
-const product = productStore.getProductById(
-  // route.params.category as string,
-  route.params.id as string
-);
+const product = productStore.getProductById(route.params.id as string);
 onBeforeMount(() => {
   window.scrollTo(0, 0);
 });

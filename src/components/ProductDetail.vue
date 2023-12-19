@@ -1,3 +1,5 @@
+<!-- 當列出「XX59 Headphones」這個 Item 的時候，會在這裡列出他的所有細節。 -->
+
 <template>
   <section class="large">
     <div class="product-wrapper">
@@ -47,18 +49,24 @@
   <Footer />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import Best from "@/components/Best.vue";
 import Footer from "@/components/Footer.vue";
+import { useCartStore } from "@/store/cart";
+const cartStore = useCartStore();
 
 const router = useRouter();
 const { product } = defineProps(["product"]);
-console.log("product: ", product);
-
-const quantity = ref(0);
+// console.log("detail product: ", product);
+const quantity = ref(1);
 const errMsg = ref("");
+
+const addToCart = () => {
+  cartStore.addToCart(product, quantity.value);
+  cartStore.toggleCart();
+};
 
 onMounted(async () => {});
 const goBack = () => {
@@ -78,8 +86,10 @@ const increment = () => {
 };
 
 //https://cn.vitejs.dev/guide/assets#new-url-url-import-meta-url
-const getSrc = (imageName) => {
-  const image = new URL("../../" + `${imageName}`, import.meta.url).href;
+const getSrc = (imageName: string) => {
+  // console.log("getSrc imageName: ", imageName);
+  const image = new URL("../../" + imageName, import.meta.url).href;
+  // console.log("getSrc image: ", image);
   return image;
 };
 </script>
@@ -117,7 +127,6 @@ const getSrc = (imageName) => {
 }
 
 img {
-  // margin: 1rem;
   border-radius: 10px;
 }
 
@@ -154,7 +163,6 @@ img {
     border-radius: 10px;
   }
   .product-wrapper {
-    // display: flex;
     padding: 0 var(--page-padding);
   }
 }

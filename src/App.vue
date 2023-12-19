@@ -12,10 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import HelloWorld from "@/components/HelloWorld.vue";
-import HomeView from "@/views/HomeView.vue";
 import NavBar from "@/components/NavBar.vue";
-import { RouterView, useRoute } from "vue-router";
+import { RouterView } from "vue-router";
 </script>
 
 <style lang="scss">
@@ -133,6 +131,9 @@ button {
   border: none;
   text-transform: uppercase;
 }
+.btn-1:hover {
+  background-color: var(--clr-light-peach);
+}
 .btn-1-p {
   color: var(--clr-white);
 }
@@ -141,10 +142,22 @@ button {
   background-color: transparent;
   border: solid 1px var(--clr-black);
 }
+.btn-2:hover {
+  background-color: var(--clr-black);
+}
+.btn-2:hover .btn-2-p {
+  color: var(--clr-white);
+}
 
 .btn-4 {
   background-color: var(--clr-black);
   border: none;
+}
+.btn-4:hover {
+  background-color: rgb(79, 79, 79);
+}
+.btn-4-p {
+  color: var(--clr-white);
 }
 
 .flex-center {

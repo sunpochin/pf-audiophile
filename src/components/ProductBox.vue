@@ -1,3 +1,4 @@
+<!-- 當列出「耳機」這個種類的時候，會出現三個 Item 的 box, 就是這個 box. -->
 <template>
   <div>
     <section>
@@ -38,8 +39,8 @@ const { productList, xxx } = defineProps(["productList", "xxx"]);
 onMounted(() => {
   productList.forEach((element) => {
     console.log(element, "element");
-    console.log("img: ", `@/${element.image["mobile"]}`);
-    console.log("img: ", `@/${element.image.mobile}`);
+    // console.log("img: ", `@/${element.image["mobile"]}`);
+    // console.log("img: ", `@/${element.image.mobile}`);
   });
 });
 </script>
