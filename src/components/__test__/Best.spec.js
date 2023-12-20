@@ -1,4 +1,10 @@
 import Best from "@/components/Best.vue";
+import Footer from "@/components/Footer.vue";
+import HeroBlock from "@/components/HeroBlock.vue";
+import NavBar from "@/components/NavBar.vue";
+import CategoriesComp from "@/components/CategoriesComp.vue";
+import ProductBox from "@/components/ProductBox.vue";
+import ProductComp from "@/components/ProductComp.vue";
 import { describe, it, expect } from "vitest";
 
 describe("Best!", () => {
