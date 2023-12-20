@@ -1,4 +1,4 @@
-import EarphoneView from "@/views/EarphoneView.vue";
+import EarphonesView from "@/views/EarphonesView.vue";
 import HeadphonesView from "@/views/HeadphonesView.vue";
 import HomeView from "@/views/HomeView.vue";
 import ProductView from "@/views/ProductView.vue";
