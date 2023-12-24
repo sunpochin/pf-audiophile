@@ -47,10 +47,6 @@
 import { useCartStore } from "@/store/cart";
 import { computed, onMounted, onBeforeMount } from "vue";
 const cartStore = useCartStore();
-// const cartData = reactive({
-//   cartItems: [] as CartItemInterface[],
-//   cartStatus: false,
-// });
 
 const removeAll = () => {
   cartStore.removeAll();

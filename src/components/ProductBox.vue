@@ -29,8 +29,6 @@
 import { onMounted } from "vue";
 
 function getSrcset(mobileImagePath) {
-  // 可以在这里进行任何其他处理
-  // 例如，添加其他不同分辨率的图片路径
   // return `@/${mobileImagePath}`;
   return `${mobileImagePath}`;
 }
