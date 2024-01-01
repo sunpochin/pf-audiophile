@@ -5,11 +5,11 @@
         <div class="cart-content">
           <div class="wording-n-remove">
             <div class="cart-wording">CART:</div>
-            <div>Remove All</div>
+            <div v-on:click="removeAll()" class="remove-all">Remove All</div>
           </div>
           <ul>
             <li
-              class="flex-align"
+              class="flex-align li-data"
               v-for="it in cartStore.getCartItems()"
               v-bind:key="it.id"
             >
@@ -26,11 +26,11 @@
                 <p class="price">$ {{ it.price }}</p>
               </div>
               <div class="quantity flex-center">
-                <button v-on:click="decrement(it.id)" class="quantity-setters">
+                <button v-on:click="decrement(it.id)" class="decrement">
                   -
                 </button>
                 <p id="qt">{{ it.quantity }}</p>
-                <button v-on:click="increment(it.id)" class="quantity-setters">
+                <button v-on:click="increment(it.id)" class="increment">
                   +
                 </button>
               </div>
@@ -44,20 +44,6 @@
 </template>
 
 <script setup lang="ts">
-interface CartItemInterface {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  features: string;
-  quantity: number;
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
-
 import { useCartStore } from "@/store/cart";
 import { computed, onMounted, onBeforeMount } from "vue";
 const cartStore = useCartStore();
@@ -66,6 +52,9 @@ const cartStore = useCartStore();
 //   cartStatus: false,
 // });
 
+const removeAll = () => {
+  cartStore.removeAll();
+};
 const totalPrice = computed(() => {
   return cartStore.getTotalPrice();
 });
@@ -108,6 +97,11 @@ const increment = (id: number) => {
 </script>
 
 <style lang="scss" scoped>
+.li-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .container {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
@@ -119,6 +113,12 @@ const increment = (id: number) => {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font: 700 1rem normal Manrope, sans-serif;
+}
+
+.remove-all {
+  color: var(--clr-primary);
+  cursor: pointer;
 }
 
 .product-img {
@@ -142,7 +142,7 @@ const increment = (id: number) => {
   padding: 0.5rem;
   position: relative;
   top: 3rem;
-  margin-left: auto;
+  margin: 0 auto;
 
   transform: translateY(-200rem);
   animation: slideIn 0.4s forwards;
@@ -154,7 +154,7 @@ const increment = (id: number) => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0rem;
 }
 
 @keyframes slideIn {

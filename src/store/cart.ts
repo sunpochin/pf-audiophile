@@ -1,54 +1,8 @@
 // Utilities
 import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
-
-const showCart = ref(false);
-
-interface ProductInterface {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  features: string;
-  includes: {
-    quantity: number;
-    item: string;
-  }[];
-  gallery: {
-    first: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    second: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-    third: {
-      mobile: string;
-      tablet: string;
-      desktop: string;
-    };
-  };
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
-
-interface CartItemInterface {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-}
+import { ProductInterface } from "@/types";
+import { CartItemInterface } from "@/types";
 
 const cartData = reactive({
   cartItems: [] as CartItemInterface[],
@@ -63,9 +17,12 @@ const setCookie = (name: string, value: string, days: number) => {
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
+    showCart: false,
+
     toggleCart() {
-      showCart.value = !showCart.value;
+      this.showCart = !this.showCart;
     },
+
     saveCartData() {
       // Save cartData to cookies
       console.log("saveCartData");
@@ -73,7 +30,7 @@ export const useCartStore = defineStore("cart", {
     },
 
     getShowCart() {
-      return showCart.value;
+      return this.showCart;
     },
 
     getCookie(name: any) {
@@ -99,6 +56,11 @@ export const useCartStore = defineStore("cart", {
           console.log("cart item: ", cartData.cartItems[i]);
         }
       }
+    },
+
+    removeAll() {
+      cartData.cartItems = [];
+      this.saveCartData();
     },
 
     getCartItems() {
