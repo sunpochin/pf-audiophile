@@ -20,7 +20,7 @@
           </template>
         </v-snackbar>
       </client-only>
-      <v-col cols="4" class="center">
+      <v-col cols="12" class="center">
         <div class="text-center"></div>
         <div style="width: 400px" class="d-flex align-center justify-center">
           <v-card color="grey-accent-4">
@@ -31,7 +31,7 @@
             >
               <v-tab value="login">登入</v-tab>
               <v-tab value="register">註冊</v-tab>
-              <v-tab value="three">忘記密碼</v-tab>
+              <!-- <v-tab value="three">忘記密碼</v-tab> -->
             </v-tabs>
 
             <v-card-text>
@@ -150,22 +150,23 @@
         </div>
       </v-col>
       <v-col cols="8">
-        <div class="p-20" style="height: 100%">
+        <!-- <div class="p-20" style="height: 100%">
           <img
             class="loginImg"
             src="https://www.10wallpaper.com/wallpaper/1366x768/1608/Dog_puppy_white_pet-Animal_Photos_HD_Wallpaper_1366x768.jpg"
           />
-        </div>
+        </div> -->
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { Auth } from "@/api/auth";
-import { useAuthStore } from "@/stores/auth";
-const authStore = useAuthStore();
+import { ref, reactive } from "vue";
+// import { Auth } from "@/api/auth";
+// import { useAuthStore } from "@/stores/auth";
+// const authStore = useAuthStore();
+import { useRouter } from "vue-router";
 const router = useRouter();
 const selectedTab = ref("");
 const showNotification = ref(false);
