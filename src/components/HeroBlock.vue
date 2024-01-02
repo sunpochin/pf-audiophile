@@ -36,8 +36,6 @@
   width: 398px;
   height: 346px;
   display: flex;
-
-  // align-self: left;
   max-width: 100%;
   flex-grow: 1;
   flex-direction: column;
