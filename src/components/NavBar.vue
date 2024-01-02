@@ -120,33 +120,6 @@ const LoginLogout = () => {
 };
 </script>
 
-<!-- <script>
-import { useCartStore } from "@/store/cart";
-const cartStore = useCartStore();
-export default {
-  name: "NavBar",
-  setup() {},
-  components: {
-    CartComp,
-  },
-  data() {
-    return {
-      isOpen: false,
-      cart: false,
-    };
-  },
-  methods: {
-    goHome() {
-      this.$router.push("/");
-    },
-    ToggleCart() {
-      this.cart = !this.cart;
-      cartStore.toggleCart();
-    },
-  },
-};
-</script> -->
-
 <style scoped>
 header {
   padding: 0 var(--page-padding);
