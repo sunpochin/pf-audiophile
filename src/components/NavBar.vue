@@ -95,6 +95,8 @@
 import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const isOpen = ref(false);
 const cartStore = useCartStore();
@@ -117,35 +119,9 @@ const ToggleCart = () => {
 
 const LoginLogout = () => {
   console.log("LoginLogout");
+  router.push("/login");
 };
 </script>
-
-<!-- <script>
-import { useCartStore } from "@/store/cart";
-const cartStore = useCartStore();
-export default {
-  name: "NavBar",
-  setup() {},
-  components: {
-    CartComp,
-  },
-  data() {
-    return {
-      isOpen: false,
-      cart: false,
-    };
-  },
-  methods: {
-    goHome() {
-      this.$router.push("/");
-    },
-    ToggleCart() {
-      this.cart = !this.cart;
-      cartStore.toggleCart();
-    },
-  },
-};
-</script> -->
 
 <style scoped>
 header {
