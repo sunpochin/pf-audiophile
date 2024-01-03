@@ -163,9 +163,9 @@
 
 <script setup lang="ts">
 import { ref, reactive } from "vue";
-// import { Auth } from "@/api/auth";
-// import { useAuthStore } from "@/stores/auth";
-// const authStore = useAuthStore();
+import Auth from "@/api/auth";
+import { useAuthStore } from "@/store/auth";
+const authStore = useAuthStore();
 import { useRouter } from "vue-router";
 const router = useRouter();
 const selectedTab = ref("");
@@ -252,6 +252,7 @@ async function handleLogin() {
   } else {
     try {
       const loginResult = await authStore.login(loginData);
+      console.log("loginResult :", loginResult);
       if (loginResult.success) {
         showNotification.value = true;
         msgTitle.value = "登入成功";
