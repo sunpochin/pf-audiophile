@@ -141,7 +141,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    // padding: 0 var(--page-padding);
   }
   .footer-desc {
     max-width: 100%;
