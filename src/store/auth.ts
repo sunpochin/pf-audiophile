@@ -14,6 +14,11 @@ export const useAuthStore = defineStore("auth", () => {
   const accessToken = computed(() => userToken.value);
   const router = useRouter();
   const userName = ref<string>("請登入");
+  const loggedIn = computed(() => !!userToken.value);
+
+  const getLoggedin = () => {
+    return loggedIn.value;
+  };
 
   // 登入
   async function login(loginData: loginData) {
@@ -67,5 +72,6 @@ export const useAuthStore = defineStore("auth", () => {
     getAccessToken,
     setUserName,
     getUserName,
+    getLoggedin,
   };
 });
