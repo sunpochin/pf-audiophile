@@ -4,7 +4,7 @@
       <div class="flex-align">
         <v-icon class="burger" @click="toggleBurger">{{ "mdi-menu" }}</v-icon>
         <div class="logos flex-align">
-          <img @click="goHome()" src="src/assets/shared/desktop/logo.svg" />
+          <img @click="goHome()" src="@/assets/shared/desktop/logo.svg" />
         </div>
         <nav class="pc-nav">
           <ul class="flex-center pc-ul">
@@ -48,32 +48,30 @@
 
 <script setup>
 import { Cart, PersonSharp } from "@vicons/ionicons5";
-import logoSvg from "@/assets/shared/desktop/logo.svg";
 import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
 import { useAuthStore } from "@/store/auth";
 import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const isOpen = ref(false);
-
 const cartStore = useCartStore();
 const authStore = useAuthStore();
 
+const isOpen = ref(false);
+const loggedin = ref(false);
 const userData = ref({
   userName: "",
 });
 
 const renderFormData = () => {
+  console.log("renderFormData");
   userData.value.userName = authStore.getUserName();
+  loggedin.value = authStore.getLoggedin();
 };
 onMounted(renderFormData);
 
 const computedUserName = computed(() => authStore.getUserName());
 
-const loggedin = computed(() => {
-  return authStore.getLoggedin();
-});
 const goHome = () => {
   router.push("/");
 };
@@ -87,18 +85,18 @@ const closeNav = () => {
 };
 
 const ToggleCart = () => {
-  // console.log("ToggleCart");
   cartStore.toggleCart();
 };
 
 const loginLogout = () => {
-  if (loggedin.value) {
+  loggedin.value = authStore.getLoggedin();
+  if (loggedin.value === true) {
     console.log("logout");
     authStore.logout();
-    router.push("/login");
+    router.push("/");
   } else {
     console.log("login");
-    router.push("/");
+    router.push("/login");
   }
   renderFormData();
 };

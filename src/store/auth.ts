@@ -14,22 +14,17 @@ export const useAuthStore = defineStore("auth", () => {
   const accessToken = computed(() => userToken.value);
   const router = useRouter();
   let userName = ref("");
-  // const loggedIn = computed(() => {
-  //   if (userToken.value) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // });
-  // const loggedIn = ref(false);
+  const loggedIn = ref(false);
   const getLoggedin = () => {
-    const loggedIn = ref(false);
-    if (userToken.value) {
-      return true;
+    const userToken = ref(localStorage.getItem("accessToken") || "");
+    console.log("userToken.value: ", userToken.value);
+    if (userToken.value === "") {
+      loggedIn.value = false;
     } else {
-      return false;
+      loggedIn.value = true;
     }
-    return loggedIn;
+    console.log("loggedIn.value: ", loggedIn.value);
+    return loggedIn.value;
   };
 
   // 登入
