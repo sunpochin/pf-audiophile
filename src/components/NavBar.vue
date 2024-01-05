@@ -2,6 +2,7 @@
   <div>
     <header @wheel.prevent @touchmove.prevent @scroll.prevent>
       <div class="flex-align">
+        <v-icon class="burger" @click="toggleBurger">{{ "mdi-menu" }}</v-icon>
         <div class="logos flex-align">
           <img @click="goHome()" src="src/assets/shared/desktop/logo.svg" />
         </div>
@@ -47,7 +48,7 @@
 
 <script setup>
 import { ArrowRightAltSharp } from "@vicons/material";
-import { Search, Cart, Menu, PersonSharp } from "@vicons/ionicons5";
+import { Cart, PersonSharp } from "@vicons/ionicons5";
 import logoSvg from "@/assets/shared/desktop/logo.svg";
 import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
@@ -59,17 +60,13 @@ const isOpen = ref(false);
 
 const cartStore = useCartStore();
 const authStore = useAuthStore();
-// const userName = authStore.getUserName();
 const userName = computed(() => {
+  console.log("computed username: ", authStore.getUserName());
   return authStore.getUserName();
 });
 const loggedin = computed(() => {
   return authStore.getLoggedin();
 });
-// const getUserName = () => {
-//   console.log("userName", authStore.getUserName());
-//   authStore.getUserName();
-// };
 const goHome = () => {
   router.push("/");
 };
@@ -88,9 +85,13 @@ const ToggleCart = () => {
 };
 
 const loginLogout = () => {
+  console.log("loginLogout");
   if (loggedin.value) {
     console.log("logout");
     authStore.logout();
+  } else {
+    console.log("login");
+    router.push("/login");
   }
 };
 </script>

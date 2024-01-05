@@ -2,24 +2,22 @@
   <div>
     <v-row class="fit100">
       <!-- https://stackoverflow.com/questions/67344913/how-to-fix-mismatching-childnodes-with-vuetify-select-value-saved-in-nuxt-store -->
-      <client-only>
-        <v-snackbar
-          v-model="showNotification"
-          color="white"
-          :timeout="1500"
-          location="top right"
-          multi-line
-        >
-          <h2>{{ msgTitle }}</h2>
-          <br />
-          <p>{{ msgMeta }}</p>
-          <template #actions>
-            <v-btn color="red" variant="text" @click="showNotification = false">
-              Close
-            </v-btn>
-          </template>
-        </v-snackbar>
-      </client-only>
+      <v-snackbar
+        v-model="showNotification"
+        color="white"
+        :timeout="1500"
+        location="top right"
+        multi-line
+      >
+        <h2>{{ msgTitle }}</h2>
+        <br />
+        <p>{{ msgMeta }}</p>
+        <template #actions>
+          <v-btn color="red" variant="text" @click="showNotification = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
       <v-col cols="12" class="center">
         <div class="text-center"></div>
         <div style="width: 400px" class="d-flex align-center justify-center">
