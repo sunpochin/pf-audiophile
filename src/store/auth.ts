@@ -13,6 +13,7 @@ export const useAuthStore = defineStore("auth", () => {
   const userToken = ref<string>();
   const accessToken = computed(() => userToken.value);
   const router = useRouter();
+  const userName = ref<string>("請登入");
 
   // 登入
   async function login(loginData: loginData) {
@@ -23,6 +24,8 @@ export const useAuthStore = defineStore("auth", () => {
     })) as AxiosResponse;
     if (result.data) {
       const { token } = result.data.data;
+      console.log("result.data.data.name :", result.data.data.name);
+      userName.value = result.data.data.name;
       userToken.value = token;
       // localStorage 存進 accessToken
       if (token) localStorage.setItem("accessToken", token);
@@ -39,11 +42,30 @@ export const useAuthStore = defineStore("auth", () => {
       userToken.value = localStorage.getItem("accessToken") || "";
     }
   }
+
+  function setUserName(name: string) {
+    userName.value = name;
+    // localStorage.setItem("userName", name);
+  }
+  function getUserName() {
+    return userName.value;
+    // if (localStorage.getItem("userName")) {
+    //   userName.value = localStorage.getItem("userName") || "";
+    // }
+  }
+
   function logout() {
     userToken.value = "";
     localStorage.setItem("accessToken", "");
     router.push("/login");
   }
 
-  return { login, logout, accessToken, getAccessToken };
+  return {
+    login,
+    logout,
+    accessToken,
+    getAccessToken,
+    setUserName,
+    getUserName,
+  };
 });

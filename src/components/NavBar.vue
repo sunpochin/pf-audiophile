@@ -49,6 +49,7 @@
           </ul>
         </nav>
 
+        <p>{{ userName }}</p>
         <svg
           width="23px"
           height="20px"
@@ -94,12 +95,21 @@
 <script setup>
 import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
-import { ref } from "vue";
+import { useAuthStore } from "@/store/auth";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-
 const isOpen = ref(false);
 const cartStore = useCartStore();
+const authStore = useAuthStore();
+// const userName = authStore.getUserName();
+const userName = computed(() => {
+  return authStore.getUserName();
+});
+// const getUserName = () => {
+//   console.log("userName", authStore.getUserName());
+//   authStore.getUserName();
+// };
 const goHome = () => {
   router.push("/");
 };
