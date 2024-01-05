@@ -29,7 +29,7 @@
           </ul>
         </nav>
 
-        <p class="userName">{{ userName }}</p>
+        <p class="userName">{{ userData.userName }}</p>
 
         <v-icon class="loginLogout" @click="loginLogout">
           {{ loggedin ? "mdi-login" : "mdi-logout" }}
@@ -47,23 +47,30 @@
 </template>
 
 <script setup>
-import { ArrowRightAltSharp } from "@vicons/material";
 import { Cart, PersonSharp } from "@vicons/ionicons5";
 import logoSvg from "@/assets/shared/desktop/logo.svg";
 import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
 import { useAuthStore } from "@/store/auth";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const isOpen = ref(false);
 
 const cartStore = useCartStore();
 const authStore = useAuthStore();
-const userName = computed(() => {
-  console.log("computed username: ", authStore.getUserName());
-  return authStore.getUserName();
+
+const userData = ref({
+  userName: "",
 });
+
+const renderFormData = () => {
+  userData.value.userName = authStore.getUserName();
+};
+onMounted(renderFormData);
+
+const computedUserName = computed(() => authStore.getUserName());
+
 const loggedin = computed(() => {
   return authStore.getLoggedin();
 });
@@ -85,14 +92,15 @@ const ToggleCart = () => {
 };
 
 const loginLogout = () => {
-  console.log("loginLogout");
   if (loggedin.value) {
     console.log("logout");
     authStore.logout();
+    router.push("/login");
   } else {
     console.log("login");
-    router.push("/login");
+    router.push("/");
   }
+  renderFormData();
 };
 </script>
 
