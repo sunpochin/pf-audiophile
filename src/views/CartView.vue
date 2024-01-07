@@ -1,46 +1,40 @@
 <template>
-  <div class="container">
-    <section>
-      <div class="cart">
-        <div class="cart-content">
-          <div class="wording-n-remove">
-            <div class="cart-wording">CART:</div>
-            <div v-on:click="removeAll()" class="remove-all">Remove All</div>
-          </div>
-          <ul>
-            <li
-              class="flex-align li-data"
-              v-for="it in cartStore.getCartItems()"
-              v-bind:key="it.id"
-            >
-              <div class="product-img">
-                <img
-                  :src="getSrc(it.image.mobile)"
-                  :alt="'Picture of the ' + it.name"
-                />
-              </div>
-              <div class="product-infos">
-                <p>
-                  <strong>{{ it.name }}</strong>
-                </p>
-                <p class="price">$ {{ it.price }}</p>
-              </div>
-              <div class="quantity flex-center">
-                <button v-on:click="decrement(it.id)" class="decrement">
-                  -
-                </button>
-                <p id="qt">{{ it.quantity }}</p>
-                <button v-on:click="increment(it.id)" class="increment">
-                  +
-                </button>
-              </div>
-            </li>
-          </ul>
-          <div class="total">TOTAL: {{ totalPrice }}</div>
+  <section>
+    <div class="cart">
+      <div class="cart-content">
+        <div class="wording-n-remove">
+          <div class="cart-wording">CART:</div>
+          <div v-on:click="removeAll()" class="remove-all">Remove All</div>
         </div>
+        <ul>
+          <li
+            class="flex-align li-data"
+            v-for="it in cartStore.getCartItems()"
+            v-bind:key="it.id"
+          >
+            <div class="product-img">
+              <img
+                :src="getSrc(it.image.mobile)"
+                :alt="'Picture of the ' + it.name"
+              />
+            </div>
+            <div class="product-infos">
+              <p>
+                <strong>{{ it.name }}</strong>
+              </p>
+              <p class="price">$ {{ it.price }}</p>
+            </div>
+            <div class="quantity flex-center">
+              <button v-on:click="decrement(it.id)" class="decrement">-</button>
+              <p id="qt">{{ it.quantity }}</p>
+              <button v-on:click="increment(it.id)" class="increment">+</button>
+            </div>
+          </li>
+        </ul>
+        <div class="total">TOTAL: {{ totalPrice }}</div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -112,6 +106,27 @@ const increment = (id: number) => {
   // inset: 3.5rem 0 0 0;
 }
 
+.cart {
+  width: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--clr-white);
+  padding: 2rem 10rem;
+  position: relative;
+  margin: 0 auto;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0rem;
+}
+
 .wording-n-remove {
   display: flex;
   flex-direction: row;
@@ -134,27 +149,6 @@ const increment = (id: number) => {
 .price {
   font-size: var(--overline-size);
   color: var(--clr-border);
-}
-
-.cart {
-  width: auto;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background-color: var(--clr-white);
-  padding: 0.5rem;
-  position: relative;
-  margin: 0 auto;
-
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cart-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0rem;
 }
 
 img {

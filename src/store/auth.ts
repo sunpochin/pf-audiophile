@@ -17,7 +17,7 @@ export const useAuthStore = defineStore("auth", () => {
   const loggedIn = ref(false);
   const getLoggedin = () => {
     const userToken = ref(localStorage.getItem("accessToken") || "");
-    console.log("userToken.value: ", userToken.value);
+    // console.log("userToken.value: ", userToken.value);
     if (userToken.value === "") {
       loggedIn.value = false;
     } else {

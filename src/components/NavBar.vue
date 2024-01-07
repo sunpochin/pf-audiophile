@@ -31,20 +31,19 @@
           </ul>
         </nav>
 
-        <p class="userName">{{ userData.userName }}</p>
-
+        <p class="userName">帳號：{{ userData.userName }}</p>
         <v-icon class="loginLogout" @click="loginLogout">
           {{ loggedin ? "mdi-logout" : "mdi-login" }}
         </v-icon>
         <!-- <v-icon size="20" color="#020202">
           <PersonSharp @click="ToggleCart()" />
         </v-icon> -->
-        <v-icon size="20" color="#ffffff">
+        <!-- <v-icon size="20" color="#ffffff">
           <Cart @click="ToggleCart()" />
-        </v-icon>
+        </v-icon> -->
       </div>
     </header>
-    <CartComp />
+    <!-- <CartComp /> -->
   </div>
 </template>
 
@@ -93,10 +92,10 @@ const toggleBurger = () => {
   isOpen.value = !isOpen.value;
 };
 
-const ToggleCart = () => {
-  // cartStore.toggleCart();
-  router.push("/cart");
-};
+// const ToggleCart = () => {
+//   // cartStore.toggleCart();
+//   router.push("/cart");
+// };
 
 const loginLogout = () => {
   loggedin.value = authStore.getLoggedin();
