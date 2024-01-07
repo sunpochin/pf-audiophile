@@ -12,20 +12,22 @@
             <li><router-link to="/headphones">Headphones</router-link></li>
             <li><router-link to="/speakers">Speakers</router-link></li>
             <li><router-link to="/earphones">Earphones</router-link></li>
+            <li><router-link to="/cart">Cart</router-link></li>
           </ul>
         </nav>
         <nav class="mobile-nav" v-if="isOpen">
           <ul class="flex-center mobile-ul">
-            <li @click="closeNav"><router-link to="/">Home</router-link></li>
-            <li @click="closeNav">
+            <li><router-link to="/">Home</router-link></li>
+            <li>
               <router-link to="/headphones">Headphones</router-link>
             </li>
-            <li @click="closeNav">
+            <li>
               <router-link to="/speakers">Speakers</router-link>
             </li>
-            <li @click="closeNav">
+            <li>
               <router-link to="/earphones">Earphones</router-link>
             </li>
+            <li><router-link to="/cart">Cart</router-link></li>
           </ul>
         </nav>
 
@@ -91,12 +93,9 @@ const toggleBurger = () => {
   isOpen.value = !isOpen.value;
 };
 
-const closeNav = () => {
-  cartStore.toggleCart();
-};
-
 const ToggleCart = () => {
-  cartStore.toggleCart();
+  // cartStore.toggleCart();
+  router.push("/cart");
 };
 
 const loginLogout = () => {
