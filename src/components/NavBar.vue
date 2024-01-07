@@ -32,7 +32,7 @@
         <p class="userName">{{ userData.userName }}</p>
 
         <v-icon class="loginLogout" @click="loginLogout">
-          {{ loggedin ? "mdi-login" : "mdi-logout" }}
+          {{ loggedin ? "mdi-logout" : "mdi-login" }}
         </v-icon>
         <!-- <v-icon size="20" color="#020202">
           <PersonSharp @click="ToggleCart()" />
@@ -51,7 +51,7 @@ import { Cart, PersonSharp } from "@vicons/ionicons5";
 import CartComp from "@/components/CartComp.vue";
 import { useCartStore } from "@/store/cart";
 import { useAuthStore } from "@/store/auth";
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const cartStore = useCartStore();
@@ -69,6 +69,17 @@ const renderFormData = () => {
   loggedin.value = authStore.getLoggedin();
 };
 onMounted(renderFormData);
+
+// const loggedin = computed(() => authStore.getLoggedin());
+watch(
+  () => authStore.getLoggedin(),
+  (newCode, oldCode) => {
+    console.log("newCode: ", newCode, "oldCode: ", oldCode);
+    if (newCode !== oldCode) {
+      loggedin.value = newCode;
+    }
+  }
+);
 
 const computedUserName = computed(() => authStore.getUserName());
 
