@@ -3,11 +3,12 @@ import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
 import { ProductInterface } from "@/types";
 import { CartItemInterface } from "@/types";
+import type { AxiosResponse } from "axios";
 import CartAPI from "@/api/cart.js";
 
-const cartData = reactive({
-  cartItems: [] as CartItemInterface[],
-});
+// const cartData = reactive({
+//   cartItems: [] as CartItemInterface[],
+// });
 
 const setCookie = (name: string, value: string, days: number) => {
   const expires = new Date(
@@ -18,71 +19,66 @@ const setCookie = (name: string, value: string, days: number) => {
 
 export const useCartStore = defineStore("cart", () => {
   const showCart = ref(false);
-
+  const cartData = reactive({
+    cartItems: [] as CartItemInterface[],
+  });
   const toggleCart = () => {
     showCart.value = !showCart.value;
   };
-  // const saveCartData = () => {
-  //   // Save cartData to cookies
-  //   console.log("saveCartData");
-  //   setCookie("cartData", JSON.stringify(cartData), 365); // Cookie expires in 365 days
-
-  //   apiOverwriteCartData({ cartItems: cartData.cartItems });
-  // };
 
   async function saveCartData() {
     console.log("saveCartData", cartData);
     if (localStorage.getItem("accessToken")) {
-      const result = (await CartAPI.apiOverwriteCartData({
-        cartItems: cartData.cartItems,
-      })) as AxiosResponse;
+      const result = (await CartAPI.apiOverwriteCartData(
+        cartData.cartItems
+      )) as AxiosResponse;
       if (result.data.isSuccess) {
-        notification.success({
-          content: result.data.message,
-          duration: 1500,
-          keepAliveOnHover: false,
-          closable: false,
-        });
+        // notification.success({
+        //   content: result.data.message,
+        //   duration: 1500,
+        //   keepAliveOnHover: false,
+        //   closable: false,
+        // });
       } else {
-        notification.error({
-          content: result.data.message,
-          duration: 1500,
-          keepAliveOnHover: false,
-          closable: false,
-        });
+        // notification.error({
+        //   content: result.data.message,
+        //   duration: 1500,
+        //   keepAliveOnHover: false,
+        //   closable: false,
+        // });
       }
       console.log("result", result.data);
     } else {
       console.log("訪客add cart");
-      if (!visitorCartIds.value.includes(id)) {
-        visitorCartIds.value.push(id);
-        localStorage.setItem(
-          "visitorCartIds",
-          JSON.stringify(visitorCartIds.value)
-        );
-        if (visitorCartIds.value) {
-          notification.success({
-            content: "加入成功",
-            duration: 1500,
-            keepAliveOnHover: false,
-            closable: false,
-          });
-        } else {
-          notification.error({
-            content: "新增失敗",
-            duration: 1500,
-            keepAliveOnHover: false,
-            closable: false,
-          });
-        }
-      } else {
-        notification.success({
-          content: "已儲存在購物車當中",
-          duration: 1500,
-          keepAliveOnHover: false,
-          closable: false,
-        });
-      }
+      // if (!visitorCartIds.value.includes(id)) {
+      //   visitorCartIds.value.push(id);
+      //   localStorage.setItem(
+      //     "visitorCartIds",
+      //     JSON.stringify(visitorCartIds.value)
+      //   );
+      //   if (visitorCartIds.value) {
+      //     notification.success({
+      //       content: "加入成功",
+      //       duration: 1500,
+      //       keepAliveOnHover: false,
+      //       closable: false,
+      //     });
+      //   } else {
+      //     notification.error({
+      //       content: "新增失敗",
+      //       duration: 1500,
+      //       keepAliveOnHover: false,
+      //       closable: false,
+      //     });
+      //   }
+      // } else {
+      //   notification.success({
+      //     content: "已儲存在購物車當中",
+      //     duration: 1500,
+      //     keepAliveOnHover: false,
+      //     closable: false,
+      //   });
+      // }
     }
   }
 

@@ -1,4 +1,5 @@
 import { req } from "./https";
+import { CartItemInterface } from "@/types";
 
 const cart = {
   // 取得登入者的購物車
@@ -6,7 +7,7 @@ const cart = {
     return req("get", "/cart/show", null);
   },
   // 新增
-  apiOverwriteCartData(data: { cartItems: [] }) {
+  apiOverwriteCartData(data: [] | CartItemInterface[]) {
     return req("post", "/cart/overwrite", data);
   },
   // //移除購物車項目
