@@ -14,7 +14,7 @@ service.interceptors.request.use(
     if (accessToken) {
       config.headers.Authorization = "Bearer " + accessToken;
     }
-    console.log("axiosConfig", config);
+    // console.log("axiosConfig", config);
     return config;
   },
   (error) => {

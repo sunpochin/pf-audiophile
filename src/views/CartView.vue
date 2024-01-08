@@ -9,7 +9,7 @@
         <ul>
           <li
             class="flex-align li-data"
-            v-for="it in cartItems"
+            v-for="it in cartStore.cartData.cartItems"
             v-bind:key="it.id"
           >
             <div class="product-img">
@@ -51,13 +51,10 @@ const totalPrice = computed(() => {
   return cartStore.getTotalPrice();
 });
 
-const cartItems = ref([]);
-
 onBeforeMount(async () => {
   const result = await cartStore.getCartItems();
   console.log("cart items: ", result.items);
   result.items.forEach((item) => {
-    console.log("item: ", item);
     const product = productStore.getProductById(item.id);
     if (product === undefined) {
       console.log("product is undefined");
@@ -68,16 +65,9 @@ onBeforeMount(async () => {
     item.image = product.image;
     console.log("product: ", product);
     console.log("item: ", item);
-    cartItems.value.push(item);
+    cartStore.cartData.cartItems.push(item);
   });
-  // productStore.getProductById(1);
-
-  return cartStore.getCartItems();
 });
-
-// const getShowCart = () => {
-//   return cartStore.getShowCart();
-// };
 
 const getSrc = (imageName) => {
   const image = new URL("../../" + imageName, import.meta.url).href;
@@ -85,26 +75,12 @@ const getSrc = (imageName) => {
   return image;
 };
 
-const decrement = (id) => {
-  cartStore.getCartItems().forEach((item) => {
-    if (item.id === id) {
-      if (item.quantity > 1) {
-        item.quantity--;
-      }
-    }
-  });
-  cartStore.saveCartData();
+const decrement = async (id) => {
+  cartStore.decrement(id);
 };
 
-const increment = (id) => {
-  cartStore.getCartItems().forEach((item) => {
-    if (item.id === id) {
-      if (item.quantity < 9) {
-        item.quantity++;
-      }
-    }
-  });
-  cartStore.saveCartData();
+const increment = async (id) => {
+  cartStore.increment(id);
 };
 </script>
 

@@ -39,9 +39,6 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   const getCartItems = async () => {
-    // // console.log("getCartItems: ", cartData.cartItems);
-    // return cartData.cartItems;
-
     console.log("getCartItems", cartData);
     if (localStorage.getItem("accessToken")) {
       const result = (await CartAPI.apiGetCartData()) as AxiosResponse;
@@ -117,16 +114,40 @@ export const useCartStore = defineStore("cart", () => {
     }
     saveCartData();
   };
+
+  const increment = async (id: string) => {
+    cartData.cartItems.forEach((item: any) => {
+      if (item.id == id) {
+        console.log("id: ", id, "item: ", item);
+        if (item.quantity < 9) {
+          item.quantity++;
+        }
+      }
+    });
+    saveCartData();
+  };
+
+  const decrement = async (id: string) => {
+    cartData.cartItems.forEach((item: any) => {
+      if (item.id === id) {
+        if (item.quantity > 1) {
+          item.quantity--;
+        }
+      }
+    });
+    saveCartData();
+  };
+
   return {
     showCart,
     toggleCart,
+    increment,
+    decrement,
     saveCartData,
-    // getShowCart,
-    // getCookie,
-    // readCookie,
     removeAll,
     getCartItems,
     getTotalPrice,
     addToCart,
+    cartData,
   };
 });
