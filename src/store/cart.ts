@@ -1,16 +1,9 @@
 // Utilities
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 import { defineStore } from "pinia";
 import { ProductInterface, CartItemInterface } from "@/types";
 import type { AxiosResponse } from "axios";
 import CartAPI from "@/api/cart.js";
-
-// const setCookie = (name: string, value: string, days: number) => {
-//   const expires = new Date(
-//     Date.now() + days * 24 * 60 * 60 * 1000
-//   ).toUTCString();
-//   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-// };
 
 export const useCartStore = defineStore("cart", () => {
   const cartData = reactive({
@@ -50,28 +43,6 @@ export const useCartStore = defineStore("cart", () => {
     }
   };
 
-  // const getCookie = (name: any) => {
-  //   const value = `; ${document.cookie}`;
-  //   const parts = value.split(`; ${name}=`);
-  //   if (parts.length === 2) {
-  //     return parts.pop()?.split(";")?.shift();
-  //   }
-  // };
-  // const readCookie = () => {
-  //   const savedCartData = getCookie("cartData");
-  //   console.log("cartComp cartItems: ", savedCartData);
-
-  //   if (savedCartData) {
-  //     // If there is saved data, parse and set it to the reactive cartData
-  //     Object.assign(
-  //       cartData.cartItems,
-  //       JSON.parse(savedCartData as string)["cartItems"]
-  //     );
-  //     // for (let i = 0; i < cartData.cartItems.length; i++) {
-  //     //   console.log("cart item: ", cartData.cartItems[i]);
-  //     // }
-  //   }
-  // };
   const removeAll = () => {
     cartData.cartItems = [];
     saveCartData();

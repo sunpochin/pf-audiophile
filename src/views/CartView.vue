@@ -101,9 +101,6 @@ const increment = async (id) => {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  // position: fixed;
-  // z-index: 100;
-  // inset: 3.5rem 0 0 0;
 }
 
 .cart {
