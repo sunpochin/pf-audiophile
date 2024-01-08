@@ -12,37 +12,38 @@
             <li><router-link to="/headphones">Headphones</router-link></li>
             <li><router-link to="/speakers">Speakers</router-link></li>
             <li><router-link to="/earphones">Earphones</router-link></li>
+            <li><router-link to="/cart">Cart</router-link></li>
           </ul>
         </nav>
         <nav class="mobile-nav" v-if="isOpen">
           <ul class="flex-center mobile-ul">
-            <li @click="closeNav"><router-link to="/">Home</router-link></li>
-            <li @click="closeNav">
+            <li><router-link to="/">Home</router-link></li>
+            <li>
               <router-link to="/headphones">Headphones</router-link>
             </li>
-            <li @click="closeNav">
+            <li>
               <router-link to="/speakers">Speakers</router-link>
             </li>
-            <li @click="closeNav">
+            <li>
               <router-link to="/earphones">Earphones</router-link>
             </li>
+            <li><router-link to="/cart">Cart</router-link></li>
           </ul>
         </nav>
 
-        <p class="userName">{{ userData.userName }}</p>
-
+        <p class="userName">帳號：{{ userData.userName }}</p>
         <v-icon class="loginLogout" @click="loginLogout">
           {{ loggedin ? "mdi-logout" : "mdi-login" }}
         </v-icon>
         <!-- <v-icon size="20" color="#020202">
           <PersonSharp @click="ToggleCart()" />
         </v-icon> -->
-        <v-icon size="20" color="#ffffff">
+        <!-- <v-icon size="20" color="#ffffff">
           <Cart @click="ToggleCart()" />
-        </v-icon>
+        </v-icon> -->
       </div>
     </header>
-    <CartComp />
+    <!-- <CartComp /> -->
   </div>
 </template>
 
@@ -89,14 +90,6 @@ const goHome = () => {
 
 const toggleBurger = () => {
   isOpen.value = !isOpen.value;
-};
-
-const closeNav = () => {
-  cartStore.toggleCart();
-};
-
-const ToggleCart = () => {
-  cartStore.toggleCart();
 };
 
 const loginLogout = () => {

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <section class="container" v-show="getShowCart()">
+    Cart Comp
+    <!-- <section class="container" v-show="getShowCart()">
       <div class="cart">
         <div class="cart-content">
           <div class="wording-n-remove">
@@ -11,7 +12,7 @@
             <li
               class="flex-align li-data"
               v-for="it in cartStore.getCartItems()"
-              v-bind:key="it.id"
+              v-bind:key="it."
             >
               <div class="product-img">
                 <img
@@ -39,7 +40,7 @@
           <div class="total">TOTAL: {{ totalPrice }}</div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -56,11 +57,11 @@ const totalPrice = computed(() => {
 });
 
 onBeforeMount(() => {
-  cartStore.readCookie();
+  // cartStore.readCookie();
 });
 
 const getShowCart = () => {
-  return cartStore.getShowCart();
+  // return cartStore.getShowCart();
 };
 
 const getSrc = (imageName: string) => {
@@ -70,25 +71,25 @@ const getSrc = (imageName: string) => {
 };
 
 const decrement = (id: number) => {
-  cartStore.getCartItems().forEach((item) => {
-    if (item.id === id) {
-      if (item.quantity > 1) {
-        item.quantity--;
-      }
-    }
-  });
-  cartStore.saveCartData();
+  // cartStore.getCartItems().forEach((item) => {
+  //   if (item.id === id) {
+  //     if (item.quantity > 1) {
+  //       item.quantity--;
+  //     }
+  //   }
+  // });
+  // cartStore.saveCartData();
 };
 
 const increment = (id: number) => {
-  cartStore.getCartItems().forEach((item) => {
-    if (item.id === id) {
-      if (item.quantity < 9) {
-        item.quantity++;
-      }
-    }
-  });
-  cartStore.saveCartData();
+  // cartStore.getCartItems().forEach((item) => {
+  //   if (item.id === id) {
+  //     if (item.quantity < 9) {
+  //       item.quantity++;
+  //     }
+  //   }
+  // });
+  // cartStore.saveCartData();
 };
 </script>
 

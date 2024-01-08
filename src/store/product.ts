@@ -9,14 +9,12 @@ export const useProductStore = defineStore("product", {
       console.log(datas);
       return datas;
     },
-    getProductById(slug: string) {
-      return datas.find((data) => data.slug === slug);
+    getProductById(id: string) {
+      return datas.find((data) => data.id.toString() === id);
     },
 
-    getProduct(category: string, slug: string) {
-      return datas.filter(
-        (data) => data.category === category && data.slug === slug
-      );
+    getProductBySlug(slug: string) {
+      return datas.find((data) => data.slug === slug);
     },
 
     getHeadphones() {
