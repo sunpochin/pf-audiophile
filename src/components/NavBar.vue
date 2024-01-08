@@ -92,11 +92,6 @@ const toggleBurger = () => {
   isOpen.value = !isOpen.value;
 };
 
-// const ToggleCart = () => {
-//   // cartStore.toggleCart();
-//   router.push("/cart");
-// };
-
 const loginLogout = () => {
   loggedin.value = authStore.getLoggedin();
   if (loggedin.value === true) {

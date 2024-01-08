@@ -52,8 +52,11 @@ const totalPrice = computed(() => {
 });
 
 onBeforeMount(async () => {
+  cartStore.cartData.cartItems = [];
+  console.log("onBeforeMount");
   const result = await cartStore.getCartItems();
-  console.log("cart items: ", result.items);
+  console.log("result: ", result);
+  console.log("cart items: ", cartStore.cartData.cartItems);
   result.items.forEach((item) => {
     const product = productStore.getProductById(item.id);
     if (product === undefined) {
@@ -63,7 +66,6 @@ onBeforeMount(async () => {
     item.name = product.name;
     item.price = product.price;
     item.image = product.image;
-    console.log("product: ", product);
     console.log("item: ", item);
     cartStore.cartData.cartItems.push(item);
   });

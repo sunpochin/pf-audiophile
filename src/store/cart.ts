@@ -13,13 +13,9 @@ import CartAPI from "@/api/cart.js";
 // };
 
 export const useCartStore = defineStore("cart", () => {
-  const showCart = ref(false);
   const cartData = reactive({
     cartItems: [] as CartItemInterface[],
   });
-  const toggleCart = () => {
-    showCart.value = !showCart.value;
-  };
 
   const saveCartData = async () => {
     console.log("saveCartData", cartData);
@@ -54,31 +50,28 @@ export const useCartStore = defineStore("cart", () => {
     }
   };
 
-  // const getShowCart = () => {
-  //   return showCart;
+  // const getCookie = (name: any) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) {
+  //     return parts.pop()?.split(";")?.shift();
+  //   }
   // };
-  const getCookie = (name: any) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) {
-      return parts.pop()?.split(";")?.shift();
-    }
-  };
-  const readCookie = () => {
-    const savedCartData = getCookie("cartData");
-    console.log("cartComp cartItems: ", savedCartData);
+  // const readCookie = () => {
+  //   const savedCartData = getCookie("cartData");
+  //   console.log("cartComp cartItems: ", savedCartData);
 
-    if (savedCartData) {
-      // If there is saved data, parse and set it to the reactive cartData
-      Object.assign(
-        cartData.cartItems,
-        JSON.parse(savedCartData as string)["cartItems"]
-      );
-      // for (let i = 0; i < cartData.cartItems.length; i++) {
-      //   console.log("cart item: ", cartData.cartItems[i]);
-      // }
-    }
-  };
+  //   if (savedCartData) {
+  //     // If there is saved data, parse and set it to the reactive cartData
+  //     Object.assign(
+  //       cartData.cartItems,
+  //       JSON.parse(savedCartData as string)["cartItems"]
+  //     );
+  //     // for (let i = 0; i < cartData.cartItems.length; i++) {
+  //     //   console.log("cart item: ", cartData.cartItems[i]);
+  //     // }
+  //   }
+  // };
   const removeAll = () => {
     cartData.cartItems = [];
     saveCartData();
@@ -95,8 +88,9 @@ export const useCartStore = defineStore("cart", () => {
 
   const addToCart = (product: ProductInterface, quantity: number) => {
     const foundProduct = cartData.cartItems.find(
-      (item) => item.id === product.id
+      (item) => item.id == product.id
     );
+    console.log("foundProduct", foundProduct);
     if (foundProduct) {
       // Product already in cart, you can show a message here
       foundProduct.quantity += quantity;
@@ -139,8 +133,6 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   return {
-    showCart,
-    toggleCart,
     increment,
     decrement,
     saveCartData,
