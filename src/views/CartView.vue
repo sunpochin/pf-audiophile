@@ -9,7 +9,7 @@
         <ul>
           <li
             class="flex-align li-data"
-            v-for="it in cartStore.getCartItems()"
+            v-for="it in cartItems"
             v-bind:key="it.id"
           >
             <div class="product-img">
@@ -37,10 +37,12 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useCartStore } from "@/store/cart";
-import { computed, onMounted, onBeforeMount } from "vue";
+import { useProductStore } from "@/store/product";
+import { ref, computed, onMounted, onBeforeMount } from "vue";
 const cartStore = useCartStore();
+const productStore = useProductStore();
 
 const removeAll = () => {
   cartStore.removeAll();
@@ -49,21 +51,41 @@ const totalPrice = computed(() => {
   return cartStore.getTotalPrice();
 });
 
-onBeforeMount(() => {
-  cartStore.readCookie();
+const cartItems = ref([]);
+
+onBeforeMount(async () => {
+  const result = await cartStore.getCartItems();
+  console.log("cart items: ", result.items);
+  result.items.forEach((item) => {
+    console.log("item: ", item);
+    const product = productStore.getProductById(item.id);
+    if (product === undefined) {
+      console.log("product is undefined");
+      return;
+    }
+    item.name = product.name;
+    item.price = product.price;
+    item.image = product.image;
+    console.log("product: ", product);
+    console.log("item: ", item);
+    cartItems.value.push(item);
+  });
+  // productStore.getProductById(1);
+
+  return cartStore.getCartItems();
 });
 
 // const getShowCart = () => {
 //   return cartStore.getShowCart();
 // };
 
-const getSrc = (imageName: string) => {
+const getSrc = (imageName) => {
   const image = new URL("../../" + imageName, import.meta.url).href;
   // console.log("getSrc image: ", image);
   return image;
 };
 
-const decrement = (id: number) => {
+const decrement = (id) => {
   cartStore.getCartItems().forEach((item) => {
     if (item.id === id) {
       if (item.quantity > 1) {
@@ -74,7 +96,7 @@ const decrement = (id: number) => {
   cartStore.saveCartData();
 };
 
-const increment = (id: number) => {
+const increment = (id) => {
   cartStore.getCartItems().forEach((item) => {
     if (item.id === id) {
       if (item.quantity < 9) {

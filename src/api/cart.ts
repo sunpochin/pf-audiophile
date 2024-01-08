@@ -6,18 +6,10 @@ const cart = {
   apiGetCartData() {
     return req("get", "/cart/show", null);
   },
-  // 新增
+  // overwrite cart
   apiOverwriteCartData(data: [] | CartItemInterface[]) {
     return req("post", "/cart/overwrite", data);
   },
-  // //移除購物車項目
-  // apiDeleteCartData(data: { courseId: string }) {
-  //   return req("delete", "/goldFlow/userCartCourse", data);
-  // },
-  // //讀取有效優惠券
-  // apiGetCoupon() {
-  //   return req("get", "goldFlow/validCoupon");
-  // },
 };
 
 export default cart;

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <p class="no-select">這是一段文本，用戶不能選擇。</p> -->
     <ProductDetail :product="product" />
   </div>
 </template>
@@ -14,11 +13,13 @@ import ProductDetail from "@/components/ProductDetail.vue";
 const productStore = useProductStore();
 const route = useRoute();
 console.log("route: ", route.params.category, route.params.id);
-const product = productStore.getProductById(route.params.id as string);
+
+const product = productStore.getProductBySlug(route.params.id as string);
+console.log("product: ", product);
+
 onBeforeMount(() => {
   window.scrollTo(0, 0);
 });
-console.log("product: ", product);
 </script>
 
 <style lang="scss" scoped>

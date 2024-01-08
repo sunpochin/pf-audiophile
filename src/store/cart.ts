@@ -1,21 +1,16 @@
 // Utilities
 import { ref, reactive } from "vue";
 import { defineStore } from "pinia";
-import { ProductInterface } from "@/types";
-import { CartItemInterface } from "@/types";
+import { ProductInterface, CartItemInterface } from "@/types";
 import type { AxiosResponse } from "axios";
 import CartAPI from "@/api/cart.js";
 
-// const cartData = reactive({
-//   cartItems: [] as CartItemInterface[],
-// });
-
-const setCookie = (name: string, value: string, days: number) => {
-  const expires = new Date(
-    Date.now() + days * 24 * 60 * 60 * 1000
-  ).toUTCString();
-  document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-};
+// const setCookie = (name: string, value: string, days: number) => {
+//   const expires = new Date(
+//     Date.now() + days * 24 * 60 * 60 * 1000
+//   ).toUTCString();
+//   document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+// };
 
 export const useCartStore = defineStore("cart", () => {
   const showCart = ref(false);
@@ -26,7 +21,7 @@ export const useCartStore = defineStore("cart", () => {
     showCart.value = !showCart.value;
   };
 
-  async function saveCartData() {
+  const saveCartData = async () => {
     console.log("saveCartData", cartData);
     if (localStorage.getItem("accessToken")) {
       const result = (await CartAPI.apiOverwriteCartData(
@@ -34,57 +29,37 @@ export const useCartStore = defineStore("cart", () => {
       )) as AxiosResponse;
       if (result.data.isSuccess) {
         // notification.success({
-        //   content: result.data.message,
-        //   duration: 1500,
-        //   keepAliveOnHover: false,
-        //   closable: false,
-        // });
       } else {
         // notification.error({
-        //   content: result.data.message,
-        //   duration: 1500,
-        //   keepAliveOnHover: false,
-        //   closable: false,
-        // });
       }
       console.log("result", result.data);
     } else {
       console.log("訪客add cart");
-      // if (!visitorCartIds.value.includes(id)) {
-      //   visitorCartIds.value.push(id);
-      //   localStorage.setItem(
-      //     "visitorCartIds",
-      //     JSON.stringify(visitorCartIds.value)
-      //   );
-      //   if (visitorCartIds.value) {
-      //     notification.success({
-      //       content: "加入成功",
-      //       duration: 1500,
-      //       keepAliveOnHover: false,
-      //       closable: false,
-      //     });
-      //   } else {
-      //     notification.error({
-      //       content: "新增失敗",
-      //       duration: 1500,
-      //       keepAliveOnHover: false,
-      //       closable: false,
-      //     });
-      //   }
-      // } else {
-      //   notification.success({
-      //     content: "已儲存在購物車當中",
-      //     duration: 1500,
-      //     keepAliveOnHover: false,
-      //     closable: false,
-      //   });
-      // }
     }
-  }
-
-  const getShowCart = () => {
-    return showCart;
   };
+
+  const getCartItems = async () => {
+    // // console.log("getCartItems: ", cartData.cartItems);
+    // return cartData.cartItems;
+
+    console.log("getCartItems", cartData);
+    if (localStorage.getItem("accessToken")) {
+      const result = (await CartAPI.apiGetCartData()) as AxiosResponse;
+      if (result.data.isSuccess) {
+        // notification.success({
+      } else {
+        // notification.error({
+      }
+      console.log("getCartItems result", result.data);
+      return result.data;
+    } else {
+      console.log("訪客add cart");
+    }
+  };
+
+  // const getShowCart = () => {
+  //   return showCart;
+  // };
   const getCookie = (name: any) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -102,7 +77,6 @@ export const useCartStore = defineStore("cart", () => {
         cartData.cartItems,
         JSON.parse(savedCartData as string)["cartItems"]
       );
-      console.log("cartComp cartItemssss: ", cartData.cartItems);
       // for (let i = 0; i < cartData.cartItems.length; i++) {
       //   console.log("cart item: ", cartData.cartItems[i]);
       // }
@@ -113,10 +87,6 @@ export const useCartStore = defineStore("cart", () => {
     saveCartData();
   };
 
-  const getCartItems = () => {
-    // console.log("getCartItems: ", cartData.cartItems);
-    return cartData.cartItems;
-  };
   const getTotalPrice = () => {
     let totalPrice = 0;
     cartData.cartItems.forEach((item) => {
@@ -151,9 +121,9 @@ export const useCartStore = defineStore("cart", () => {
     showCart,
     toggleCart,
     saveCartData,
-    getShowCart,
-    getCookie,
-    readCookie,
+    // getShowCart,
+    // getCookie,
+    // readCookie,
     removeAll,
     getCartItems,
     getTotalPrice,

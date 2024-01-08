@@ -87,7 +87,7 @@ const increment = () => {
 
 //https://cn.vitejs.dev/guide/assets#new-url-url-import-meta-url
 const getSrc = (imageName: string) => {
-  // console.log("getSrc imageName: ", imageName);
+  console.log("getSrc imageName: ", imageName);
   const image = new URL("../../" + imageName, import.meta.url).href;
   // console.log("getSrc image: ", image);
   return image;
