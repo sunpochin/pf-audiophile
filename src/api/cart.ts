@@ -3,11 +3,11 @@ import { req } from "./https";
 const cart = {
   // 取得登入者的購物車
   apiGetCartData() {
-    return req("get", "/goldFlow/userCart", null);
+    return req("get", "/cart/show", null);
   },
   // 新增
-  apiPostCartData(data: { courseId: string }) {
-    return req("post", "/goldFlow/userCartCourse", data);
+  apiOverwriteCartData(data: { cartItems: [] }) {
+    return req("post", "/cart/overwrite", data);
   },
   // //移除購物車項目
   // apiDeleteCartData(data: { courseId: string }) {
