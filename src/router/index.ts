@@ -23,9 +23,19 @@ const routes = [
     component: () => import("@/views/EarphonesView.vue"),
   },
   {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/LoginView.vue"),
+  },
+  {
     path: "/product/:category/:id",
     name: "product",
     component: () => import("@/views/ProductView.vue"),
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    component: () => import("@/views/CartView.vue"),
   },
 ];
 
