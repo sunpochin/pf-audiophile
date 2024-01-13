@@ -128,6 +128,11 @@ button {
 .btn-1:hover {
   background-color: var(--clr-light-peach);
 }
+
+.btn-1:active {
+  background-color: var(--clr-peach);
+}
+
 .btn-1-p {
   color: var(--clr-white);
 }
