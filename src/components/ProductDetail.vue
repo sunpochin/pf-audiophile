@@ -65,6 +65,7 @@ const errMsg = ref("");
 
 const addToCart = () => {
   cartStore.addToCart(product, quantity.value);
+  router.push("/cart");
 };
 
 onMounted(async () => {});
