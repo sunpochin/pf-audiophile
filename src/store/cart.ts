@@ -152,5 +152,6 @@ export const useCartStore = defineStore("cart", () => {
     fetchCartItems,
     getTotalPrice,
     addToCart,
+    getCartData,
   };
 });
