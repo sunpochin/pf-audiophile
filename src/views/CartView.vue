@@ -52,8 +52,6 @@ const totalPrice = computed(() => {
 });
 
 onBeforeMount(async () => {
-  // cartStore.visitorCartData.cartItems;
-
   console.log("onBeforeMount");
   const result = await cartStore.fetchCartItems();
   console.log("result: ", result);

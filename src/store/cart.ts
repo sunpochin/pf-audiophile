@@ -60,13 +60,17 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   const removeAll = () => {
-    cartData.cartItems = [];
-    saveCartData();
+    if (isLogin()) {
+      cartData.cartItems = [];
+      saveCartData();
+    } else {
+      visitorCartData.cartItems = [];
+    }
   };
 
   const getTotalPrice = () => {
     let totalPrice = 0;
-    cartData.cartItems.forEach((item) => {
+    getCartData().cartItems.forEach((item) => {
       console.log("item.price: ", item.price, "item.quantity: ", item.quantity);
       totalPrice += item.price * item.quantity;
     });
@@ -82,13 +86,9 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   const addToCart = (product: ProductInterface, quantity: number) => {
-    let data;
-    if (isLogin() === true) {
-      data = cartData;
-    } else {
-      data = visitorCartData;
-    }
-    const foundProduct = data.cartItems.find((item) => item.id == product.id);
+    const foundProduct = getCartData().cartItems.find(
+      (item) => item.id == product.id
+    );
     if (foundProduct) {
       // Product already in cart, you can show a message here
       foundProduct.quantity += quantity;
@@ -102,19 +102,26 @@ export const useCartStore = defineStore("cart", () => {
       cartItem.image = product.image;
       cartItem.quantity = quantity;
       console.log("push cartItem:", cartItem);
-      data.cartItems.push(cartItem);
+      getCartData().cartItems.push(cartItem);
     }
-    if (isLogin() === true) {
-      cartData.cartItems = data.cartItems;
-    } else {
-      visitorCartData.cartItems = data.cartItems;
-    }
+    // if (isLogin() === true) {
+    //   cartData.cartItems = data.cartItems;
+    // } else {
+    //   visitorCartData.cartItems = data.cartItems;
+    // }
     saveCartData();
     console.log("訪客 addToCart", visitorCartData.cartItems);
   };
 
+  const getCartData = () => {
+    if (isLogin()) {
+      return cartData;
+    } else {
+      return visitorCartData;
+    }
+  };
   const increment = async (id: string) => {
-    cartData.cartItems.forEach((item: any) => {
+    getCartData().cartItems.forEach((item: any) => {
       if (item.id == id) {
         console.log("id: ", id, "item: ", item);
         if (item.quantity < 9) {
@@ -126,7 +133,7 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   const decrement = async (id: string) => {
-    cartData.cartItems.forEach((item: any) => {
+    getCartData().cartItems.forEach((item: any) => {
       if (item.id === id) {
         if (item.quantity > 1) {
           item.quantity--;
