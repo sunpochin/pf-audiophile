@@ -9,7 +9,7 @@
         <ul>
           <li
             class="flex-align li-data"
-            v-for="it in cartStore.cartData.cartItems"
+            v-for="it in cartStore.getCartItems()"
             v-bind:key="it.id"
           >
             <div class="product-img">
@@ -40,7 +40,7 @@
 <script setup>
 import { useCartStore } from "@/store/cart";
 import { useProductStore } from "@/store/product";
-import { ref, computed, onMounted, onBeforeMount } from "vue";
+import { computed, onBeforeMount } from "vue";
 const cartStore = useCartStore();
 const productStore = useProductStore();
 
@@ -52,11 +52,16 @@ const totalPrice = computed(() => {
 });
 
 onBeforeMount(async () => {
-  cartStore.cartData.cartItems = [];
+  // cartStore.visitorCartData.cartItems;
+
   console.log("onBeforeMount");
-  const result = await cartStore.getCartItems();
+  const result = await cartStore.fetchCartItems();
   console.log("result: ", result);
-  console.log("cart items: ", cartStore.cartData.cartItems);
+  console.log("cart items: ", cartStore.getCartItems());
+  if (result.items === undefined) {
+    console.log("result.items is undefined");
+    return;
+  }
   result.items.forEach((item) => {
     const product = productStore.getProductById(item.id);
     if (product === undefined) {

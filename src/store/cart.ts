@@ -9,10 +9,13 @@ export const useCartStore = defineStore("cart", () => {
   const cartData = reactive({
     cartItems: [] as CartItemInterface[],
   });
+  const visitorCartData = reactive({
+    cartItems: [] as CartItemInterface[],
+  });
 
   const saveCartData = async () => {
     console.log("saveCartData", cartData);
-    if (localStorage.getItem("accessToken")) {
+    if (isLogin()) {
       const result = (await CartAPI.apiOverwriteCartData(
         cartData.cartItems
       )) as AxiosResponse;
@@ -23,13 +26,25 @@ export const useCartStore = defineStore("cart", () => {
       }
       console.log("result", result.data);
     } else {
-      console.log("訪客add cart");
+      console.log("訪客 add cart");
+      console.log("cartData.cartItems", cartData.cartItems);
     }
   };
 
-  const getCartItems = async () => {
+  const getCartItems = () => {
     console.log("getCartItems", cartData);
-    if (localStorage.getItem("accessToken")) {
+    if (isLogin()) {
+      return cartData.cartItems;
+    } else {
+      console.log("訪客 load cart: ", visitorCartData.cartItems);
+      return visitorCartData.cartItems;
+    }
+  };
+
+  const fetchCartItems = async () => {
+    console.log("fetch", cartData);
+    if (isLogin()) {
+      cartData.cartItems = [];
       const result = (await CartAPI.apiGetCartData()) as AxiosResponse;
       if (result.data.isSuccess) {
         // notification.success({
@@ -39,7 +54,8 @@ export const useCartStore = defineStore("cart", () => {
       console.log("getCartItems result", result.data);
       return result.data;
     } else {
-      console.log("訪客add cart");
+      console.log("訪客 load cart: ", visitorCartData.cartItems);
+      return visitorCartData.cartItems;
     }
   };
 
@@ -57,11 +73,22 @@ export const useCartStore = defineStore("cart", () => {
     return totalPrice;
   };
 
+  const isLogin = () => {
+    if (localStorage.getItem("accessToken")) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const addToCart = (product: ProductInterface, quantity: number) => {
-    const foundProduct = cartData.cartItems.find(
-      (item) => item.id == product.id
-    );
-    console.log("foundProduct", foundProduct);
+    let data;
+    if (isLogin() === true) {
+      data = cartData;
+    } else {
+      data = visitorCartData;
+    }
+    const foundProduct = data.cartItems.find((item) => item.id == product.id);
     if (foundProduct) {
       // Product already in cart, you can show a message here
       foundProduct.quantity += quantity;
@@ -75,9 +102,15 @@ export const useCartStore = defineStore("cart", () => {
       cartItem.image = product.image;
       cartItem.quantity = quantity;
       console.log("push cartItem:", cartItem);
-      cartData.cartItems.push(cartItem);
+      data.cartItems.push(cartItem);
+    }
+    if (isLogin() === true) {
+      cartData.cartItems = data.cartItems;
+    } else {
+      visitorCartData.cartItems = data.cartItems;
     }
     saveCartData();
+    console.log("訪客 addToCart", visitorCartData.cartItems);
   };
 
   const increment = async (id: string) => {
@@ -109,8 +142,8 @@ export const useCartStore = defineStore("cart", () => {
     saveCartData,
     removeAll,
     getCartItems,
+    fetchCartItems,
     getTotalPrice,
     addToCart,
-    cartData,
   };
 });

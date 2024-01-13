@@ -31,10 +31,12 @@
           </ul>
         </nav>
 
-        <p class="userName">帳號：{{ userData.userName }}</p>
-        <v-icon class="loginLogout" @click="loginLogout">
-          {{ loggedin ? "mdi-logout" : "mdi-login" }}
-        </v-icon>
+        <div class="flex-center">
+          <p class="userName">帳號：{{ userData.userName }}</p>
+          <v-icon class="loginLogout" @click="loginLogout">
+            {{ loggedin ? "mdi-logout" : "mdi-login" }}
+          </v-icon>
+        </div>
         <!-- <v-icon size="20" color="#020202">
           <PersonSharp @click="ToggleCart()" />
         </v-icon> -->
@@ -55,7 +57,6 @@ import { useAuthStore } from "@/store/auth";
 import { ref, computed, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const cartStore = useCartStore();
 const authStore = useAuthStore();
 
 const isOpen = ref(false);
@@ -81,8 +82,6 @@ watch(
     }
   }
 );
-
-const computedUserName = computed(() => authStore.getUserName());
 
 const goHome = () => {
   router.push("/");
@@ -130,10 +129,10 @@ header > div {
 }
 
 .loginLogout {
-  color: var(--clr-red);
+  color: var(--clr-peach);
 }
 .userName {
-  color: var(--clr-red);
+  color: var(--clr-white);
 }
 .pc-ul {
   gap: 3rem;
