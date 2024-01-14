@@ -63,8 +63,8 @@ const { product } = defineProps(["product"]);
 const quantity = ref(1);
 const errMsg = ref("");
 
-const addToCart = () => {
-  cartStore.addToCart(product, quantity.value);
+const addToCart = async () => {
+  await cartStore.addToCart(product, quantity.value);
   router.push("/cart");
 };
 

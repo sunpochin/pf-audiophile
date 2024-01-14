@@ -85,7 +85,7 @@ export const useCartStore = defineStore("cart", () => {
     }
   };
 
-  const addToCart = (product: ProductInterface, quantity: number) => {
+  const addToCart = async (product: ProductInterface, quantity: number) => {
     const foundProduct = getCartData().cartItems.find(
       (item) => item.id == product.id
     );
@@ -109,7 +109,7 @@ export const useCartStore = defineStore("cart", () => {
     // } else {
     //   visitorCartData.cartItems = data.cartItems;
     // }
-    saveCartData();
+    await saveCartData();
     console.log("訪客 addToCart", visitorCartData.cartItems);
   };
 
