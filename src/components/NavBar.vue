@@ -45,16 +45,13 @@
         </v-icon> -->
       </div>
     </header>
-    <!-- <CartComp /> -->
   </div>
 </template>
 
 <script setup>
 import { Cart, PersonSharp } from "@vicons/ionicons5";
-import CartComp from "@/components/CartComp.vue";
-import { useCartStore } from "@/store/cart";
 import { useAuthStore } from "@/store/auth";
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const authStore = useAuthStore();
