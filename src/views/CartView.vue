@@ -134,7 +134,6 @@ const increment = async (id) => {
   justify-content: space-between;
   font: 700 1rem normal Manrope, sans-serif;
 }
-
 .remove-all {
   color: var(--clr-red);
   cursor: pointer;
@@ -179,5 +178,12 @@ img {
   font: 700 1rem normal Manrope, sans-serif;
   margin-bottom: 1rem;
   margin-left: auto;
+}
+
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 768px) {
+  .cart {
+    padding: 2rem 1rem;
+  }
 }
 </style>
