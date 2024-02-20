@@ -180,7 +180,6 @@ img {
   margin-left: auto;
 }
 
-/* --- RESPONSIVE --- */
 @media screen and (max-width: 768px) {
   .cart {
     padding: 2rem 1rem;
